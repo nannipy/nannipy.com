@@ -9,7 +9,6 @@ This project is a modern and interactive personal portfolio website for Giovanni
 *   **Framework:** Next.js
 *   **Language:** TypeScript
 *   **Styling:** Tailwind CSS
-*   **Database ORM:** Prisma
 *   **Deployment:** Vercel
 
 **Architecture:**
@@ -65,21 +64,6 @@ The project follows a standard Next.js project structure. The `src` directory co
     npm run lint
     ```
     This will check the code for any linting errors.
-
-*   **Database:**
-    ```bash
-    # To apply database schema changes during development
-    npm run db:generate
-
-    # To apply database schema changes in production
-    npm run db:migrate
-
-    # To push the database schema to the database
-    npm run db:push
-
-    # To open the Prisma Studio
-    npm run db:studio
-    ```
 
 ## Development Conventions
 
