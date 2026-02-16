@@ -7,7 +7,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nannipy.vercel.app'),
+  metadataBase: new URL('https://nannipy.com'),
   title: {
     default: 'Nannipy - Portfolio',
     template: '%s | Giovanni Battista Pernazza',
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nannipy - Portfolio',
     description: 'Giovanni Battista Pernazza: Software Engineer, Developer, Entrepreneur',
-    url: 'https://nannipy.vercel.app',
+    url: 'https://nannipy.com',
     siteName: 'Giovanni Battista Pernazza',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://nannipy.vercel.app/images/meta-tags.png',
+        url: 'https://nannipy.com/images/meta-tags.png',
         width: 1200,
         height: 630,
         alt: 'Nannipy Logo',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Nannipy - Portfolio',
     description: 'Giovanni Battista Pernazza: Software Engineer, Developer, Entrepreneur',
-    images: ['https://nannipy.vercel.app/images/meta-tags.png'],
+    images: ['https://nannipy.com/images/meta-tags.png'],
   },
   robots: {
     index: true,
