@@ -1,3 +1,4 @@
+import '../lib/node-fix';
 import '../styles/globals.css';
 import type { ReactNode } from 'react';
 import Footer from '../components/Footer';

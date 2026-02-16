@@ -7,7 +7,7 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": [
       "dom",
       "dom.iterable",
@@ -25,9 +25,14 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ]
   },
   "ts-node": {
     "compilerOptions": {
@@ -42,7 +47,8 @@
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts",
-    "src/env.js"
+    "src/env.js",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
