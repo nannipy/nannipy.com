@@ -6,7 +6,7 @@ export const projectItems = [
     name: "SFT Website",
     logo: "/SFT/logo.jpg",
     github: "https://github.com/nannipy/SapienzaFoilingTeam",
-    link: "https://sapienzafoilingteam.vercel.app",
+    link: "https://sapienzafoilingteam.com",
     screenshots: [
       "/SFT/SFT_homepage.png",
       "/SFT/SFT_blog.png",
