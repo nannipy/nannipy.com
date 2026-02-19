@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import type { ReactNode } from 'react';
 import Footer from '../components/Footer';
 import { Analytics } from '@vercel/analytics/react';
+import Script from 'next/script';
 import { Providers } from '../components/Providers';
 import localFont from 'next/font/local';
 import { metadata, viewport } from './metadata';
@@ -32,6 +33,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             {children}
           </main>
           <Analytics />
+          <Script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="9a88367a-63bb-4578-b87d-f83f36dfc235"
+          />
           <Footer />
         </Providers>
       </body>
