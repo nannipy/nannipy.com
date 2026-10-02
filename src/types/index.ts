@@ -7,4 +7,10 @@ export type ExperienceItem = {
   description: string;
   screenshots?: string[];
   logo?: string;
+  language?: string | null;
+  stars?: number;
+  pushedAt?: string;
+  updatedAt?: string;
+  topics?: string[];
+  isFeatured?: boolean;
 };

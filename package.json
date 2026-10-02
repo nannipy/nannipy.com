@@ -6,7 +6,9 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
-    "lint": "next lint",
+    "lint": "eslint src/app src/components/Portfolio*.tsx src/components/ProjectJourney.tsx src/components/SpotifyRecentlyPlayed.tsx src/lib/portfolio.ts src/lib/spotify.ts --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test scripts/portfolio.test.mjs",
     "start": "next start"
   },
   "dependencies": {

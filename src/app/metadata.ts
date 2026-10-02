@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 
 export const viewport: Viewport = {
-  themeColor: '#000000',
+  themeColor: '#141113',
   width: 'device-width',
   initialScale: 1,
 };
@@ -9,34 +9,34 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://nannipy.com'),
   title: {
-    default: 'Nannipy - Portfolio',
+    default: 'Giovanni Battista Pernazza — Software Engineer',
     template: '%s | Giovanni Battista Pernazza',
   },
-  description: 'Giovanni Battista Pernazza: Software Engineer, Developer, Entrepreneur',
+  description: 'Software engineer in Rome. Web applications, AI tools, embedded systems — and a life outside the screen.',
   verification: {
     google: 'kJUIQCIwNWnDtwEV658OTfsyg68KzpmVixVQbDE1LnI',
   },
   openGraph: {
-    title: 'Nannipy - Portfolio',
-    description: 'Giovanni Battista Pernazza: Software Engineer, Developer, Entrepreneur',
+    title: 'Giovanni Battista Pernazza — Software Engineer',
+    description: 'Software engineer in Rome. Web applications, AI tools, embedded systems — and a life outside the screen.',
     url: 'https://nannipy.com',
     siteName: 'Giovanni Battista Pernazza',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://nannipy.com/images/meta-tags.png',
+        url: '/brand/social-card.png',
         width: 1200,
         height: 630,
-        alt: 'Nannipy Logo',
+        alt: 'Giovanni Battista Pernazza — nanni.py',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nannipy - Portfolio',
-    description: 'Giovanni Battista Pernazza: Software Engineer, Developer, Entrepreneur',
-    images: ['https://nannipy.com/images/meta-tags.png'],
+    title: 'Giovanni Battista Pernazza — Software Engineer',
+    description: 'Software engineer in Rome. Web applications, AI tools, embedded systems — and a life outside the screen.',
+    images: ['/brand/social-card.png'],
   },
   robots: {
     index: true,

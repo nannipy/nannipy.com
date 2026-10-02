@@ -1,247 +1,301 @@
-
-"use client";
-
-import { projectItems } from "../../../lib/projects";
-import { useParams } from "next/navigation";
-import Link from "next/link";
-import { useEffect, useState, useCallback} from "react";
-import { Octokit } from "octokit";
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
-import DOMPurify from "dompurify";
+import ProjectJourney from "@/components/ProjectJourney";
 import Image from "next/image";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
-import { useSwipeable } from "react-swipeable";
-import GithubIcon from "@/components/icons/GithubIcon";
-import UpRightArrowIcon from "@/components/icons/UpRightArrowIcon";
-import "../../../styles/shiki.css";
-
-
-export default function ProjectPage() {
-  const params = useParams();
-  const slug = params?.slug;
-  const project = projectItems.find(
-    (p) => p.id === slug
-  );
-  const [readme, setReadme] = useState("");
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (project?.github) {
-      const octokit = new Octokit();
-      const owner = project.github.split("/")[3];
-      const repo = project.github.split("/")[4].replace(".git", "");
-
-      octokit
-        .request("GET /repos/{owner}/{repo}/readme", {
-          owner,
-          repo,
-        })
-        .then((response) => {
-          const decodedContent = new TextDecoder().decode(Uint8Array.from(atob(response.data.content), c => c.charCodeAt(0)));
-          const withImages = decodedContent.replace(/<img src="(?!https?:\/\/)(.*?)"/g, `<img src="https://raw.githubusercontent.com/${owner}/${repo}/master/$1"`);
-          const sanitizedContent = DOMPurify.sanitize(withImages);
-          setReadme(sanitizedContent);
-        })
-        .catch((error) => {
-          console.error("Error fetching README:", error);
-          setReadme("README not found.");
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
-  }, [project]);
-
-  const [selectedImage, setSelectedImage] = useState<{ src: string; index: number } | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleNextImage = useCallback(() => {
-    if (project?.screenshots && selectedImage) {
-      const nextIndex = (selectedImage.index + 1) % project.screenshots.length;
-      setSelectedImage({ src: project.screenshots[nextIndex], index: nextIndex });
-    }
-  }, [project?.screenshots, selectedImage]);
-
-  const handlePrevImage = useCallback(() => {
-    if (project?.screenshots && selectedImage) {
-      const prevIndex = (selectedImage.index - 1 + project.screenshots.length) % project.screenshots.length;
-      setSelectedImage({ src: project.screenshots[prevIndex], index: prevIndex });
-    }
-  }, [project?.screenshots, selectedImage]);
-
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!isModalOpen || !project?.screenshots) return;
-
-      if (e.key === "ArrowLeft") {
-        handlePrevImage(); 
-      } else if (e.key === "ArrowRight") {
-        handleNextImage();
-      } else if (e.key === "Escape") {
-        setIsModalOpen(false);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isModalOpen, project?.screenshots, handleNextImage, handlePrevImage]);
-
-  const handlers = useSwipeable({
-      onSwipedLeft: () => handleNextImage(),
-      onSwipedRight: () => handlePrevImage(),
-      trackMouse: true
-    });
-
-  
-
-  if (!project) {
-    return <div>Project not found</div>;
-  }
-
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import type { CSSProperties } from "react";
+import { portfolioProjects, getLocale, localHref } from "@/lib/portfolio";
+import {
+  SiteNav,
+  SiteFooter,
+  ProjectCover,
+} from "@/components/PortfolioShared";
+import { TransitionLink } from "@/components/PortfolioInteractions";
+export function generateStaticParams() {
+  return portfolioProjects.map((p) => ({ slug: p.slug }));
+}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = portfolioProjects.find((item) => item.slug === slug);
+  return {
+    title: project?.title || "Project",
+    description: project?.summary.en,
+  };
+}
+export default async function ProjectPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lang?: string }>;
+}) {
+  const [{ slug }, query] = await Promise.all([params, searchParams]);
+  const project = portfolioProjects.find((p) => p.slug === slug);
+  if (!project) notFound();
+  const locale = getLocale(query.lang),
+    it = locale === "it",
+    index = portfolioProjects.indexOf(project),
+    next = portfolioProjects[(index + 1) % portfolioProjects.length];
   return (
-    <main className="min-h-screen p-2 md:p-12 lg:p-16">
-      <div className="max-w-full mx-auto">
-         <Link href="/" className="group flex items-center transition-all duration-300 mb-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5 transform transition-transform duration-300 group-hover:-translate-x-1"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-            <p className="ml-2 h-7 relative">
-              Back to Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
-            </p>
-          </Link>
-        <div className="p-6 rounded-3xl card">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-start md:gap-6">
-              <h1 className="text-2xl font-bold tracking-tighter">
-                {project.name}
-              </h1>
-            <div className="flex mt-4 md:mt-0 gap-4">
-              {project.link && (
-                <Link
-                  href={project.link}
-                  target="_blank"
-                  className="group flex items-center transition-all duration-300">
-                  <UpRightArrowIcon />
-                  <p className="ml-2 h-7 relative">
-                    Live
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
-                  </p>
-                </Link>
-              )}
-              {project.github && (
-                <Link
-                  href={project.github}
-                  className="group flex items-center transition-all duration-300">
-                  <GithubIcon />
-                  <p className="ml-2 h-7 relative">
-                    GitHub
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
-                  </p>
-                </Link>
-              )}
-            </div>
-          </div>
-          <p className="mt-4 text-neutral-700 dark:text-neutral-300">
-            {project.description}
-          </p>
+    <div className="portfolio-page">
+      <SiteNav locale={locale} path={`/projects/${slug}`} />
+      <main
+        id="main-content"
+        className={`project-detail ${slug === "sft-telemetry" ? "project-telemetry" : ""}`}
+      >
+        <TransitionLink
+          href={`${localHref("/", locale)}#work`}
+          className="text-link back-link"
+        >
+          ← {it ? "Tutti i progetti" : "All projects"}
+        </TransitionLink>
+        <div className="project-title-block">
+          <p className="eyebrow">{project.category}</p>
+          <h1>
+            {project.title}
+            <span style={{ color: project.color }}>.</span>
+          </h1>
+          <p>{project.summary[locale]}</p>
         </div>
-          {project.screenshots && project.screenshots.length > 0 && (
-          <div className="mt-8 p-6 rounded-3xl card">
-            <h2 className="text-xl font-bold tracking-tighter mb-4">Screenshots</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {project.screenshots.map((screenshot, index) => (
-                <div
-                  key={index}
-                  className="relative w-full h-64 rounded-3xl overflow-hidden shadow-lg bg-black cursor-pointer"
-                  onClick={() => {
-                  setSelectedImage({ src: screenshot, index });
-                  setIsModalOpen(true);
-                  }}
-                >
-                  <Image
-                  src={screenshot}
-                  alt={`Screenshot ${index + 1}`}
-                  fill
-                  style={{ objectFit: project.id === "adm-sport-and-nutrition" ? "contain" : "cover" }}
-                  className="rounded-3xl"
-                  />
+        <ProjectCover project={project} priority />
+        {project.chapters ? (
+          <section
+            className="project-chapters"
+            aria-label={it ? "La nostra storia al Garda" : "Our story at Garda"}
+          >
+            {project.chapters.map((chapter, index) => (
+              <article
+                className={`story-chapter ${chapter.video ? "chapter-with-video" : ""} ${!chapter.image && !chapter.video ? "chapter-text-only" : ""}`}
+                key={chapter.title.en}
+              >
+                <div className="chapter-text">
+                  <p className="eyebrow">
+                    {String(index + 1).padStart(2, "0")} /{" "}
+                    {it ? "La nostra storia" : "Our story"}
+                  </p>
+                  <h2>{chapter.title[locale]}</h2>
+                  {chapter.body.map((paragraph, i) => (
+                    <p key={i}>{paragraph[locale]}</p>
+                  ))}
                 </div>
+                <div
+                  className={chapter.video ? "chapter-media-pair" : undefined}
+                >
+                  {chapter.video ? (
+                    <figure className="chapter-photo chapter-video">
+                      <video
+                        controls
+                        playsInline
+                        preload="none"
+                        poster={chapter.video.poster}
+                        width={720}
+                        height={1280}
+                        aria-label={chapter.video.caption[locale]}
+                      >
+                        <source src={chapter.video.src} type="video/mp4" />
+                        <a href={chapter.video.src}>
+                          {it ? "Guarda il video" : "Watch the video"}
+                        </a>
+                      </video>
+                      <figcaption>{chapter.video.caption[locale]}</figcaption>
+                    </figure>
+                  ) : null}
+                  {chapter.image ? (
+                    <figure
+                      className="chapter-photo"
+                      style={{ "--media-ratio": chapter.image.width / chapter.image.height } as CSSProperties}
+                    >
+                      <Image
+                        src={chapter.image.src}
+                        alt={chapter.image.caption[locale]}
+                        width={chapter.image.width}
+                        height={chapter.image.height}
+                        sizes={slug === "sft-telemetry" ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 85vw"}
+                      />
+                      <figcaption>
+                        <span>{chapter.image.caption[locale]}</span>
+                        {chapter.image.credit ? (
+                          <span>© {chapter.image.credit}</span>
+                        ) : null}
+                      </figcaption>
+                    </figure>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </section>
+        ) : null}
+        <section className="project-story">
+          <div>
+            {project.logo && project.website ? (
+              <a
+                className="project-association"
+                href={project.website}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src={project.logo}
+                  alt="Logo RECUP"
+                  width={120}
+                  height={154}
+                />
+                <span>
+                  {it ? "L’associazione RECUP" : "RECUP association"} ↗
+                </span>
+              </a>
+            ) : null}
+            <p className="eyebrow">
+              {project.chapters
+                ? it
+                  ? "Il mio contributo · Telemetria"
+                  : "My contribution · Telemetry"
+                : it
+                  ? "Il progetto"
+                  : "The project"}
+            </p>
+            <div className="project-tools">
+              {project.tools.map((t) => (
+                <span key={t}>{t}</span>
               ))}
             </div>
-          </div>
-        )}
-
-        {/* Image Modal */}
-        {isModalOpen && selectedImage && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
-            onClick={() => setIsModalOpen(false)}
-            {...handlers}
-          >
-            <div className="relative flex max-h-screen max-w-screen-lg items-center justify-center p-4" onClick={(e) => e.stopPropagation()}>  
-              <button
-                className="absolute -top-8 right-0 bg-white rounded-full w-8 h-8 flex items-center justify-center text-black text-xl font-bold z-50"
-                onClick={() => setIsModalOpen(false)}
-              >
-                &times;
-              </button>
-              <Image
-                src={selectedImage.src}
-                alt="Full screen screenshot"
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{ width: 'auto', height: 'auto', maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain' }}
-                className="rounded-3xl"
-              />
-              {project.screenshots && project.screenshots.length > 1 && (
-                <>
-                  <button
-                    className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center text-black text-2xl font-bold opacity-75 hover:opacity-100 -translate-x-12 md:-translate-x-16"
-                    onClick={handlePrevImage}
-                  >
-                    &#8249;
-                  </button>
-                  <button
-                    className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center text-black text-2xl font-bold opacity-75 hover:opacity-100 translate-x-12 md:translate-x-16"
-                    onClick={handleNextImage}
-                  >
-                    &#8250;
-                  </button>
-                </>
-              )}
+            {project.designCredit ? (
+              <p className="project-design-credit">
+                {it ? "Design di" : "Design by"}{" "}
+                {project.designCredit.instagram ? (
+                  <a href={project.designCredit.instagram} target="_blank" rel="noreferrer" className="text-link">
+                    {project.designCredit.name} ↗
+                  </a>
+                ) : <span>{project.designCredit.name}</span>}
+              </p>
+            ) : null}
+            <div className="project-external">
+              {project.website ? (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-link"
+                >
+                  {it ? "Visita il sito" : "Visit website"} ↗
+                </a>
+              ) : null}
+              {project.github ? (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-link"
+                >
+                  GitHub ↗
+                </a>
+              ) : null}
             </div>
           </div>
-        )}
-        <div className="max-w-full prose dark:prose-invert mt-8 p-6 rounded-3xl card markdown-body" style={{ overflowX: 'auto' }}>
-          {loading ? (
-            <p>Loading README...</p>
-          ) : (
-            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{readme}</ReactMarkdown>
-          )}
-        </div>
-        <div className="mt-8">
-         
-        </div>
-      </div>
-      <div className="fixed bottom-4 right-4">
-        <ThemeSwitcher />
-      </div>
-    </main>
+          <div>
+            {project.story.map((p, i) => (
+              <p key={i}>{p[locale]}</p>
+            ))}
+          </div>
+        </section>
+        {project.gallery ? (
+          <section
+            className={`project-field-gallery ${project.gallery.some((photo) => photo.body) ? "gallery-with-story" : ""}`}
+            aria-label={
+              project.slug === "sft-telemetry"
+                ? it ? "Dal banco di lavoro alla barca" : "From the workbench to the boat"
+                : it ? "Il progetto, tra immagini e racconto" : "The project, in pictures and words"
+            }
+          >
+            {project.gallery.map((photo) => (
+              <article className="field-entry" key={photo.src}>
+                {photo.body ? (
+                  <div className="field-copy">
+                    {photo.title ? <h2>{photo.title[locale]}</h2> : null}
+                    {photo.body.map((paragraph, i) => (
+                      <p key={i}>{paragraph[locale]}</p>
+                    ))}
+                  </div>
+                ) : null}
+                <figure
+                  className={`chapter-photo ${photo.mediaKind === "logo" ? "service-logo" : ""}`}
+                  style={{ "--media-ratio": photo.width / photo.height } as CSSProperties}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.caption[locale]}
+                    width={photo.width}
+                    height={photo.height}
+                    sizes={slug === "sft-telemetry" ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 50vw"}
+                  />
+                  <figcaption>
+                    {photo.website ? (
+                      <a href={photo.website} target="_blank" rel="noreferrer" className="text-link">
+                        {new URL(photo.website).hostname} ↗
+                      </a>
+                    ) : photo.caption[locale]}
+                  </figcaption>
+                </figure>
+              </article>
+            ))}
+          </section>
+        ) : null}
+        {project.technicalImage ? (
+          <figure className="chapter-photo technical-photo">
+            <Image
+              src={project.technicalImage}
+              alt={
+                it
+                  ? "Visualizzatore di telemetria SFT senza sensore collegato"
+                  : "SFT telemetry visualiser without a connected sensor"
+              }
+              width={1800}
+              height={1125}
+              sizes="(max-width:700px) 95vw, 85vw"
+            />
+            <figcaption>
+              {it
+                ? "Il visualizzatore · sensore non collegato"
+                : "The visualiser · sensor disconnected"}
+            </figcaption>
+          </figure>
+        ) : null}
+        <ProjectJourney project={project} locale={locale} />
+        {project.images.length > 1 && project.cover !== "pomodoro" ? (
+          <section
+            className="project-screenshots"
+            aria-label={it ? "Immagini del progetto" : "Project images"}
+          >
+            {project.images.slice(1).map((src, i) => (
+              <figure key={src}>
+                <Image
+                  src={src}
+                  alt={`${project.title} — ${it ? "vista" : "view"} ${i + 2}`}
+                  width={1800}
+                  height={1125}
+                  sizes="(max-width:700px) 95vw, 85vw"
+                />
+                <figcaption>
+                  {project.title} / {String(i + 2).padStart(2, "0")}
+                </figcaption>
+              </figure>
+            ))}
+          </section>
+        ) : null}
+        <TransitionLink
+          className="next-project"
+          href={localHref(`/projects/${next.slug}`, locale)}
+        >
+          <span className="eyebrow">
+            {it ? "Continua a esplorare" : "Keep exploring"}
+          </span>
+          <span>{next.title} ↗</span>
+        </TransitionLink>
+      </main>
+      <SiteFooter locale={locale} />
+    </div>
   );
 }

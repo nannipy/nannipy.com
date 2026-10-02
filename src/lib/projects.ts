@@ -1,6 +1,6 @@
 import type { ExperienceItem } from '../types';
 
-export const projectItems = [
+export const projectItems: ExperienceItem[] = [
   {
     id: "sapienza-foiling-team",
     name: "SFT Website",
