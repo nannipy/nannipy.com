@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useRef, useState, type ComponentProps } from "react";
+import { useEffect, useRef, useState, type ComponentProps, type CSSProperties } from "react";
 import type { Locale } from "@/lib/portfolio";
 import type { GalleryMedia } from "@/lib/portfolio";
 
@@ -58,7 +58,7 @@ export function TransitionLink(props: ComponentProps<typeof Link>) {
     />
   );
 }
-export function PhotoJournal({ locale, items }: { locale: Locale; items: (GalleryMedia & { tag: string })[] }) {
+export function PhotoJournal({ locale, items }: { locale: Locale; items: (GalleryMedia & { tag: string; color: string; ink: string })[] }) {
   const personalPhotos = items.filter((item) => !item.poster);
   const [selected, setSelected] = useState(0);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -83,6 +83,7 @@ export function PhotoJournal({ locale, items }: { locale: Locale; items: (Galler
           <button
             key={item.src}
             className="journal-photo"
+            style={{ "--journal-color": item.color, "--journal-ink": item.ink } as CSSProperties}
             onClick={() => {
               setSelected(index);
               dialog.current?.showModal();
@@ -109,7 +110,11 @@ export function PhotoJournal({ locale, items }: { locale: Locale; items: (Galler
         {items
           .filter((item) => item.poster)
           .map((item) => (
-            <figure className="journal-photo journal-video" key={item.src}>
+            <figure
+              className="journal-photo journal-video"
+              key={item.src}
+              style={{ "--video-ratio": item.width / item.height, "--journal-color": item.color, "--journal-ink": item.ink } as CSSProperties}
+            >
               <video
                 controls
                 playsInline

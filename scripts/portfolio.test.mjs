@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { dirname, basename } from 'node:path';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 import { portfolioProjects, homeMediaGallery, siteContent, getLocale, localHref } from '../src/lib/portfolio.ts';
@@ -21,7 +21,11 @@ test('Every curated route and local media asset exists in both languages', () =>
     if (typeof value === 'string' && value.startsWith('/')) {
       const asset = fileURLToPath(new URL(`../public${value}`, import.meta.url));
       assert.ok(existsSync(asset), `Missing asset: ${value}`);
-      assert.ok(readdirSync(dirname(asset)).includes(basename(asset)), `Incorrect filename casing on Linux: ${value}`);
+      let parent = fileURLToPath(new URL('../public', import.meta.url));
+      for (const segment of value.slice(1).split('/')) {
+        assert.ok(readdirSync(parent).includes(segment), `Incorrect path casing on Linux: ${value}`);
+        parent = join(parent, segment);
+      }
     } else if (Array.isArray(value)) value.forEach(visit);
     else if (value && typeof value === 'object') Object.values(value).forEach(visit);
   };
@@ -71,10 +75,22 @@ test('Spotify handles missing credentials, deduplicates listens and survives API
 test('Production server renders both languages, all projects, downloads and 404s', { skip: !process.env.PORTFOLIO_TEST_URL }, async () => {
   const base = process.env.PORTFOLIO_TEST_URL;
   for (const locale of ['en', 'it']) {
+    for (const [source, destination, hash] of [
+      ['sft-telemetry', 'sapienza-foiling-team', ''],
+      ['hiresight', 'edgeworks', '#hiresight'],
+      ['timesheet', 'edgeworks', '#timesheet'],
+    ]) {
+      const legacy = await fetch(`${base}/projects/${source}?lang=${locale}`, { redirect: 'manual' });
+      assert.equal(legacy.status, 308);
+      const target = new URL(legacy.headers.get('location'), base);
+      assert.equal(target.pathname, `/projects/${destination}`);
+      assert.equal(target.searchParams.get('lang'), locale);
+      assert.equal(target.hash, hash);
+    }
     const home = await fetch(`${base}/?lang=${locale}`);
     assert.equal(home.status, 200);
     const html = await home.text();
-    assert.ok(html.includes(locale === 'it' ? 'Lavori scelti' : 'Selected work'));
+    assert.ok(html.includes(locale === 'it' ? 'Progetti' : 'Projects'));
     assert.ok(html.includes('wordmark-dot'));
     assert.ok(!html.includes('/brand/urchin.svg'));
     for (let i = 0; i < portfolioProjects.length; i += 4) {

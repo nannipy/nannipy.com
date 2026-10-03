@@ -17,8 +17,11 @@ export type PortfolioProject = {
   summary: Copy;
   story: Copy[];
   chapters?: {
+    id?: string;
     title: Copy;
     body: Copy[];
+    images?: GalleryMedia[];
+    links?: { label: Copy; href: string }[];
     image?: {
       src: string;
       width: number;
@@ -51,44 +54,417 @@ export type PortfolioProject = {
   website?: string;
   github?: string;
   cover?:
-    | "telemetry"
-    | "homelab"
-    | "pomodoro"
-    | "ai"
-    | "cutout"
-    | "watchface"
-    | "photo";
+  | "edgeworks"
+  | "team"
+  | "telemetry"
+  | "homelab"
+  | "pomodoro"
+  | "ai"
+  | "cutout"
+  | "watchface"
+  | "photo";
 };
 const text = (en: string, it: string): Copy => ({ en, it });
 export const portfolioProjects: PortfolioProject[] = [
   {
-    slug: "sapienza-foiling-team",
-    title: "Sapienza Foiling Team",
-    category: "Website · Team",
-    color: "#a8bed0",
-    ink: "#203341",
-    website: "https://sapienzafoilingteam.com",
-    github: "https://github.com/nannipy/SapienzaFoilingTeam",
-    images: [
+    "slug": "sapienza-foiling-team",
+    "title": "Sapienza Foiling Team",
+    "category": "Website · Embedded · Team leadership",
+    "color": "#b53c4a",
+    "ink": "#fff1e6",
+    "website": "https://sapienzafoilingteam.com",
+    "github": "https://github.com/nannipy/SapienzaFoilingTeam",
+    "images": [
       "/work/sft-live.jpg",
-      "/SFT/SFT_blog.png",
-      "/SFT/SFT_admin_dashboard.png",
+      "/work/telemetry-map-cover.png"
     ],
-    tools: ["Next.js", "TypeScript", "Web design"],
-    summary: text(
-      "A home for a team that builds boats that fly.",
-      "Una casa digitale per un team che costruisce barche che volano.",
-    ),
-    story: [
-      text(
-        "The website brings the Sapienza Foiling Team’s work together: the boat, the people, the sponsors and the stories behind the project.",
-        "Il sito riunisce il lavoro del Sapienza Foiling Team: la barca, le persone, gli sponsor e le storie del progetto.",
-      ),
-      text(
-        "I worked on the public website and the tools behind it, including the blog and administration area. It is part of my wider experience with the team, alongside the telemetry project.",
-        "Ho lavorato al sito pubblico e agli strumenti per gestirlo, tra cui blog e area amministrativa. È parte della mia esperienza nel team, insieme al progetto di telemetria.",
-      ),
+    "tools": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Web design",
+      "ESP32-S3",
+      "C++",
+      "IMU + GPS",
+      "WebSocket"
     ],
+    "summary": {
+      "en": "From the first website to the boat’s electronics. A team we built together.",
+      "it": "Dal primo sito all’elettronica della barca. Un team costruito insieme."
+    },
+    "story": [
+      {
+        "en": "I joined Sapienza Foiling Team because I wanted a real project to put my curiosity and skills to work. I started alongside the founders, helping build the team from the ground up. The website was my first contribution; over time, that starting point became a much wider commitment.",
+        "it": "Sono entrato nel Sapienza Foiling Team perché volevo un progetto concreto in cui mettere alla prova le mie competenze e la voglia di fare. Ho iniziato insieme ai fondatori, contribuendo a costruire il team da zero. Il sito è stato il mio primo contributo; nel tempo, quel punto di partenza è diventato un impegno molto più ampio."
+      },
+      {
+        "en": "Today I lead the electronics subteam and help manage the team’s digital tools and electronics work. My responsibilities connect software, the embedded system and the organisation around them: deciding what needs doing, working with other people and helping the different pieces come together.",
+        "it": "Oggi gestisco il sottoteam di elettronica e seguo una parte del management del team, sia sul lato informatico sia su quello elettronico. Le mie responsabilità collegano il software, il sistema embedded e l’organizzazione del lavoro: capire cosa serve, collaborare con le altre persone e aiutare i diversi pezzi a funzionare insieme."
+      },
+      {
+        "en": "It is an unpaid collaboration, with the continuity and responsibility of a job. I am happy to be part of it and proud of the effort we have put in. Building a team and a boat this ambitious has required time, persistence and people willing to learn together. Seeing what we have made keeps me committed to the next step.",
+        "it": "È una collaborazione non retribuita, con la continuità e la responsabilità di un lavoro. Sono felice di farne parte e orgoglioso dell’impegno che ci abbiamo messo. Costruire un team e una barca così ambiziosi ha richiesto tempo, costanza e persone disposte a imparare insieme. Vedere quello che abbiamo realizzato mi dà voglia di continuare a impegnarmi per il passo successivo."
+      }
+    ],
+    "cover": "team",
+    "chapters": [
+      {
+        "title": {
+          "en": "Starting with the founders.",
+          "it": "Cominciare insieme ai fondatori."
+        },
+        "body": [
+          {
+            "en": "At the beginning there was a team to build, alongside the boat we wanted to make. I wanted to develop my skills through something shared and useful. Joining the founders meant finding my place while we were still creating the organisation, learning how to turn individual enthusiasm into work we could carry forward together.",
+            "it": "All’inizio c’era un team da costruire, insieme alla barca che volevamo realizzare. Volevo sviluppare le mie competenze attraverso qualcosa di condiviso e utile. Affiancare i fondatori ha significato trovare il mio posto mentre stavamo ancora creando l’organizzazione e imparare a trasformare l’entusiasmo individuale in un lavoro da portare avanti insieme."
+          }
+        ]
+      },
+      {
+        "title": {
+          "en": "The first thing I built was the website.",
+          "it": "La prima cosa che ho costruito è stata il sito."
+        },
+        "body": [
+          {
+            "en": "The website was my way into the team. It needed to present the people, the boat, sponsors and the project’s progress. For me, it was also a real reason to learn React: understanding components and how to assemble a site that other people would actually use.",
+            "it": "Il sito è stato il mio ingresso nel team. Doveva presentare le persone, la barca, gli sponsor e l’avanzamento del progetto. Per me era anche un motivo concreto per imparare React: capire i componenti e come assemblare un sito che altre persone avrebbero usato davvero."
+          },
+          {
+            "en": "Working on it took me beyond the visible page. I began learning how the backend and the data behind the site worked, how content reached the interface, and what server-side rendering could offer. React and Next.js became things to understand through decisions and results, with their benefits and their complexity.",
+            "it": "Lavorarci mi ha portato oltre la pagina visibile. Ho iniziato a capire il backend e i dati dietro il sito, come i contenuti arrivavano all’interfaccia e cosa poteva offrire il server-side rendering. React e Next.js sono diventati strumenti da comprendere attraverso scelte e risultati, con i loro vantaggi e la loro complessità."
+          }
+        ],
+        "image": {
+          "src": "/work/sft-live.jpg",
+          "width": 1280,
+          "height": 720,
+          "caption": {
+            "en": "The team’s website.",
+            "it": "Il sito del team."
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "Learning when to keep it simple.",
+          "it": "Imparare quando tenere le cose semplici."
+        },
+        "body": [
+          {
+            "en": "A team website needs to work on the devices people already have. That made performance, compatibility and simplicity practical concerns. I learned to question whether an animation or another layer of the framework was helping the visitor enough to justify its cost.",
+            "it": "Il sito di un team deve funzionare sui dispositivi che le persone hanno già. Performance, compatibilità e semplicità sono quindi diventate questioni concrete. Ho imparato a chiedermi se un’animazione o un altro livello del framework aiutassero abbastanza chi visita il sito da giustificarne il costo."
+          },
+          {
+            "en": "The first design was rough. It has improved, but I still see plenty of room to make it better. Working with other people, listening to feedback and revisiting the choices is part of the learning. The blog gives that work a purpose: helping the team tell what it is building.",
+            "it": "Il primo design era decisamente acerbo. È migliorato, ma vedo ancora molto spazio per renderlo più efficace. Collaborare con altre persone, ascoltare i feedback e rivedere le scelte fa parte dell’apprendimento. Il blog dà a questo lavoro uno scopo: aiutare il team a raccontare quello che sta costruendo."
+          }
+        ],
+        "image": {
+          "src": "/SFT/SFT_blog.png",
+          "width": 2824,
+          "height": 2102,
+          "caption": {
+            "en": "The website’s blog and team stories.",
+            "it": "Il blog del sito e i racconti del team."
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "From a website to tools for the team.",
+          "it": "Dal sito agli strumenti per il team."
+        },
+        "body": [
+          {
+            "en": "The public site is one side of the work; the administration area is the other. Content and the data behind it need to be managed by the people who keep the project moving. I wanted the technical choices to support that everyday work, without making a simple task unnecessarily complicated.",
+            "it": "Il sito pubblico è una parte del lavoro; l’area di amministrazione è l’altra. I contenuti e i dati che li accompagnano devono essere gestiti dalle persone che fanno avanzare il progetto. Volevo che le scelte tecniche sostenessero questo lavoro quotidiano, senza rendere inutilmente complicata un’operazione semplice."
+          },
+          {
+            "en": "That experience gradually expanded my role. Today I help connect the team’s digital work with the electronics subteam I lead. I care about organising the work as well as writing the code, because the system only becomes useful when people can build and use it together.",
+            "it": "Questa esperienza ha ampliato gradualmente il mio ruolo. Oggi contribuisco a collegare il lavoro informatico del team con il sottoteam di elettronica che gestisco. Tengo all’organizzazione del lavoro quanto al codice, perché il sistema diventa utile quando le persone riescono a costruirlo e usarlo insieme."
+          }
+        ],
+        "image": {
+          "src": "/SFT/SFT_admin_dashboard.png",
+          "width": 2824,
+          "height": 1640,
+          "caption": {
+            "en": "The website’s administration dashboard.",
+            "it": "La dashboard di amministrazione del sito."
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "Making the boat’s movement visible.",
+          "it": "Dare una forma al movimento della barca."
+        },
+        "body": [
+          {
+            "en": "This was my first real experience building an electronic system and getting hands-on with hardware. I had to move from software alone to power, cables, sensors and physical connections. I worked with Francesco Miletto, who helped me build the embedded system: sharing that process made a difficult first step much more approachable.",
+            "it": "È stata la mia prima vera esperienza nella costruzione di un sistema elettronico e nel mettere le mani sull’hardware. Dovevo passare dal solo software ad alimentazione, cavi, sensori e collegamenti fisici. Ho collaborato con Francesco Miletto, che mi ha aiutato a costruire il sistema embedded: condividere questo percorso ha reso più affrontabile un primo passo difficile."
+          },
+          {
+            "en": "The boat brought a very concrete question into my software work: how could we observe what it was doing, beyond watching it from the shore? I wanted to connect the movement of something we had built to information the team could actually read. Telemetry became my way of contributing to that shared project.",
+            "it": "La barca ha portato una domanda molto concreta nel mio lavoro software: come potevamo osservare cosa stava facendo, oltre a guardarla da riva? Volevo collegare il movimento di qualcosa che avevamo costruito a informazioni che il team potesse leggere. La telemetria è diventata il mio modo di contribuire a quel progetto collettivo."
+          },
+          {
+            "en": "That started on a table, with computers, cables and sensors. Before designing a finished board, I had to make the individual parts communicate and understand what they were telling me. The photograph captures that stage: the project spread across a workbench, while software and electronics began to meet.",
+            "it": "Tutto è iniziato su un tavolo, tra computer, cavi e sensori. Prima di pensare a una scheda finita, dovevo far comunicare i singoli componenti e capire cosa mi stavano dicendo. La foto racconta quella fase: il progetto sparso sul banco di lavoro, mentre software ed elettronica cominciavano a incontrarsi."
+          }
+        ],
+        "image": {
+          "src": "/work/garda-workbench.webp",
+          "width": 1400,
+          "height": 1867,
+          "caption": {
+            "en": "The workbench: laptops, wiring and electronics.",
+            "it": "Il banco di lavoro: computer, cablaggi ed elettronica."
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "From loose wires to a boat on screen.",
+          "it": "Dai fili a una barca sullo schermo."
+        },
+        "body": [
+          {
+            "en": "On the workbench, the electronics sit next to a browser displaying the boat’s orientation. The ESP32-S3 reads an inertial sensor and GPS. The firmware combines sensor readings to estimate roll, pitch and yaw; a bridge then sends that information to the web visualiser.",
+            "it": "Sul banco di lavoro, l’elettronica è accanto al browser che mostra l’assetto della barca. L’ESP32-S3 legge un sensore inerziale e il GPS. Il firmware combina le misure per stimare rollio, beccheggio e imbardata; un bridge porta poi queste informazioni al visualizzatore web."
+          },
+          {
+            "en": "For me, the important step was connecting both ends: a physical board and a model I could inspect on screen. It gave the code a visible consequence. The bench prototype made that connection tangible: moving from readings in a program to an object whose orientation I could see.",
+            "it": "Per me, il passaggio importante è stato collegare le due estremità: una scheda fisica e un modello che potevo osservare sullo schermo. Il codice aveva una conseguenza visibile. Il prototipo al banco ha reso concreto quel collegamento: dalle letture dentro un programma a un oggetto di cui potevo vedere l’orientamento."
+          }
+        ],
+        "image": {
+          "src": "/work/garda-telemetry-prototype.webp",
+          "width": 1600,
+          "height": 1067,
+          "caption": {
+            "en": "The wired prototype alongside the connected 3D visualiser.",
+            "it": "Il prototipo cablato accanto al visualizzatore 3D collegato."
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "Giving the electronics a structure.",
+          "it": "Dare una struttura all’elettronica."
+        },
+        "body": [
+          {
+            "en": "We designed a PCB from scratch, arranged the connections and components, and had the boards manufactured and shipped from China. Once they arrived, the drawing had to become something physical: soldering, assembling and checking whether the connections worked as intended.",
+            "it": "Abbiamo disegnato una PCB da zero, organizzato collegamenti e componenti e fatto produrre e spedire le schede dalla Cina. Quando sono arrivate, il disegno doveva diventare qualcosa di fisico: saldare, assemblare e controllare se i collegamenti funzionavano come previsto."
+          },
+          {
+            "en": "A wired prototype is useful for trying things out, but it also makes every connection part of the experiment. The circuit boards represent the next step: moving towards a more organised assembly, with a place for the modules and their connections.",
+            "it": "Un prototipo cablato serve a provare le cose, ma rende ogni collegamento parte dell’esperimento. I circuiti stampati raccontano il passo successivo: andare verso un assemblaggio più ordinato, con uno spazio per i moduli e per le loro connessioni."
+          },
+          {
+            "en": "It is a different kind of design from building a web page. The result has dimensions, connectors and components that have to work together in the real world. That is one of the things I enjoy most about this project: software keeps bringing me back to the physical object.",
+            "it": "È un tipo di progettazione diverso dal costruire una pagina web. Il risultato ha dimensioni, connettori e componenti che devono lavorare insieme nel mondo reale. È una delle cose che mi piacciono di più di questo progetto: il software mi riporta continuamente all’oggetto fisico."
+          }
+        ],
+        "image": {
+          "src": "/work/garda-pcb.webp",
+          "width": 1400,
+          "height": 2488,
+          "caption": {
+            "en": "The circuit boards before assembly.",
+            "it": "I circuiti stampati prima dell’assemblaggio."
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "The parts, finally together.",
+          "it": "I pezzi, finalmente insieme."
+        },
+        "body": [
+          {
+            "en": "Here the modules are assembled on the board. The microcontroller, inertial sensing and GPS are now parts of one object, instead of separate elements on the table. Seeing that progression matters to me as much as seeing the visualiser respond.",
+            "it": "Qui i moduli sono assemblati sulla scheda. Il microcontrollore, i sensori inerziali e il GPS diventano parti di un unico oggetto, invece di elementi separati sul tavolo. Vedere questo percorso conta per me quanto vedere il visualizzatore rispondere."
+          },
+          {
+            "en": "Making the readings meaningful and the system dependable also means checking sensor behaviour, calibrating, understanding missing or noisy data, and testing each step. A moving model is a useful milestone; building confidence in what it shows takes more work.",
+            "it": "Rendere le letture comprensibili e il sistema affidabile significa anche controllare il comportamento dei sensori, calibrare, capire i dati mancanti o rumorosi e verificare ogni passaggio. Un modello che si muove è un traguardo utile; poter avere fiducia in ciò che mostra richiede altro lavoro."
+          },
+          {
+            "en": "Hardware brought a different kind of difficulty: a wiring mistake or a bad connection could stop the system even when the code looked right. Learning to solder, isolate a problem and test one part at a time became as important as programming the firmware.",
+            "it": "L’hardware ha portato difficoltà diverse: un errore nel cablaggio o un contatto problematico potevano fermare il sistema anche con un codice apparentemente corretto. Imparare a saldare, isolare un problema e verificare una parte alla volta è diventato importante quanto programmare il firmware."
+          }
+        ],
+        "image": {
+          "src": "/work/garda-telemetry-board.webp",
+          "width": 1400,
+          "height": 1867,
+          "caption": {
+            "en": "The telemetry board, assembled.",
+            "it": "La scheda di telemetria assemblata."
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "Explaining what we were building.",
+          "it": "Raccontare quello che stavamo costruendo."
+        },
+        "body": [
+          {
+            "en": "Holding the board and explaining it brings the project back to the people around it. I can talk about sensors and firmware, but the reason they are there is the boat, the team and the experience we shared.",
+            "it": "Prendere in mano la scheda e spiegarla riporta il progetto alle persone che gli stanno intorno. Posso parlare di sensori e firmware, ma il motivo per cui esistono è la barca, il team e l’esperienza che abbiamo condiviso."
+          },
+          {
+            "en": "That connection is what I want to remember here: the first experiments on a table, the electronics coming together, and the boat we took to Garda. The technical work and the human story belong to the same project.",
+            "it": "È questo collegamento che voglio lasciare qui: le prime prove su un tavolo, l’elettronica che prende forma e la barca che abbiamo portato al Garda. Il lavoro tecnico e la storia delle persone appartengono allo stesso progetto."
+          }
+        ],
+        "image": {
+          "src": "/work/garda-sharing.webp",
+          "width": 1400,
+          "height": 933,
+          "caption": {
+            "en": "Sharing the team’s work.",
+            "it": "Raccontare il lavoro del team."
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "Very little money. A huge idea.",
+          "it": "Pochissimi soldi. Un’idea enorme."
+        },
+        "body": [
+          {
+            "en": "October 2024. We set out to build a single-handed foiling Moth from scratch. With Sapienza Foiling Team, an idea became something we had to find a way to make real: a hull, a sail, the ability to rise out of the water. There was little money and no shortage of difficulties. What we had was a fantastic group of people.",
+            "it": "Ottobre 2024. Ci siamo messi in testa di costruire da zero un Moth monoposto capace di volare sui foil. Con il Sapienza Foiling Team, un’idea è diventata qualcosa a cui dovevamo trovare il modo di dare forma: uno scafo, una vela, la possibilità di sollevarsi dall’acqua. I soldi erano pochi e le difficoltà non mancavano. Avevamo però un gruppo fantastico."
+          },
+          {
+            "en": "Looking at this photo, I see more than a finished boat. I see everything it took to get it there. And the people who made it possible.",
+            "it": "Quando guardo questa foto, non vedo soltanto una barca finita. Vedo tutto quello che è servito per portarla fin lì. E le persone che l’hanno reso possibile."
+          }
+        ],
+        "image": {
+          "src": "/work/garda-build.webp",
+          "width": 1400,
+          "height": 788,
+          "caption": {
+            "en": "Building the boat, together.",
+            "it": "Costruire la barca, insieme."
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "Then our boat flew.",
+          "it": "Poi la nostra barca ha volato."
+        },
+        "body": [
+          {
+            "en": "We brought it to Lake Garda. Our boat, the one we had built ourselves, was finally on the water. Then it foiled. There is something difficult to put into words about seeing an idea leave the workshop and lift off the surface of a lake. All the difficulties were still part of the story. But now, so was that moment.",
+            "it": "L’abbiamo portata al Lago di Garda. La nostra barca, quella che avevamo costruito noi, era finalmente in acqua. Poi ha volato. C’è qualcosa di difficile da spiegare nel vedere un’idea uscire dal lavoro di costruzione e sollevarsi dalla superficie di un lago. Tutte le difficoltà facevano ancora parte della storia. Ma adesso c’era anche quel momento."
+          }
+        ],
+        "video": {
+          "src": "/work/garda-flight.mp4",
+          "poster": "/work/garda-flight-poster.webp",
+          "caption": {
+            "en": "Our very first flight! Turn the sound on: that’s me yelling with excitement. Then comes the crash… all part of learning to foil. Nothing to worry about, hahaha!",
+            "it": "Il nostro primissimo volo! Alza il volume: quello che urla dall’emozione sono io. Poi si schianta… ma fa parte del gioco quando impari a volare sui foil. Niente paura, ahahah!"
+          }
+        },
+        "image": {
+          "src": "/work/garda-boat.webp",
+          "width": 1600,
+          "height": 2400,
+          "caption": {
+            "en": "The boat on Lake Garda. Something we had built, finally in the water.",
+            "it": "La barca sul Garda. Qualcosa che avevamo costruito noi, finalmente in acqua."
+          },
+          "credit": "Emma Bortoluzzi · SuMoth Challenge 2026"
+        }
+      },
+      {
+        "title": {
+          "en": "Broken. Back on the water in 24 hours.",
+          "it": "Si è rotta. Dopo 24 ore era di nuovo in acqua."
+        },
+        "body": [
+          {
+            "en": "Then a part broke. After everything it had taken to get there, we were suddenly faced with another problem to solve. We rebuilt the part from scratch, using iron bars from local hardware shops and welding them together. Those legendary hardware shops became part of our project, too.",
+            "it": "Poi si è rotto un pezzo. Dopo tutto quello che era servito per arrivare fin lì, ci siamo ritrovati davanti a un altro problema da risolvere. Abbiamo ricostruito il pezzo da capo, con le spranghe di ferro delle ferramenta e le saldature. Quelle ferramenta mitiche sono entrate a far parte del nostro progetto anche loro."
+          },
+          {
+            "en": "Twenty-four hours later, we put the boat back on the water. That return means as much to me as the first flight. Because I know what stood between the two: a broken part, limited resources, and a team that found a way together.",
+            "it": "Ventiquattro ore dopo, abbiamo rimesso la barca in acqua. Quel ritorno, per me, vale quanto il primo volo. Perché so cosa c’è stato in mezzo: un pezzo rotto, risorse limitate e un team che, insieme, ha trovato il modo."
+          }
+        ],
+        "image": {
+          "src": "/work/garda-hands.webp",
+          "width": 1024,
+          "height": 683,
+          "caption": {
+            "en": "Hands on the boat. The work we shared at Garda.",
+            "it": "Le mani sulla barca. Il lavoro condiviso al Garda."
+          },
+          "credit": "Alessandro Cazzulani · SuMoth Challenge 2026"
+        }
+      },
+      {
+        "title": {
+          "en": "Competing. Helping each other.",
+          "it": "In competizione. Dalla stessa parte."
+        },
+        "body": [
+          {
+            "en": "Around us were students from Cagliari, Munich, Southampton, Milan, Trieste and across Europe. Different teams, different boats, the same desire to build something and see it sail. We competed on sustainable sailing and foiling, and we helped one another. That combination made the experience extraordinary.",
+            "it": "Intorno a noi c’erano studenti da Cagliari, Monaco, Southampton, Milano, Trieste e da tutta Europa. Team diversi, barche diverse, la stessa voglia di costruire qualcosa e vederlo navigare. Ci sfidavamo sulla sostenibilità delle barche a vela e sul foiling, e ci aiutavamo. Questa combinazione ha reso l’esperienza straordinaria."
+          },
+          {
+            "en": "I came away with the memory of the boat, but also of how generous and welcoming everyone was. The competition brought us there. The people are a reason I will remember it.",
+            "it": "Mi è rimasto il ricordo della barca, ma anche della disponibilità e della simpatia di tutte quelle persone. La competizione ci ha portati lì. Le persone sono uno dei motivi per cui me lo ricorderò."
+          }
+        ],
+        "image": {
+          "src": "/work/garda-community.webp",
+          "width": 1024,
+          "height": 768,
+          "caption": {
+            "en": "Teams together at the SuMoth Challenge on Lake Garda.",
+            "it": "I team riuniti alla SuMoth Challenge sul Lago di Garda."
+          },
+          "credit": "Alessandro Cazzulani · SuMoth Challenge 2026"
+        }
+      },
+      {
+        "title": {
+          "en": "A boat. And everything it brought us.",
+          "it": "Una barca. E tutto quello che ci ha dato."
+        },
+        "body": [
+          {
+            "en": "I am proud of the boat we built. I am just as proud to be part of the team that built it, repaired it and got it back on the water. My telemetry work belongs to that story: code and sensors, inside something much bigger that we made together.",
+            "it": "Sono orgoglioso della barca che abbiamo costruito. E sono altrettanto orgoglioso di far parte del team che l’ha costruita, riparata e rimessa in acqua. Il mio lavoro sulla telemetria appartiene a questa storia: codice e sensori, dentro qualcosa di molto più grande che abbiamo fatto insieme."
+          }
+        ]
+      },
+      {
+        "title": {
+          "en": "A commitment I am happy to keep making.",
+          "it": "Un impegno che sono felice di portare avanti."
+        },
+        "body": [
+          {
+            "en": "I started with a website to learn, and found myself helping build a team, leading electronics work and taking a boat to Garda. I am proud of that path because I know how much effort it took, and how much of it belongs to the people around me. There is still a lot to improve; being part of that work is something that makes me happy.",
+            "it": "Sono partito da un sito per imparare e mi sono ritrovato a contribuire alla costruzione di un team, gestire il lavoro sull’elettronica e portare una barca al Garda. Sono orgoglioso di questo percorso perché so quanto impegno ha richiesto e quanto di quel risultato appartenga alle persone intorno a me. C’è ancora molto da migliorare; far parte di questo lavoro è una cosa che mi rende felice."
+          }
+        ]
+      }
+    ],
+    "technicalImage": "/work/telemetry-local.jpg"
   },
   {
     slug: "recup",
@@ -99,11 +475,7 @@ export const portfolioProjects: PortfolioProject[] = [
     logo: "/work/recup-logo.webp",
     website: "https://associazionerecup.org/",
     github: "https://github.com/nannipy/Recup",
-    images: [
-      "/work/recup.webp",
-      "/work/recup-market.webp",
-      "/Recup/Dashboard_2.png",
-    ],
+    images: ["/Recup/overview.webp"],
     tools: ["Next.js", "TypeScript", "Supabase"],
     summary: text(
       "Software for the people who give food a second chance.",
@@ -111,277 +483,104 @@ export const portfolioProjects: PortfolioProject[] = [
     ),
     story: [
       text(
-        "RECUP recovers surplus food through a network of volunteers. I am building a management platform to support the people doing this work.",
-        "RECUP recupera eccedenze alimentari attraverso una rete di volontari. Sto costruendo un gestionale per supportare le persone che fanno questo lavoro.",
+        "RECUP recovers unsold food from markets and redistributes it free of charge. Food that has lost its economic value becomes an opportunity to share, meet and take part. Its environmental impact and its social value belong to the same everyday activity.",
+        "RECUP recupera il cibo invenduto nei mercati e lo ridistribuisce gratuitamente. Quello che ha perso valore economico diventa un’occasione di condivisione, incontro e partecipazione. L’impatto ambientale e il valore sociale nascono dalla stessa attività quotidiana.",
       ),
       text(
-        "The project connects recovery activities, volunteers and reporting. The focus is on making everyday tasks easier while keeping the information useful to the organisation.",
-        "Il progetto collega recuperi, volontari e report. L’obiettivo è semplificare le attività quotidiane mantenendo informazioni utili all’associazione.",
+        "The collaboration began through someone inside RECUP whom I had worked with on a previous project. That connection brought us together, and I joined the work on a management platform tailored to the association’s needs.",
+        "La collaborazione è nata attraverso una persona all’interno di RECUP con cui avevo già lavorato a un altro progetto. Da quel rapporto siamo entrati in contatto e ho collaborato alla realizzazione di un gestionale costruito su misura per le esigenze dell’associazione.",
       ),
-    ],
-  },
-  {
-    slug: "sft-telemetry",
-    title: "SFT Telemetry",
-    category: "Embedded · Sailing",
-    color: "#96b5ac",
-    ink: "#1c3832",
-    images: ["/work/telemetry-map-cover.png"],
-    website: "https://sapienzafoilingteam.com",
-    tools: ["ESP32-S3", "C++", "IMU + GPS", "WebSocket"],
-    summary: text(
-      "A boat built from scratch. A team that kept it afloat. My part in understanding how it moves.",
-      "Una barca costruita da zero. Un team che non si è arreso. Il mio contributo per capire come si muove.",
-    ),
-    chapters: [
-      {
-        title: {
-          en: "Very little money. A huge idea.",
-          it: "Pochissimi soldi. Un’idea enorme.",
-        },
-        body: [
-          {
-            en: "October 2024. We set out to build a single-handed foiling Moth from scratch. With Sapienza Foiling Team, an idea became something we had to find a way to make real: a hull, a sail, the ability to rise out of the water. There was little money and no shortage of difficulties. What we had was a fantastic group of people.",
-            it: "Ottobre 2024. Ci siamo messi in testa di costruire da zero un Moth monoposto capace di volare sui foil. Con il Sapienza Foiling Team, un’idea è diventata qualcosa a cui dovevamo trovare il modo di dare forma: uno scafo, una vela, la possibilità di sollevarsi dall’acqua. I soldi erano pochi e le difficoltà non mancavano. Avevamo però un gruppo fantastico.",
-          },
-          {
-            en: "Looking at this photo, I see more than a finished boat. I see everything it took to get it there. And the people who made it possible.",
-            it: "Quando guardo questa foto, non vedo soltanto una barca finita. Vedo tutto quello che è servito per portarla fin lì. E le persone che l’hanno reso possibile.",
-          },
-        ],
-        image: {
-          src: "/work/garda-build.webp",
-          width: 1400,
-          height: 788,
-          caption: text(
-            "Building the boat, together.",
-            "Costruire la barca, insieme.",
-          ),
-        },
-      },
-      {
-        title: {
-          en: "Then our boat flew.",
-          it: "Poi la nostra barca ha volato.",
-        },
-        body: [
-          {
-            en: "We brought it to Lake Garda. Our boat, the one we had built ourselves, was finally on the water. Then it foiled. There is something difficult to put into words about seeing an idea leave the workshop and lift off the surface of a lake. All the difficulties were still part of the story. But now, so was that moment.",
-            it: "L’abbiamo portata al Lago di Garda. La nostra barca, quella che avevamo costruito noi, era finalmente in acqua. Poi ha volato. C’è qualcosa di difficile da spiegare nel vedere un’idea uscire dal lavoro di costruzione e sollevarsi dalla superficie di un lago. Tutte le difficoltà facevano ancora parte della storia. Ma adesso c’era anche quel momento.",
-          },
-        ],
-        video: {
-          src: "/work/garda-flight.mp4",
-          poster: "/work/garda-flight-poster.webp",
-          caption: text(
-            "Our very first flight! Turn the sound on: that’s me yelling with excitement. Then comes the crash… all part of learning to foil. Nothing to worry about, hahaha!",
-            "Il nostro primissimo volo! Alza il volume: quello che urla dall’emozione sono io. Poi si schianta… ma fa parte del gioco quando impari a volare sui foil. Niente paura, ahahah!",
-          ),
-        },
-        image: {
-          src: "/work/garda-boat.webp",
-          width: 1600,
-          height: 2400,
-          caption: {
-            en: "The boat on Lake Garda. Something we had built, finally in the water.",
-            it: "La barca sul Garda. Qualcosa che avevamo costruito noi, finalmente in acqua.",
-          },
-          credit: "Emma Bortoluzzi · SuMoth Challenge 2026",
-        },
-      },
-      {
-        title: {
-          en: "Broken. Back on the water in 24 hours.",
-          it: "Si è rotta. Dopo 24 ore era di nuovo in acqua.",
-        },
-        body: [
-          {
-            en: "Then a part broke. After everything it had taken to get there, we were suddenly faced with another problem to solve. We rebuilt the part from scratch, using iron bars from local hardware shops and welding them together. Those legendary hardware shops became part of our project, too.",
-            it: "Poi si è rotto un pezzo. Dopo tutto quello che era servito per arrivare fin lì, ci siamo ritrovati davanti a un altro problema da risolvere. Abbiamo ricostruito il pezzo da capo, con le spranghe di ferro delle ferramenta e le saldature. Quelle ferramenta mitiche sono entrate a far parte del nostro progetto anche loro.",
-          },
-          {
-            en: "Twenty-four hours later, we put the boat back on the water. That return means as much to me as the first flight. Because I know what stood between the two: a broken part, limited resources, and a team that found a way together.",
-            it: "Ventiquattro ore dopo, abbiamo rimesso la barca in acqua. Quel ritorno, per me, vale quanto il primo volo. Perché so cosa c’è stato in mezzo: un pezzo rotto, risorse limitate e un team che, insieme, ha trovato il modo.",
-          },
-        ],
-        image: {
-          src: "/work/garda-hands.webp",
-          width: 1024,
-          height: 683,
-          caption: {
-            en: "Hands on the boat. The work we shared at Garda.",
-            it: "Le mani sulla barca. Il lavoro condiviso al Garda.",
-          },
-          credit: "Alessandro Cazzulani · SuMoth Challenge 2026",
-        },
-      },
-      {
-        title: {
-          en: "Competing. Helping each other.",
-          it: "In competizione. Dalla stessa parte.",
-        },
-        body: [
-          {
-            en: "Around us were students from Cagliari, Munich, Southampton, Milan, Trieste and across Europe. Different teams, different boats, the same desire to build something and see it sail. We competed on sustainable sailing and foiling, and we helped one another. That combination made the experience extraordinary.",
-            it: "Intorno a noi c’erano studenti da Cagliari, Monaco, Southampton, Milano, Trieste e da tutta Europa. Team diversi, barche diverse, la stessa voglia di costruire qualcosa e vederlo navigare. Ci sfidavamo sulla sostenibilità delle barche a vela e sul foiling, e ci aiutavamo. Questa combinazione ha reso l’esperienza straordinaria.",
-          },
-          {
-            en: "I came away with the memory of the boat, but also of how generous and welcoming everyone was. The competition brought us there. The people are a reason I will remember it.",
-            it: "Mi è rimasto il ricordo della barca, ma anche della disponibilità e della simpatia di tutte quelle persone. La competizione ci ha portati lì. Le persone sono uno dei motivi per cui me lo ricorderò.",
-          },
-        ],
-        image: {
-          src: "/work/garda-community.webp",
-          width: 1024,
-          height: 768,
-          caption: {
-            en: "Teams together at the SuMoth Challenge on Lake Garda.",
-            it: "I team riuniti alla SuMoth Challenge sul Lago di Garda.",
-          },
-          credit: "Alessandro Cazzulani · SuMoth Challenge 2026",
-        },
-      },
-      {
-        title: {
-          en: "A boat. And everything it brought us.",
-          it: "Una barca. E tutto quello che ci ha dato.",
-        },
-        body: [
-          {
-            en: "I am proud of the boat we built. I am just as proud to be part of the team that built it, repaired it and got it back on the water. My telemetry work belongs to that story: code and sensors, inside something much bigger that we made together.",
-            it: "Sono orgoglioso della barca che abbiamo costruito. E sono altrettanto orgoglioso di far parte del team che l’ha costruita, riparata e rimessa in acqua. Il mio lavoro sulla telemetria appartiene a questa storia: codice e sensori, dentro qualcosa di molto più grande che abbiamo fatto insieme.",
-          },
-        ],
-      },
-    ],
-    story: [
-      {
-        en: "My contribution is an embedded telemetry system built around an ESP32-S3, inertial sensors and GPS. I am developing it to turn the boat’s movement into information we can inspect, connecting my software work to the boat and to the questions the team asks about it.",
-        it: "Il mio contributo è un sistema di telemetria embedded basato su ESP32-S3, sensori inerziali e GPS. Lo sto sviluppando per trasformare il movimento della barca in informazioni da osservare, collegando il mio lavoro software alla barca e alle domande del team.",
-      },
-      {
-        en: "The firmware reads the sensors and estimates orientation through sensor fusion. Web visualisers use a WebSocket bridge to show orientation and GPS information. The interface below is shown without a connected sensor.",
-        it: "Il firmware legge i sensori e stima l’orientamento tramite fusione sensoriale. I visualizzatori web usano un bridge WebSocket per mostrare orientamento e informazioni GPS. L’interfaccia qui sotto è mostrata senza un sensore collegato.",
-      },
+      text(
+        "Built with Next.js, TypeScript and Supabase, it connects two views of the same work: a portal for volunteers to record recovered food and the people present, and a private administration area to manage activities, review data and prepare reports.",
+        "Realizzato con Next.js, TypeScript e Supabase, il gestionale collega due punti di vista sullo stesso lavoro: un portale per le persone volontarie, che registrano il cibo recuperato e chi partecipa, e un’area privata per gli admin, che gestiscono le attività, consultano i dati e preparano i report.",
+      ),
+      text(
+        "Recording the food is only the beginning. The platform brings together recovered weight, participation and environmental indicators, including estimates of water saved and CO₂ emissions avoided. The numbers help make visible both the resources preserved and the people who make each recovery possible.",
+        "Registrare gli alimenti è solo il punto di partenza. La piattaforma mette insieme peso recuperato, partecipazione e indicatori ambientali, comprese le stime di acqua risparmiata e CO₂ evitata. I numeri aiutano a rendere visibili sia le risorse preservate sia le persone che rendono possibile ogni recupero.",
+      ),
+      text(
+        "Having organised, reportable data can help RECUP explain its impact to donors and funding partners, support funding applications and identify where to improve its activities. For me, the value of this software lies in helping that work become easier to understand and sustain.",
+        "Avere dati organizzati e rendicontabili può aiutare RECUP a raccontare il proprio impatto a donatori e finanziatori, sostenere richieste di fondi e capire dove migliorare le attività. Per me il valore di questo software sta anche qui: aiutare un lavoro importante a essere più comprensibile e più sostenibile nel tempo.",
+      ),
+      text(
+        "The social impact of technology is one of the things that interests me most. Working with RECUP means meeting people who care deeply about sustainability and inclusion, with experiences and perspectives I find fascinating. It is a project I care about because the software supports something that matters to me, alongside people I enjoy learning from.",
+        "L’impatto sociale della tecnologia è una delle cose che mi interessano di più. Lavorare con RECUP significa incontrare persone attente alla sostenibilità e all’inclusione, con esperienze e punti di vista che trovo molto interessanti. È un progetto a cui tengo perché il software sostiene qualcosa in cui credo, insieme a persone da cui mi piace imparare.",
+      ),
     ],
     gallery: [
       {
-        src: "/work/garda-workbench.webp",
-        width: 1400,
-        height: 1867,
-        caption: {
-          en: "The workbench: laptops, wiring and electronics.",
-          it: "Il banco di lavoro: computer, cablaggi ed elettronica.",
-        },
-        title: {
-          en: "Making the boat’s movement visible.",
-          it: "Dare una forma al movimento della barca.",
-        },
-        body: [
-          {
-            en: "The boat brought a very concrete question into my software work: how could we observe what it was doing, beyond watching it from the shore? I wanted to connect the movement of something we had built to information the team could actually read. Telemetry became my way of contributing to that shared project.",
-            it: "La barca ha portato una domanda molto concreta nel mio lavoro software: come potevamo osservare cosa stava facendo, oltre a guardarla da riva? Volevo collegare il movimento di qualcosa che avevamo costruito a informazioni che il team potesse leggere. La telemetria è diventata il mio modo di contribuire a quel progetto collettivo.",
-          },
-          {
-            en: "That started on a table, with computers, cables and sensors. Before designing a finished board, I had to make the individual parts communicate and understand what they were telling me. The photograph captures that stage: the project spread across a workbench, while software and electronics began to meet.",
-            it: "Tutto è iniziato su un tavolo, tra computer, cavi e sensori. Prima di pensare a una scheda finita, dovevo far comunicare i singoli componenti e capire cosa mi stavano dicendo. La foto racconta quella fase: il progetto sparso sul banco di lavoro, mentre software ed elettronica cominciavano a incontrarsi.",
-          },
-        ],
+        src: "/Recup/volunteer-city.webp", width: 2848, height: 1640,
+        title: text("Starting with the place.", "Si parte dal territorio."),
+        body: [text(
+          "The volunteer portal begins with the city. The route into the tool follows the way RECUP’s activities are organised: people meet in a place, at a market, to recover food together.",
+          "Il portale delle persone volontarie parte dalla città. L’ingresso nello strumento segue l’organizzazione delle attività di RECUP: ci si ritrova in un luogo, in un mercato, per recuperare il cibo insieme.",
+        )],
+        caption: text("Volunteer access · city selection.", "Accesso volontari · scelta della città."),
       },
       {
-        src: "/work/garda-telemetry-prototype.webp",
-        width: 1600,
-        height: 1067,
-        caption: {
-          en: "The wired prototype alongside the connected 3D visualiser.",
-          it: "Il prototipo cablato accanto al visualizzatore 3D collegato.",
-        },
-        title: {
-          en: "From loose wires to a boat on screen.",
-          it: "Dai fili a una barca sullo schermo.",
-        },
-        body: [
-          {
-            en: "On the workbench, the electronics sit next to a browser displaying the boat’s orientation. The ESP32-S3 reads an inertial sensor and GPS. The firmware combines sensor readings to estimate roll, pitch and yaw; a bridge then sends that information to the web visualiser.",
-            it: "Sul banco di lavoro, l’elettronica è accanto al browser che mostra l’assetto della barca. L’ESP32-S3 legge un sensore inerziale e il GPS. Il firmware combina le misure per stimare rollio, beccheggio e imbardata; un bridge porta poi queste informazioni al visualizzatore web.",
-          },
-          {
-            en: "For me, the important step was connecting both ends: a physical board and a model I could inspect on screen. It gave the code a visible consequence. The bench prototype made that connection tangible: moving from readings in a program to an object whose orientation I could see.",
-            it: "Per me, il passaggio importante è stato collegare le due estremità: una scheda fisica e un modello che potevo osservare sullo schermo. Il codice aveva una conseguenza visibile. Il prototipo al banco ha reso concreto quel collegamento: dalle letture dentro un programma a un oggetto di cui potevo vedere l’orientamento.",
-          },
-        ],
+        src: "/Recup/volunteer-market.webp", width: 2848, height: 1640,
+        title: text("Each market, its own activity.", "Ogni mercato, la sua attività."),
+        body: [text(
+          "Choosing the market gives each entry its context. The portal is designed for volunteers, with access tied to the market; the private administration area brings the different activities together.",
+          "Scegliere il mercato dà un contesto a ogni registrazione. Il portale è pensato per i volontari, con un accesso legato al mercato; l’area privata di amministrazione riunisce poi le diverse attività.",
+        )],
+        caption: text("Volunteer access · market selection.", "Accesso volontari · scelta del mercato."),
       },
       {
-        src: "/work/garda-pcb.webp",
-        width: 1400,
-        height: 2488,
-        caption: {
-          en: "The circuit boards before assembly.",
-          it: "I circuiti stampati prima dell’assemblaggio.",
-        },
-        title: {
-          en: "Giving the electronics a structure.",
-          it: "Dare una struttura all’elettronica.",
-        },
-        body: [
-          {
-            en: "A wired prototype is useful for trying things out, but it also makes every connection part of the experiment. The circuit boards represent the next step: moving towards a more organised assembly, with a place for the modules and their connections.",
-            it: "Un prototipo cablato serve a provare le cose, ma rende ogni collegamento parte dell’esperimento. I circuiti stampati raccontano il passo successivo: andare verso un assemblaggio più ordinato, con uno spazio per i moduli e per le loro connessioni.",
-          },
-          {
-            en: "It is a different kind of design from building a web page. The result has dimensions, connectors and components that have to work together in the real world. That is one of the things I enjoy most about this project: software keeps bringing me back to the physical object.",
-            it: "È un tipo di progettazione diverso dal costruire una pagina web. Il risultato ha dimensioni, connettori e componenti che devono lavorare insieme nel mondo reale. È una delle cose che mi piacciono di più di questo progetto: il software mi riporta continuamente all’oggetto fisico.",
-          },
-        ],
+        src: "/Recup/recovery-food.webp", width: 2848, height: 1640,
+        title: text("Giving recovered food a record.", "Dare una traccia al cibo recuperato."),
+        body: [text(
+          "Volunteers record the date, the foods recovered and their weight. A recovery becomes a set of usable data, while the form keeps the focus on the activity happening at the market.",
+          "Le persone volontarie registrano la data, gli alimenti recuperati e il loro peso. Il recupero diventa un insieme di dati utilizzabili, mentre il modulo mantiene al centro l’attività che si svolge al mercato.",
+        )],
+        caption: text("New recovery · foods and weight.", "Nuovo recupero · alimenti e peso."),
       },
       {
-        src: "/work/garda-telemetry-board.webp",
-        width: 1400,
-        height: 1867,
-        caption: {
-          en: "The telemetry board, assembled.",
-          it: "La scheda di telemetria assemblata.",
-        },
-        title: {
-          en: "The parts, finally together.",
-          it: "I pezzi, finalmente insieme.",
-        },
-        body: [
-          {
-            en: "Here the modules are assembled on the board. The microcontroller, inertial sensing and GPS are now parts of one object, instead of separate elements on the table. Seeing that progression matters to me as much as seeing the visualiser respond.",
-            it: "Qui i moduli sono assemblati sulla scheda. Il microcontrollore, i sensori inerziali e il GPS diventano parti di un unico oggetto, invece di elementi separati sul tavolo. Vedere questo percorso conta per me quanto vedere il visualizzatore rispondere.",
-          },
-          {
-            en: "Making the readings meaningful and the system dependable also means checking sensor behaviour, calibrating, understanding missing or noisy data, and testing each step. A moving model is a useful milestone; building confidence in what it shows takes more work.",
-            it: "Rendere le letture comprensibili e il sistema affidabile significa anche controllare il comportamento dei sensori, calibrare, capire i dati mancanti o rumorosi e verificare ogni passaggio. Un modello che si muove è un traguardo utile; poter avere fiducia in ciò che mostra richiede altro lavoro.",
-          },
-        ],
+        src: "/Recup/volunteer-presence.webp", width: 2848, height: 1640,
+        title: text("The people behind each recovery.", "Le persone dietro ogni recupero."),
+        body: [text(
+          "The next step records who took part. Keeping participation alongside the food data makes room for the social dimension: the time, energy and relationships that make the activity possible.",
+          "Il passaggio successivo registra chi ha partecipato. Affiancare le presenze ai dati sul cibo dà spazio anche alla dimensione sociale: il tempo, l’energia e le relazioni che rendono possibile l’attività.",
+        )],
+        caption: text("Recovery form · finding the volunteers present.", "Modulo di recupero · ricerca delle persone presenti."),
       },
       {
-        src: "/work/garda-sharing.webp",
-        width: 1400,
-        height: 933,
-        caption: {
-          en: "Sharing the team’s work.",
-          it: "Raccontare il lavoro del team.",
-        },
-        title: {
-          en: "Explaining what we were building.",
-          it: "Raccontare quello che stavamo costruendo.",
-        },
-        body: [
-          {
-            en: "Holding the board and explaining it brings the project back to the people around it. I can talk about sensors and firmware, but the reason they are there is the boat, the team and the experience we shared.",
-            it: "Prendere in mano la scheda e spiegarla riporta il progetto alle persone che gli stanno intorno. Posso parlare di sensori e firmware, ma il motivo per cui esistono è la barca, il team e l’esperienza che abbiamo condiviso.",
-          },
-          {
-            en: "That connection is what I want to remember here: the first experiments on a table, the electronics coming together, and the boat we took to Garda. The technical work and the human story belong to the same project.",
-            it: "È questo collegamento che voglio lasciare qui: le prime prove su un tavolo, l’elettronica che prende forma e la barca che abbiamo portato al Garda. Il lavoro tecnico e la storia delle persone appartengono allo stesso progetto.",
-          },
-        ],
+        src: "/Recup/volunteer-selected.webp", width: 2848, height: 1640,
+        title: text("Food and participation, together.", "Cibo e partecipazione, insieme."),
+        body: [text(
+          "Selected volunteers remain visible in the form. The recovery and its participants are connected, so the association can look at the work as both food saved and a shared effort.",
+          "Le persone selezionate restano visibili nel modulo. Il recupero e chi vi partecipa sono collegati, così l’associazione può leggere il lavoro sia come cibo salvato sia come impegno condiviso.",
+        )],
+        caption: text("Recovery form · selected participants.", "Modulo di recupero · persone selezionate."),
+      },
+      {
+        src: "/Recup/recoveries.webp", width: 2848, height: 1640,
+        title: text("From individual entries to a shared overview.", "Dalle registrazioni a una visione d’insieme."),
+        body: [text(
+          "In the private admin area, recoveries can be reviewed by market and period. Weight, water and CO₂ indicators sit alongside the activity history, making it easier to follow the work over time.",
+          "Nell’area privata degli admin, i recuperi si possono consultare per mercato e periodo. Peso, acqua e CO₂ affiancano lo storico delle attività, rendendo più semplice seguire il lavoro nel tempo.",
+        )],
+        caption: text("Admin area · recovery history and filters.", "Area admin · storico dei recuperi e filtri."),
+      },
+      {
+        src: "/Recup/reports.webp", width: 2848, height: 1640,
+        title: text("Making the impact easier to explain.", "Rendere l’impatto più facile da raccontare."),
+        body: [text(
+          "Reports bring together recovered food, attendance and environmental estimates. Filters and exports help turn daily entries into evidence the association can use for reporting, conversations with supporters and funding applications.",
+          "I report riuniscono cibo recuperato, presenze e stime ambientali. Filtri ed esportazioni aiutano a trasformare le registrazioni quotidiane in informazioni utili per la rendicontazione, il dialogo con chi sostiene RECUP e le richieste di finanziamento.",
+        )],
+        caption: text("Admin area · reports, environmental indicators and exports.", "Area admin · report, indicatori ambientali ed esportazioni."),
+      },
+      {
+        src: "/Recup/companies.webp", width: 2848, height: 1640,
+        title: text("A project made of relationships.", "Un progetto fatto di relazioni."),
+        body: [text(
+          "The platform also brings company participation into the picture. Connecting organisations, volunteers and recoveries helps describe the network around RECUP, alongside the kilograms and environmental indicators.",
+          "La piattaforma dà spazio anche alla partecipazione delle aziende. Collegare organizzazioni, persone volontarie e recuperi aiuta a descrivere la rete intorno a RECUP, insieme ai chilogrammi e agli indicatori ambientali.",
+        )],
+        caption: text("Admin area · companies and participation.", "Area admin · aziende e partecipazione."),
       },
     ],
-    technicalImage: "/work/telemetry-local.jpg",
   },
   {
     slug: "edocla",
@@ -469,150 +668,252 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
   },
   {
-    slug: "homelab",
-    title: "Homelab",
-    category: "Infrastructure · Personal",
-    color: "#aaa9d0",
-    ink: "#282743",
-    cover: "photo",
-    images: ["/work/homelab-0728.webp"],
-    tools: ["Linux", "Docker", "Tailscale", "Pi-hole", "Immich", "Beszel", "Scrutiny", "Uptime Kuma", "File Browser"],
-    summary: text(
-      "An old MacBook. A small piece of the internet I can call my own.",
-      "Un vecchio MacBook. Un piccolo pezzo di internet che posso chiamare mio.",
-    ),
-    story: [
-      text(
-        "I wanted more ownership of my digital life: a place for my photos, files and personal services, where I could understand what happens to the data and decide how it is stored.",
-        "Volevo più controllo sulla mia vita digitale: un posto per foto, file e servizi personali, dove poter capire cosa succede ai dati e decidere come conservarli.",
-      ),
-      text(
-        "Instead of buying a new server, I started with a 2016 MacBook Air. Reusing an old computer made the project affordable and gave the hardware a second life. Linux and Docker became the foundation.",
-        "Invece di comprare un server nuovo, sono partito da un MacBook Air del 2016. Riutilizzare un vecchio computer ha reso il progetto accessibile e ha dato all’hardware una seconda vita. Linux e Docker sono diventati la base.",
-      ),
-      text(
-        "Immich takes care of my photo library. Pi-hole handles DNS filtering. Filebrowser, Uptime Kuma, Beszel and Scrutiny help me manage files and see how the machine is doing. Tailscale connects the pieces when I’m away from home.",
-        "Immich si occupa della libreria fotografica. Pi-hole del filtraggio DNS. Filebrowser, Uptime Kuma, Beszel e Scrutiny mi aiutano a gestire i file e capire come sta il computer. Tailscale collega tutto quando sono fuori casa.",
-      ),
-      text(
-        "Old hardware also means compromises: limited memory, an ageing SSD and a budget that calls for careful choices. It is an ongoing project in efficient reuse. A more complete server will come with time; for now, the point is to learn and make good use of what I have.",
-        "L’hardware vecchio porta anche compromessi: memoria limitata, un SSD che invecchia e un budget che richiede scelte attente. È un progetto continuo di riuso efficiente. Un server più completo arriverà con il tempo; per ora il punto è imparare e sfruttare bene quello che ho.",
-      ),
+    "slug": "homelab",
+    "title": "Homelab",
+    "category": "Infrastructure · Personal",
+    "color": "#94bda0",
+    "ink": "#173c2b",
+    "cover": "photo",
+    "images": [
+      "/work/nannix-macbook-services-green.webp"
     ],
-    gallery: [
-      { src: "/work/homelab-0726.webp", width: 1600, height: 1200,
-        title: text("A second life, right on my desk.", "Una seconda vita, sulla mia scrivania."),
-        caption: text("The closed MacBook Air, connected on my desk.", "Il MacBook Air chiuso, collegato sulla scrivania."),
-        body: [text("The server starts here: a laptop I already had, a power supply and a corner of the desk. Reusing it lets me experiment with self-hosting without having to buy a dedicated machine straight away.", "Il server parte da qui: un portatile che avevo già, un alimentatore e un angolo della scrivania. Riutilizzarlo mi permette di sperimentare con il self-hosting senza dover comprare subito una macchina dedicata.")],
-      },
-      { src: "/work/homelab-0727.webp", width: 1200, height: 1600,
-        title: text("Still a laptop. Now a server.", "Ancora un portatile. Ora un server."),
-        caption: text("The MacBook Air running its Linux desktop.", "Il MacBook Air con il desktop Linux in esecuzione."),
-        body: [text("The screen and keyboard are still useful when I need to work directly on the machine. Underneath that familiar form is a Linux environment where I can organise my own services, learn how they fit together and keep improving the setup.", "Schermo e tastiera sono ancora utili quando devo lavorare direttamente sulla macchina. Sotto questa forma familiare c’è un ambiente Linux in cui organizzare i miei servizi, capire come si collegano e continuare a migliorare la configurazione.")],
-      },
-      { src: "/work/homelab-0728.webp", width: 1200, height: 1600,
-        title: text("The work behind the services.", "Il lavoro dietro i servizi."),
-        caption: text("The MacBook with a terminal open.", "Il MacBook con il terminale aperto."),
-        body: [text("Docker gives each application a place in this small ecosystem. The terminal is part of the everyday work: configuring services, understanding what is running and dealing with the limits of a machine that was never bought to be a server.", "Docker dà a ogni applicazione un posto in questo piccolo ecosistema. Il terminale fa parte del lavoro quotidiano: configurare i servizi, capire cosa sta girando e confrontarmi con i limiti di una macchina che non era stata comprata per fare da server.")],
-      },
-      { src: "/work/homelab-pihole.webp", width: 1500, height: 910,
-        title: text("Pi-hole · A quieter network.", "Pi-hole · Una rete più pulita."),
-        caption: text("Pi-hole: DNS activity and filtering dashboard.", "Pi-hole: dashboard delle attività DNS e del filtraggio."),
-        body: [text("Pi-hole is the DNS filtering part of the homelab. This dashboard makes the activity visible: requests, blocked queries and their distribution over time. It gives me a concrete view of a service that usually works quietly in the background.", "Pi-hole è la parte del mio homelab dedicata al filtraggio DNS. Questa dashboard rende visibile l’attività: richieste, query bloccate e distribuzione nel tempo. Mi dà una vista concreta di un servizio che normalmente lavora in silenzio.")],
-      },
-      { src: "/work/homelab-scrutiny.webp", width: 1500, height: 910,
-        title: text("Scrutiny · Keep an eye on the SSD.", "Scrutiny · Tenere d’occhio l’SSD."),
-        caption: text("Scrutiny: SSD health and temperature history.", "Scrutiny: salute dell’SSD e storico della temperatura."),
-        body: [text("With an ageing computer, disk health deserves attention. Scrutiny puts the SSD status and temperature history in one place. It helps me observe the hardware I depend on, alongside the practical question of when an upgrade will fit my budget.", "Con un computer che invecchia, la salute del disco merita attenzione. Scrutiny riunisce lo stato dell’SSD e lo storico della temperatura. Mi aiuta a osservare l’hardware da cui dipendo, insieme alla domanda pratica di quando un aggiornamento rientrerà nel mio budget.")],
-      },
-      { src: "/work/homelab-filebrowser.webp", width: 1500, height: 910,
-        title: text("File Browser · My files, within reach.", "File Browser · I miei file, a portata di mano."),
-        caption: text("File Browser: the server’s web file manager.", "File Browser: il gestore dei file del server via web."),
-        body: [text("File Browser gives me a web interface for the files stored on the server. It is a small, practical piece of the project: being able to browse and organise what I keep on my own machine, instead of treating every task as a terminal session.", "File Browser mi dà un’interfaccia web per i file conservati sul server. È una parte piccola e pratica del progetto: poter esplorare e organizzare ciò che tengo sulla mia macchina, senza trasformare ogni operazione in una sessione di terminale.")],
-      },
-      { src: "/work/homelab-beszel.webp", width: 1500, height: 910,
-        title: text("Beszel · Understand the load.", "Beszel · Capire il carico."),
-        caption: text("Beszel: CPU, memory and Docker resource charts.", "Beszel: grafici di CPU, memoria e risorse Docker."),
-        body: [text("Beszel connects the services to the resources they use. CPU and memory charts, including the Docker containers, help me see what this small Mac can handle. That matters when every new application shares the same limited hardware.", "Beszel collega i servizi alle risorse che consumano. I grafici di CPU e memoria, anche dei container Docker, mi aiutano a vedere cosa riesce a sostenere questo piccolo Mac. Conta molto quando ogni nuova applicazione condivide lo stesso hardware limitato.")],
-      },
-      { src: "/work/homelab-uptime.webp", width: 1500, height: 910,
-        title: text("Uptime Kuma · Is it still there?", "Uptime Kuma · È ancora disponibile?"),
-        caption: text("Uptime Kuma: server and service availability.", "Uptime Kuma: disponibilità del server e dei servizi."),
-        body: [text("A running container is only part of the picture: I also want to know whether a service responds. Uptime Kuma brings those checks together for the server, personal services and websites. The screenshot is a moment in the monitoring history, rather than a promise that nothing will ever go down.", "Un container in esecuzione è solo una parte del quadro: voglio anche sapere se un servizio risponde. Uptime Kuma riunisce questi controlli per il server, i servizi personali e i siti. La schermata è un momento nello storico del monitoraggio, non una promessa che non ci saranno mai interruzioni.")],
-      },
-      {
-        src: "/work/tailscale-logo.svg", width: 256, height: 256,
-        mediaKind: "logo", website: "https://tailscale.com",
-        title: text("Tailscale · The link that makes it all useful.", "Tailscale · Il collegamento che rende tutto utile."),
-        caption: text("Tailscale logo", "Logo Tailscale"),
-        body: [
-          text(
-            "For me, Tailscale is one of the most useful parts of the whole homelab. The Mac stays on my desk, but I can reach its services from my phone or laptop when I am away. Files, photos and monitoring stop being things I can only use while sitting next to the server.",
-            "Per me Tailscale è una delle parti più utili di tutto l’homelab. Il Mac rimane sulla scrivania, ma posso raggiungere i suoi servizi dal telefono o dal portatile quando sono fuori casa. File, foto e monitoraggio smettono di essere cose che posso usare soltanto seduto accanto al server.",
-          ),
-          text(
-            "It connects my devices through a private, encrypted network and makes remote access possible without configuring port forwarding for each service. That simplicity matters enormously in a personal project: I can spend more time using and improving the homelab, with much less work just to reach it.",
-            "Collega i miei dispositivi attraverso una rete privata e cifrata e rende possibile l’accesso remoto senza configurare il port forwarding per ogni servizio. Questa semplicità ha un valore enorme in un progetto personale: posso dedicare più tempo a usare e migliorare l’homelab, con molto meno lavoro solo per riuscire a raggiungerlo.",
-          ),
-          text(
-            "It is the bridge between owning the hardware and having something I can actually rely on in everyday life. A small server at home becomes a useful part of my day, wherever I am.",
-            "È il ponte tra possedere l’hardware e avere qualcosa che mi serve davvero nella vita quotidiana. Un piccolo server a casa diventa una parte utile delle mie giornate, anche quando sono altrove.",
-          ),
-        ],
-      },
-      {
-        src: "/work/immich-logo.svg", width: 792, height: 792,
-        mediaKind: "logo", website: "https://immich.app",
-        title: text("Immich · A home for my memories.", "Immich · Una casa per i miei ricordi."),
-        caption: text("Immich logo", "Logo Immich"),
-        body: [
-          text(
-            "Photos are one of the strongest reasons I wanted my own server. Running, cycling, mountains, friends and the boat: they are a record of things that matter to me. Immich gives that library a home on my own hardware, where I can decide how it is stored and managed.",
-            "Le foto sono uno dei motivi più forti per cui volevo un server mio. Corsa, ciclismo, montagna, amici e la barca: sono il racconto di cose a cui tengo. Immich dà a questa libreria una casa sul mio hardware, dove posso decidere come conservarla e gestirla.",
-          ),
-          text(
-            "Its value goes beyond keeping a folder full of files. Immich brings photo and video backup, browsing, search and organisation into a usable library, with a mobile app and tools for albums and sharing. It makes self-hosting feel useful in a very personal way: finding and revisiting memories, while keeping control of the server that holds them.",
-            "Il suo valore va oltre avere una cartella piena di file. Immich riunisce backup di foto e video, navigazione, ricerca e organizzazione in una libreria comoda da usare, con un’app mobile e strumenti per album e condivisione. Rende il self-hosting utile in un modo molto personale: ritrovare e rivivere i ricordi, mantenendo il controllo del server che li custodisce.",
-          ),
-          text(
-            "Together with Tailscale, it is also part of the reason this old Mac feels worth keeping alive. The project is about learning infrastructure, but also about giving my own digital life a place I can take care of.",
-            "Insieme a Tailscale, è anche uno dei motivi per cui vale la pena tenere in vita questo vecchio Mac. Il progetto riguarda imparare a gestire un’infrastruttura, ma anche dare alla mia vita digitale un posto di cui posso prendermi cura.",
-          ),
-        ],
-      },
+    "tools": [
+      "Linux",
+      "Docker",
+      "Tailscale",
+      "Pi-hole",
+      "Immich",
+      "Beszel",
+      "Scrutiny",
+      "Uptime Kuma",
+      "File Browser"
     ],
-    journey: [
+    "summary": {
+      "en": "Nannix server. A place for my data, my services and whatever comes next.",
+      "it": "Nannix server. Uno spazio per i miei dati, i miei servizi e le prossime idee."
+    },
+    "story": [
       {
-        title: text("Start with what you have.", "Partire da quello che c’è."),
-        body: text(
-          "An old laptop becomes a Linux server. The constraint is part of the project: keep it useful without turning a small experiment into a large hardware purchase.",
-          "Un vecchio portatile diventa un server Linux. Il limite è parte del progetto: renderlo utile senza trasformare un piccolo esperimento in una grande spesa per l’hardware.",
-        ),
-        diagram: "server",
+        "en": "I wanted a small server running at home around the clock: somewhere to host a Telegram bot, start a Docker container, automate a task or try whatever idea came to mind. A computer that could keep doing its job when my laptop was closed, available whenever I needed it. That is where Nannix server began.",
+        "it": "Volevo un piccolo server acceso a casa H24: un posto dove ospitare un bot Telegram, avviare un container Docker, automatizzare un’attività o provare qualsiasi idea mi passasse per la testa. Un computer che continuasse a fare il suo lavoro anche con il mio portatile chiuso, disponibile quando mi serve. Nannix server nasce da questa esigenza."
       },
       {
-        title: text(
-          "Give every service a place.",
-          "Dare un posto a ogni servizio.",
-        ),
-        body: text(
-          "Docker brings the applications together. Photos, files and DNS each have their own role, in an environment I can maintain and keep learning from.",
-          "Docker riunisce le applicazioni. Foto, file e DNS hanno ciascuno un ruolo, in un ambiente che posso gestire e da cui continuare a imparare.",
-        ),
-        diagram: "context",
+        "en": "Alongside that freedom to experiment, I wanted to depend less on Google and other cloud services. Paying recurring subscriptions as my photo library and files grew did not feel sustainable for me over time. I wanted to decide where my data lived and how to manage it, on hardware I could take care of myself.",
+        "it": "Accanto alla libertà di sperimentare, volevo dipendere meno da Google e dagli altri servizi cloud. Pagare abbonamenti ricorrenti mentre foto e file aumentano non mi sembrava sostenibile nel tempo, soprattutto dal punto di vista dei costi. Volevo scegliere dove conservare i miei dati e come gestirli, su hardware di cui potermi occupare direttamente."
       },
       {
-        title: text(
-          "Learn to keep it running.",
-          "Imparare a tenerlo in funzione.",
-        ),
-        body: text(
-          "Monitoring turns the computer into something I can observe: uptime, resource use and disk health. The next upgrade will follow the needs that emerge, and the budget available.",
-          "Il monitoraggio rende il computer qualcosa che posso osservare: disponibilità, risorse e salute del disco. Il prossimo aggiornamento seguirà i bisogni che emergono e il budget disponibile.",
-        ),
-        diagram: "signals",
+        "en": "I started with a 2016 MacBook Air I already had. Linux and Docker turned it into a home for both everyday services and new experiments. Reusing it kept the initial cost down and gave a second life to a machine that still had something to offer.",
+        "it": "Sono partito da un MacBook Air del 2016 che avevo già. Linux e Docker lo hanno trasformato in una casa per i servizi quotidiani e per nuovi esperimenti. Riutilizzarlo ha contenuto la spesa iniziale e dato una seconda vita a una macchina che aveva ancora qualcosa da offrire."
       },
+      {
+        "en": "Today Immich holds my photos and videos, Filebrowser gives me access to my files and Pi-hole helps me control DNS traffic on my network. Tailscale lets me reach the server from my other devices, even away from home. The services make it useful today; being able to add the next idea is what keeps the project interesting.",
+        "it": "Oggi Immich ospita le mie foto e i miei video, Filebrowser mi dà accesso ai file e Pi-hole mi aiuta a controllare il traffico DNS della rete. Tailscale mi permette di raggiungere il server dagli altri dispositivi, anche fuori casa. I servizi lo rendono utile oggi; poterci aggiungere la prossima idea è ciò che continua a rendere interessante il progetto."
+      }
     ],
+    "gallery": [
+      {
+        "src": "/work/homelab-0726.webp",
+        "width": 1600,
+        "height": 1200,
+        "title": {
+          "en": "A server that starts with what I have.",
+          "it": "Un server che parte da quello che ho."
+        },
+        "caption": {
+          "en": "The closed MacBook Air, connected on my desk.",
+          "it": "Il MacBook Air chiuso, collegato sulla scrivania."
+        },
+        "body": [
+          {
+            "en": "The machine sits in a corner of my desk, connected and ready to host services throughout the day. Its limited memory and ageing SSD shape what I can run. I can improve the setup as needs and budget change, without waiting for the perfect hardware to begin.",
+            "it": "La macchina occupa un angolo della scrivania, collegata e pronta a ospitare servizi durante tutta la giornata. La memoria limitata e l’SSD che invecchia orientano ciò che posso farci girare. Posso migliorare la configurazione man mano che cambiano le esigenze e il budget, senza aspettare l’hardware perfetto per cominciare."
+          }
+        ]
+      },
+      {
+        "src": "/work/homelab-0727.webp",
+        "width": 1200,
+        "height": 1600,
+        "title": {
+          "en": "Linux, as a base for new ideas.",
+          "it": "Linux, come base per nuove idee."
+        },
+        "caption": {
+          "en": "The MacBook Air running its Linux desktop.",
+          "it": "Il MacBook Air con il desktop Linux in esecuzione."
+        },
+        "body": [
+          {
+            "en": "A familiar laptop now runs a Linux environment I can configure and understand. It is the foundation for the services I use and a place to learn by building something that stays running after the experiment is over.",
+            "it": "Un portatile familiare ora ospita un ambiente Linux che posso configurare e capire. È la base dei servizi che uso e uno spazio per imparare costruendo qualcosa che rimane in funzione anche dopo la fase di esperimento."
+          }
+        ]
+      },
+      {
+        "src": "/work/homelab-0728.webp",
+        "width": 1200,
+        "height": 1600,
+        "title": {
+          "en": "Docker · Room for the next experiment.",
+          "it": "Docker · Spazio per il prossimo esperimento."
+        },
+        "caption": {
+          "en": "The MacBook with a terminal open.",
+          "it": "Il MacBook con il terminale aperto."
+        },
+        "body": [
+          {
+            "en": "Docker lets me organise the applications into containers. When I want to build a Telegram bot, run a scheduled task or try a new tool, I have somewhere to put it. The server is a platform I can keep extending, alongside the services already in use.",
+            "it": "Docker mi permette di organizzare le applicazioni in container. Quando voglio creare un bot Telegram, eseguire un’attività periodica o provare un nuovo strumento, ho un posto in cui farlo girare. Il server è una piattaforma che posso continuare ad ampliare, accanto ai servizi già in uso."
+          }
+        ]
+      },
+      {
+        "src": "/work/immich-logo.svg",
+        "width": 792,
+        "height": 792,
+        "mediaKind": "logo",
+        "website": "https://immich.app",
+        "title": {
+          "en": "Immich · My alternative to Google Photos.",
+          "it": "Immich · La mia alternativa a Google Foto."
+        },
+        "caption": {
+          "en": "Immich logo",
+          "it": "Logo Immich"
+        },
+        "body": [
+          {
+            "en": "Immich is one of the main reasons this server matters in my daily life. It gives my photos and videos a library on my own hardware, with mobile backup and a way to browse and rediscover them. It takes the place Google Photos had for me, while letting me choose how to store my memories.",
+            "it": "Immich è uno dei motivi principali per cui questo server conta nella mia vita quotidiana. Dà alle mie foto e ai miei video una libreria sul mio hardware, con backup dal telefono e un modo comodo per sfogliarli e ritrovarli. Prende il posto che per me aveva Google Foto, lasciandomi scegliere come conservare i miei ricordi."
+          },
+          {
+            "en": "It is also one of the open-source projects I find most exciting. I love seeing something this useful and thoughtfully built available for people to run themselves. Photos from cycling, the mountains, friends and the boat make the value very tangible: I am using it to look after things I care about.",
+            "it": "È anche uno dei progetti open source che trovo più interessanti. Mi entusiasma vedere qualcosa di così utile e curato che le persone possono far girare da sé. Le foto del ciclismo, della montagna, degli amici e della barca rendono il suo valore molto concreto: lo uso per prendermi cura di cose a cui tengo."
+          }
+        ]
+      },
+      {
+        "src": "/work/homelab-pihole.webp",
+        "width": 1500,
+        "height": 910,
+        "title": {
+          "en": "Pi-hole · Less tracking, more control.",
+          "it": "Pi-hole · Meno tracking, più controllo."
+        },
+        "caption": {
+          "en": "Pi-hole: DNS activity and filtering dashboard.",
+          "it": "Pi-hole: dashboard delle attività DNS e del filtraggio."
+        },
+        "body": [
+          {
+            "en": "Pi-hole filters DNS requests on my network. Blocking domains associated with advertising and tracking reduces some of the noise and gives me more control over what my devices contact. The dashboard lets me see queries, blocked requests and their history; DNS filtering can stop many unwanted domains, though it cannot remove every ad.",
+            "it": "Pi-hole filtra le richieste DNS della mia rete. Bloccare domini associati a pubblicità e tracking riduce una parte del rumore e mi dà più controllo su ciò che contattano i dispositivi. La dashboard mostra le query, le richieste bloccate e il loro storico: il filtraggio DNS può fermare molti domini indesiderati, anche se non elimina ogni pubblicità."
+          }
+        ]
+      },
+      {
+        "src": "/work/homelab-filebrowser.webp",
+        "width": 1500,
+        "height": 910,
+        "title": {
+          "en": "Filebrowser · My files, on my server.",
+          "it": "Filebrowser · I miei file, sul mio server."
+        },
+        "caption": {
+          "en": "File Browser: the server’s web file manager.",
+          "it": "File Browser: il gestore dei file del server via web."
+        },
+        "body": [
+          {
+            "en": "For documents and other files, Filebrowser gives me a web interface to browse, upload and organise what I keep on the machine. Together with Immich for photos, it helps me move more of my digital life onto my own server and reduce my reliance on external storage services.",
+            "it": "Per documenti e altri file, Filebrowser mi dà un’interfaccia web per consultare, caricare e organizzare ciò che conservo sulla macchina. Insieme a Immich per le foto, mi aiuta a portare una parte maggiore della mia vita digitale sul mio server e a dipendere meno dai servizi di archiviazione esterni."
+          }
+        ]
+      },
+      {
+        "src": "/work/tailscale-logo.svg",
+        "width": 256,
+        "height": 256,
+        "mediaKind": "logo",
+        "website": "https://tailscale.com",
+        "title": {
+          "en": "Tailscale · The part that makes it simple.",
+          "it": "Tailscale · La parte che rende tutto semplice."
+        },
+        "caption": {
+          "en": "Tailscale logo",
+          "it": "Logo Tailscale"
+        },
+        "body": [
+          {
+            "en": "All of this would be much less convenient without Tailscale. My server stays at home, but I can reach it from my phone or laptop when I am elsewhere. Photos, files and dashboards remain within reach through a private, encrypted network between my devices.",
+            "it": "Tutto questo sarebbe molto meno comodo senza Tailscale. Il server rimane a casa, ma posso raggiungerlo dal telefono o dal portatile quando sono altrove. Foto, file e dashboard restano a portata di mano attraverso una rete privata e cifrata tra i miei dispositivi."
+          },
+          {
+            "en": "That simplicity is a big part of why the homelab works for me. I can use my services remotely without setting up port forwarding for each one, and spend more time building and using them.",
+            "it": "Questa semplicità è una parte importante del motivo per cui l’homelab funziona per me. Posso usare i servizi da remoto senza configurare il port forwarding per ciascuno e dedicare più tempo a costruirli e usarli."
+          }
+        ]
+      },
+      {
+        "src": "/work/homelab-scrutiny.webp",
+        "width": 1500,
+        "height": 910,
+        "title": {
+          "en": "Scrutiny · Watching the SSD over time.",
+          "it": "Scrutiny · Seguire l’SSD nel tempo."
+        },
+        "caption": {
+          "en": "Scrutiny: SSD health and temperature history.",
+          "it": "Scrutiny: salute dell’SSD e storico della temperatura."
+        },
+        "body": [
+          {
+            "en": "Scrutiny brings together disk health information, S.M.A.R.T. data and temperature history. On an older machine, being able to follow those changes helps me notice warning signs and plan maintenance before a problem takes me by surprise.",
+            "it": "Scrutiny riunisce informazioni sulla salute dei dischi, dati S.M.A.R.T. e storico delle temperature. Su una macchina non più nuova, seguire questi cambiamenti mi aiuta a riconoscere segnali da approfondire e pianificare la manutenzione prima che un problema mi colga di sorpresa."
+          }
+        ]
+      },
+      {
+        "src": "/work/homelab-beszel.webp",
+        "width": 1500,
+        "height": 910,
+        "title": {
+          "en": "Beszel · Knowing what the machine is doing.",
+          "it": "Beszel · Capire cosa sta facendo la macchina."
+        },
+        "caption": {
+          "en": "Beszel: CPU, memory and Docker resource charts.",
+          "it": "Beszel: grafici di CPU, memoria e risorse Docker."
+        },
+        "body": [
+          {
+            "en": "Beszel shows CPU, memory, disk and network usage, together with the resources used by Docker containers. Its historical charts help me understand loads and trends. Supported hardware sensors add context, so I can judge how much room this small server has for another service.",
+            "it": "Beszel mostra l’utilizzo di CPU, memoria, disco e rete, insieme alle risorse usate dai container Docker. I grafici storici mi aiutano a capire carichi e andamento nel tempo. I sensori supportati dall’hardware aggiungono contesto, così posso valutare quanto spazio ha ancora questo piccolo server per un altro servizio."
+          }
+        ]
+      },
+      {
+        "src": "/work/homelab-uptime.webp",
+        "width": 1500,
+        "height": 910,
+        "title": {
+          "en": "Uptime Kuma · Are my sites and services responding?",
+          "it": "Uptime Kuma · Siti e servizi rispondono?"
+        },
+        "caption": {
+          "en": "Uptime Kuma: server and service availability.",
+          "it": "Uptime Kuma: disponibilità del server e dei servizi."
+        },
+        "body": [
+          {
+            "en": "Uptime Kuma monitors my websites and the availability of the server’s services. It gives me response times and uptime history in one place, helping me distinguish a machine that is powered on from a service I can actually reach. Together, these three monitoring tools close the loop: disk health, resource use and availability.",
+            "it": "Uptime Kuma controlla i miei siti e la disponibilità dei servizi del server. Riunisce tempi di risposta e storico dell’uptime, aiutandomi a distinguere una macchina accesa da un servizio che riesco davvero a raggiungere. Questi tre strumenti di monitoraggio completano il quadro: salute dei dischi, uso delle risorse e disponibilità."
+          }
+        ]
+      }
+    ]
   },
   {
     slug: "pomodoro-go",
@@ -650,12 +951,20 @@ export const portfolioProjects: PortfolioProject[] = [
     ),
     story: [
       text(
+        "Training matters a lot to me. Cycling and running are part of my everyday life: I enjoy being outside, putting in the work and seeing how I change over time. That is why I care about understanding what is happening around each session, as well as the performance itself.",
+        "L’allenamento è una parte importante della mia vita. Il ciclismo e la corsa fanno parte della mia quotidianità: mi piace stare fuori, impegnarmi e vedere come cambio nel tempo. Per questo tengo a capire ciò che succede intorno a ogni allenamento, oltre alla prestazione in sé.",
+      ),
+      text(
         "My Garmin records a lot about my days. Training, sleep, recovery and physiological measurements are all there, but I wanted to bring them into one picture and ask questions that start from my own context.",
         "Il mio Garmin registra molto delle mie giornate. Allenamento, sonno, recupero e parametri fisiologici ci sono tutti, ma volevo riunirli in un quadro unico e fare domande che partissero dal mio contesto.",
       ),
       text(
-        "That was the reason for Aesculapius: a personal experiment in turning the data I already collect into something I can discuss. I wanted suggestions about training, food, rest and sleep that take the rest of the picture into account.",
-        "Da qui nasce Aesculapius: un esperimento personale per trasformare i dati che già raccolgo in qualcosa su cui confrontarmi. Volevo suggerimenti su allenamenti, alimentazione, riposo e sonno che tenessero conto del quadro complessivo.",
+        "I find it fascinating to observe those trends and explore whether they can help me anticipate changes in my condition. Managing effort, recovery and injury concerns, while performing at my best, is something I care about deeply. I want to understand the data alongside how I actually feel, and learn which questions are worth asking.",
+        "Trovo molto interessante osservare questi andamenti e capire se possono aiutarmi ad anticipare cambiamenti nella mia condizione. Gestire lo sforzo, il recupero e le difficoltà legate agli infortuni, cercando di esprimere al meglio le mie prestazioni, è una cosa a cui tengo molto. Voglio leggere i dati insieme a come mi sento davvero e imparare quali domande vale la pena fare.",
+      ),
+      text(
+        "That was the reason for Aesculapius: a personal experiment in turning the data I already collect into something I can discuss. I wanted to connect training, food, rest and sleep in one conversation. Monitoring my own patterns and exploring possible predictions are goals of the project, rather than capabilities I have already validated.",
+        "Da qui nasce Aesculapius: un esperimento personale per trasformare i dati che già raccolgo in qualcosa su cui confrontarmi. Volevo collegare allenamenti, alimentazione, riposo e sonno in un’unica conversazione. Monitorare i miei andamenti ed esplorare possibili previsioni sono obiettivi del progetto, ancora da verificare nell’uso.",
       ),
       text(
         "The project combines Garmin Connect data with an AI and retrieval pipeline. I chose a Telegram bot as the interface so that the conversation could fit into a tool I already use, instead of another dashboard to check.",
@@ -665,6 +974,30 @@ export const portfolioProjects: PortfolioProject[] = [
         "Self-hosting is part of the idea: I want to own the storage and understand the processing of my personal data. The bot is a project shaped around my needs, and something I can keep refining as I learn from using it.",
         "Il self-hosting fa parte dell’idea: voglio gestire l’archiviazione e capire come vengono elaborati i miei dati personali. Il bot è un progetto costruito intorno alle mie esigenze, da affinare mentre imparo a usarlo.",
       ),
+    ],
+    gallery: [
+      {
+        src: "/personal/cycling-0661-v2.jpg",
+        width: 4032,
+        height: 3024,
+        title: text("Cycling · The experience behind the data.", "Ciclismo · L’esperienza dietro i dati."),
+        caption: text("Out on the bike.", "Un’uscita in bici."),
+        body: [text(
+          "Behind every recorded activity is an outing like this. I care about the effort, the enjoyment and the desire to keep improving. The data interests me because it lets me return to that experience, compare it with other days and ask how training and recovery fit together.",
+          "Dietro ogni attività registrata c’è un’uscita come questa. Mi interessano lo sforzo, il divertimento e la voglia di continuare a migliorare. I dati mi incuriosiscono perché mi permettono di tornare su quell’esperienza, confrontarla con altre giornate e chiedermi come si collegano allenamento e recupero.",
+        )],
+      },
+      {
+        src: "/personal/rome.webp",
+        width: 828,
+        height: 1104,
+        title: text("Running · Understanding my own rhythm.", "Corsa · Capire il mio ritmo."),
+        caption: text("Outside, in Rome.", "Fuori, a Roma."),
+        body: [text(
+          "Running is another part of that same curiosity. I want to improve my performance and understand how effort fits into the rest of my life. Aesculapius comes from wanting to bring those observations together: sessions, sleep, recovery and personal sensations, with room to ask questions as my situation changes.",
+          "Anche la corsa fa parte della stessa curiosità. Voglio migliorare le prestazioni e capire come lo sforzo si inserisce nel resto della mia vita. Aesculapius nasce dal desiderio di riunire queste osservazioni: allenamenti, sonno, recupero e sensazioni personali, con uno spazio in cui fare domande mentre la mia situazione cambia.",
+        )],
+      },
     ],
     journey: [
       {
@@ -789,7 +1122,7 @@ export const personalPhotos = [
     tag: "Mountains",
   },
   {
-    src: "/personal/cycling.webp",
+    src: "/personal/cycling-0661-v2.jpg",
     en: "A good day on two wheels.",
     it: "Una bella giornata su due ruote.",
     tag: "Cycling",
@@ -816,7 +1149,7 @@ export const personalPhotos = [
     src: "/personal/rome.webp",
     en: "Home, with a different view.",
     it: "Casa, da un altro punto di vista.",
-    tag: "Life",
+    tag: "Running",
   },
 ];
 export const getLocale = (value: string | string[] | undefined): Locale =>
@@ -853,69 +1186,238 @@ portfolioProjects.push(
     ],
   },
   {
-    slug: "timesheet",
-    title: "Timesheet",
-    category: "Web app · Edgeworks",
-    color: "#ddbd85",
-    ink: "#45351c",
-    images: [
-      "/work/timesheet-reports.webp",
-      "/work/timesheet-dashboard.webp",
-      "/work/timesheet-calendar.webp",
-    ],
-    website: "https://www.edgeworks.it/products_timetracker.php",
-    github: "https://github.com/salvatoreiannola72/timetracker",
-    tools: ["React 19", "TypeScript", "Supabase", "Recharts"],
-    summary: text(
-      "Time tracking and reporting for a working team.",
-      "Tempi e report per un team al lavoro.",
-    ),
-    story: [
-      text(
-        "An internal timesheet management application for Edgeworks, bringing together time entries, projects, clients and reporting.",
-        "Un’applicazione di gestione timesheet per Edgeworks che riunisce registrazioni delle ore, progetti, clienti e report.",
-      ),
-      text(
-        "The application includes authentication, interactive charts and Excel exports. I worked on modernising the interface and the full-stack workflow.",
-        "L’applicazione include autenticazione, grafici interattivi ed esportazioni Excel. Ho lavorato alla modernizzazione dell’interfaccia e del flusso full-stack.",
-      ),
-    ],
-  },
-  {
-    slug: "hiresight",
-    title: "HireSight",
-    category: "AI · Edgeworks",
-    color: "#9aacce",
-    ink: "#24334c",
-    images: [
+    "slug": "edgeworks",
+    "title": "Edgeworks",
+    "category": "Freelance · Software & AI",
+    "color": "#7da8d8",
+    "ink": "#163650",
+    "cover": "edgeworks",
+    "images": [
       "/hiresight/home.png",
-      "/work/hiresight-live.jpg",
-      "/hiresight/posizioni.png",
-      "/hiresight/candidati.png",
-      "/hiresight/dettaglio_candidato.png",
+      "/work/timesheet-reports.webp"
     ],
-    website: "https://hiresight-cv.vercel.app",
-    github: "https://github.com/nannipy/hiresight",
-    tools: ["React", "TypeScript", "Python", "Supabase", "LLMs"],
-    summary: text(
-      "A clearer way to organise applications and review CVs.",
-      "Un modo più chiaro per organizzare candidature e analizzare CV.",
-    ),
-    story: [
-      text(
-        "A recruitment platform developed in my work with Edgeworks. It helps organise job positions and candidates, with AI-assisted CV analysis.",
-        "Una piattaforma di recruiting sviluppata nel mio lavoro con Edgeworks. Aiuta a organizzare posizioni e candidati, con analisi dei CV supportata dall’AI.",
-      ),
-      text(
-        "The interface connects candidate details, match scores and the reasoning behind them, so recruiters can review the information in context.",
-        "L’interfaccia collega dettagli dei candidati, punteggi di corrispondenza e relative motivazioni, per esaminare le informazioni nel loro contesto.",
-      ),
+    "website": "https://www.edgeworks.it/",
+    "tools": [
+      "React",
+      "TypeScript",
+      "Python",
+      "Supabase",
+      "Recharts",
+      "LLMs",
+      "RAG"
     ],
+    "summary": {
+      "en": "HireSight, Timesheet and Mora. Three projects from my freelance work.",
+      "it": "HireSight, Timesheet e Mora. Tre progetti della mia esperienza freelance."
+    },
+    "story": [
+      {
+        "en": "My freelance collaboration with Edgeworks brought together three different kinds of work: recruitment with HireSight, time tracking and reporting with Timesheet, and an early email-automation MVP called Mora.",
+        "it": "La collaborazione freelance con Edgeworks ha riunito tre lavori diversi: il recruiting con HireSight, la gestione delle ore e dei report con Timesheet e un primo MVP di automazione delle email, Mora."
+      },
+      {
+        "en": "The common thread was making information easier to work with: connecting data, interfaces and workflows to the needs of the people using them. Each project had its own scope, from application development to a small experiment with language models and retrieval.",
+        "it": "Il filo comune era rendere le informazioni più facili da usare: collegare dati, interfacce e flussi di lavoro alle esigenze delle persone. Ogni progetto aveva un perimetro diverso, dallo sviluppo applicativo a un piccolo esperimento con modelli linguistici e recupero del contesto."
+      }
+    ],
+    "chapters": [
+      {
+        "id": "hiresight",
+        "title": {
+          "en": "HireSight · Applications in context.",
+          "it": "HireSight · Candidature nel loro contesto."
+        },
+        "body": [
+          {
+            "en": "A recruitment platform developed in my work with Edgeworks. It helps organise job positions and candidates, with AI-assisted CV analysis.",
+            "it": "Una piattaforma di recruiting sviluppata nel mio lavoro con Edgeworks. Aiuta a organizzare posizioni e candidati, con analisi dei CV supportata dall’AI."
+          },
+          {
+            "en": "The interface connects candidate details, match scores and the reasoning behind them, so recruiters can review the information in context.",
+            "it": "L’interfaccia collega dettagli dei candidati, punteggi di corrispondenza e relative motivazioni, per esaminare le informazioni nel loro contesto."
+          },
+          {
+            "en": "React, TypeScript, Python and Supabase connect the interface, data and AI-assisted analysis.",
+            "it": "React, TypeScript, Python e Supabase collegano interfaccia, dati e analisi supportata dall’AI."
+          }
+        ],
+        "image": {
+          "src": "/hiresight/home.png",
+          "width": 1908,
+          "height": 1038,
+          "caption": {
+            "en": "HireSight · Overview",
+            "it": "HireSight · Panoramica"
+          }
+        },
+        "images": [
+          {
+            "src": "/work/hiresight-live.jpg",
+            "width": 1280,
+            "height": 720,
+            "caption": {
+              "en": "HireSight · Screen 2",
+              "it": "HireSight · Schermata 2"
+            }
+          },
+          {
+            "src": "/hiresight/posizioni.png",
+            "width": 1908,
+            "height": 1038,
+            "caption": {
+              "en": "HireSight · Screen 3",
+              "it": "HireSight · Schermata 3"
+            }
+          },
+          {
+            "src": "/hiresight/candidati.png",
+            "width": 1908,
+            "height": 1038,
+            "caption": {
+              "en": "HireSight · Screen 4",
+              "it": "HireSight · Schermata 4"
+            }
+          },
+          {
+            "src": "/hiresight/dettaglio_candidato.png",
+            "width": 1908,
+            "height": 1038,
+            "caption": {
+              "en": "HireSight · Screen 5",
+              "it": "HireSight · Schermata 5"
+            }
+          }
+        ],
+        "links": [
+          {
+            "label": {
+              "en": "Explore HireSight",
+              "it": "Esplora HireSight"
+            },
+            "href": "https://hiresight-cv.vercel.app"
+          },
+          {
+            "label": {
+              "en": "Source code",
+              "it": "Codice sorgente"
+            },
+            "href": "https://github.com/nannipy/hiresight"
+          }
+        ]
+      },
+      {
+        "id": "timesheet",
+        "title": {
+          "en": "Timesheet · Time, projects and reports.",
+          "it": "Timesheet · Ore, progetti e report."
+        },
+        "body": [
+          {
+            "en": "An internal timesheet management application for Edgeworks, bringing together time entries, projects, clients and reporting.",
+            "it": "Un’applicazione di gestione timesheet per Edgeworks che riunisce registrazioni delle ore, progetti, clienti e report."
+          },
+          {
+            "en": "The application includes authentication, interactive charts and Excel exports. I worked on modernising the interface and the full-stack workflow.",
+            "it": "L’applicazione include autenticazione, grafici interattivi ed esportazioni Excel. Ho lavorato alla modernizzazione dell’interfaccia e del flusso full-stack."
+          },
+          {
+            "en": "React, TypeScript, Supabase and Recharts support the application, its data and charts.",
+            "it": "React, TypeScript, Supabase e Recharts supportano l’applicazione, i dati e i grafici."
+          }
+        ],
+        "image": {
+          "src": "/work/timesheet-reports.webp",
+          "width": 1660,
+          "height": 1146,
+          "caption": {
+            "en": "Timesheet · Overview",
+            "it": "Timesheet · Panoramica"
+          }
+        },
+        "images": [
+          {
+            "src": "/work/timesheet-dashboard.webp",
+            "width": 1682,
+            "height": 1672,
+            "caption": {
+              "en": "Timesheet · Screen 2",
+              "it": "Timesheet · Schermata 2"
+            }
+          },
+          {
+            "src": "/work/timesheet-calendar.webp",
+            "width": 1672,
+            "height": 1116,
+            "caption": {
+              "en": "Timesheet · Screen 3",
+              "it": "Timesheet · Schermata 3"
+            }
+          }
+        ],
+        "links": [
+          {
+            "label": {
+              "en": "Timesheet on Edgeworks",
+              "it": "Timesheet sul sito Edgeworks"
+            },
+            "href": "https://www.edgeworks.it/products_timetracker.php"
+          },
+          {
+            "label": {
+              "en": "Source code",
+              "it": "Codice sorgente"
+            },
+            "href": "https://github.com/salvatoreiannola72/timetracker"
+          }
+        ]
+      },
+      {
+        "id": "mora",
+        "title": {
+          "en": "Mora · A first email-automation MVP.",
+          "it": "Mora · Un primo MVP per le email."
+        },
+        "body": [
+          {
+            "en": "Mora was a very early MVP: an email orchestrator that prepared automatic draft replies based on specific company requests. My experience with it was an initial experiment, with a small RAG system to retrieve relevant context for the drafts.",
+            "it": "Mora era un MVP davvero embrionale: un orchestratore di email che preparava automaticamente bozze di risposta in base a richieste specifiche delle aziende. La mia esperienza era una prima sperimentazione, con un piccolo sistema RAG per recuperare il contesto utile alle bozze."
+          },
+          {
+            "en": "The interesting part was connecting an incoming request to information that could help answer it. Retrieval provided context to the language model; the result was a draft to review. The scope of this work was to test that idea in an early prototype.",
+            "it": "La parte interessante era collegare una richiesta in arrivo alle informazioni utili per rispondere. Il recupero dei dati forniva contesto al modello linguistico; il risultato era una bozza da rivedere. Il perimetro di questo lavoro era provare quell’idea in un primo prototipo."
+          },
+          {
+            "en": "Edgeworks now describes Mora as a Python-based email workflow that retrieves unread messages, classifies them and generates contextual drafts, with Gmail API integration. Its product page provides a reference for the workflow; my contribution here concerns the early MVP.",
+            "it": "Oggi Edgeworks descrive Mora come un flusso basato su Python che recupera i messaggi non letti, li classifica e genera bozze contestualizzate, con integrazione Gmail API. La pagina del prodotto offre un riferimento per il funzionamento; il mio contributo qui riguarda il primo MVP."
+          }
+        ],
+        "links": [
+          {
+            "label": {
+              "en": "Mora on Edgeworks",
+              "it": "Mora sul sito Edgeworks"
+            },
+            "href": "https://www.edgeworks.it/products_mora.php"
+          }
+        ]
+      }
+    ]
   },
 );
 
+// Prioritise client work, then the broader engineering projects and personal tools.
+const projectRelevance = [
+  "recup", "sapienza-foiling-team", "edgeworks", "homelab", "edocla", "aesculapius", "garmin-watch-face",
+  "ollapy", "vector", "pomodoro-go", "removebackground",
+];
+const relevanceRank = new Map(projectRelevance.map((slug, index) => [slug, index]));
+portfolioProjects.sort((a, b) =>
+  (relevanceRank.get(a.slug) ?? projectRelevance.length) -
+  (relevanceRank.get(b.slug) ?? projectRelevance.length),
+);
+
 const sftStory = portfolioProjects.find(
-  (project) => project.slug === "sft-telemetry",
+  (project) => project.slug === "sapienza-foiling-team",
 )!;
 export const homeMediaGallery: GalleryMedia[] = [
   ...personalPhotos.map((photo) => ({
@@ -934,7 +1436,7 @@ export const homeMediaGallery: GalleryMedia[] = [
     ),
     credit: "Alessandro Cazzulani · SuMoth Challenge 2026",
   },
-  ...(sftStory.chapters || []).flatMap((chapter) => {
+  ...(sftStory.chapters || []).filter((chapter) => chapter.image?.src.startsWith("/work/garda-") || chapter.video).flatMap((chapter) => {
     const items: GalleryMedia[] = [];
     if (chapter.video)
       items.push({ ...chapter.video, width: 540, height: 960 });

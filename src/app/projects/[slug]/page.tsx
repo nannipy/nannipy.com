@@ -1,4 +1,5 @@
 import ProjectJourney from "@/components/ProjectJourney";
+import ProjectResources, { LinkedProjectText } from "@/components/ProjectResources";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -44,7 +45,7 @@ export default async function ProjectPage({
       <SiteNav locale={locale} path={`/projects/${slug}`} />
       <main
         id="main-content"
-        className={`project-detail ${slug === "sft-telemetry" ? "project-telemetry" : ""}`}
+        className={`project-detail ${slug === "sapienza-foiling-team" ? "project-telemetry" : ""}`}
       >
         <TransitionLink
           href={`${localHref("/", locale)}#work`}
@@ -61,73 +62,6 @@ export default async function ProjectPage({
           <p>{project.summary[locale]}</p>
         </div>
         <ProjectCover project={project} priority />
-        {project.chapters ? (
-          <section
-            className="project-chapters"
-            aria-label={it ? "La nostra storia al Garda" : "Our story at Garda"}
-          >
-            {project.chapters.map((chapter, index) => (
-              <article
-                className={`story-chapter ${chapter.video ? "chapter-with-video" : ""} ${!chapter.image && !chapter.video ? "chapter-text-only" : ""}`}
-                key={chapter.title.en}
-              >
-                <div className="chapter-text">
-                  <p className="eyebrow">
-                    {String(index + 1).padStart(2, "0")} /{" "}
-                    {it ? "La nostra storia" : "Our story"}
-                  </p>
-                  <h2>{chapter.title[locale]}</h2>
-                  {chapter.body.map((paragraph, i) => (
-                    <p key={i}>{paragraph[locale]}</p>
-                  ))}
-                </div>
-                <div
-                  className={chapter.video ? "chapter-media-pair" : undefined}
-                >
-                  {chapter.video ? (
-                    <figure className="chapter-photo chapter-video">
-                      <video
-                        controls
-                        playsInline
-                        preload="none"
-                        poster={chapter.video.poster}
-                        width={720}
-                        height={1280}
-                        aria-label={chapter.video.caption[locale]}
-                      >
-                        <source src={chapter.video.src} type="video/mp4" />
-                        <a href={chapter.video.src}>
-                          {it ? "Guarda il video" : "Watch the video"}
-                        </a>
-                      </video>
-                      <figcaption>{chapter.video.caption[locale]}</figcaption>
-                    </figure>
-                  ) : null}
-                  {chapter.image ? (
-                    <figure
-                      className="chapter-photo"
-                      style={{ "--media-ratio": chapter.image.width / chapter.image.height } as CSSProperties}
-                    >
-                      <Image
-                        src={chapter.image.src}
-                        alt={chapter.image.caption[locale]}
-                        width={chapter.image.width}
-                        height={chapter.image.height}
-                        sizes={slug === "sft-telemetry" ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 85vw"}
-                      />
-                      <figcaption>
-                        <span>{chapter.image.caption[locale]}</span>
-                        {chapter.image.credit ? (
-                          <span>© {chapter.image.credit}</span>
-                        ) : null}
-                      </figcaption>
-                    </figure>
-                  ) : null}
-                </div>
-              </article>
-            ))}
-          </section>
-        ) : null}
         <section className="project-story">
           <div>
             {project.logo && project.website ? (
@@ -149,17 +83,11 @@ export default async function ProjectPage({
               </a>
             ) : null}
             <p className="eyebrow">
-              {project.chapters
-                ? it
-                  ? "Il mio contributo · Telemetria"
-                  : "My contribution · Telemetry"
-                : it
-                  ? "Il progetto"
-                  : "The project"}
+              {it ? "Il progetto" : "The project"}
             </p>
             <div className="project-tools">
               {project.tools.map((t) => (
-                <span key={t}>{t}</span>
+                <span key={t}><LinkedProjectText>{t}</LinkedProjectText></span>
               ))}
             </div>
             {project.designCredit ? (
@@ -197,15 +125,89 @@ export default async function ProjectPage({
           </div>
           <div>
             {project.story.map((p, i) => (
-              <p key={i}>{p[locale]}</p>
+              <p key={i}><LinkedProjectText>{p[locale]}</LinkedProjectText></p>
             ))}
           </div>
         </section>
+        {project.chapters ? (
+          <section
+            className="project-chapters"
+            aria-label={slug === "edgeworks" ? (it ? "I progetti della collaborazione" : "Projects from the collaboration") : (it ? "Il nostro percorso nel team" : "Our journey with the team")}
+          >
+            {project.chapters.map((chapter, index) => (
+              <article
+                className={`story-chapter ${chapter.video ? "chapter-with-video" : ""} ${!chapter.image && !chapter.video ? "chapter-text-only" : ""}`}
+                key={chapter.title.en}
+                id={chapter.id}
+              >
+                <div className="chapter-text">
+                  <p className="eyebrow">
+                    {String(index + 1).padStart(2, "0")} /{" "}
+                    {slug === "edgeworks" ? (it ? "Il progetto" : "The project") : (it ? "La nostra storia" : "Our story")}
+                  </p>
+                  <h2><LinkedProjectText>{chapter.title[locale]}</LinkedProjectText></h2>
+                  {chapter.body.map((paragraph, i) => (
+                    <p key={i}><LinkedProjectText>{paragraph[locale]}</LinkedProjectText></p>
+                  ))}
+                  {chapter.links ? (
+                    <div className="experience-links">
+                      {chapter.links.map(link => <a key={link.href} href={link.href} className="text-link" target="_blank" rel="noreferrer">{link.label[locale]} ↗</a>)}
+                    </div>
+                  ) : null}
+                </div>
+                <div
+                  className={chapter.video ? "chapter-media-pair" : undefined}
+                >
+                  {chapter.video ? (
+                    <figure className="chapter-photo chapter-video">
+                      <video
+                        controls
+                        playsInline
+                        preload="none"
+                        poster={chapter.video.poster}
+                        width={720}
+                        height={1280}
+                        aria-label={chapter.video.caption[locale]}
+                      >
+                        <source src={chapter.video.src} type="video/mp4" />
+                        <a href={chapter.video.src}>
+                          {it ? "Guarda il video" : "Watch the video"}
+                        </a>
+                      </video>
+                      <figcaption>{chapter.video.caption[locale]}</figcaption>
+                    </figure>
+                  ) : null}
+                  {[...(chapter.image ? [chapter.image] : []), ...(chapter.images || [])].map(photo => (
+                    <figure
+                      key={photo.src}
+                      className="chapter-photo"
+                      style={{ "--media-ratio": photo.width / photo.height } as CSSProperties}
+                    >
+                      <Image
+                        src={photo.src}
+                        alt={photo.caption[locale]}
+                        width={photo.width}
+                        height={photo.height}
+                        sizes={slug === "sapienza-foiling-team" ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 85vw"}
+                      />
+                      <figcaption>
+                        <span><LinkedProjectText>{photo.caption[locale]}</LinkedProjectText></span>
+                        {photo.credit ? (
+                          <span>© <LinkedProjectText>{photo.credit}</LinkedProjectText></span>
+                        ) : null}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </section>
+        ) : null}
         {project.gallery ? (
           <section
             className={`project-field-gallery ${project.gallery.some((photo) => photo.body) ? "gallery-with-story" : ""}`}
             aria-label={
-              project.slug === "sft-telemetry"
+              project.slug === "sapienza-foiling-team"
                 ? it ? "Dal banco di lavoro alla barca" : "From the workbench to the boat"
                 : it ? "Il progetto, tra immagini e racconto" : "The project, in pictures and words"
             }
@@ -214,9 +216,9 @@ export default async function ProjectPage({
               <article className="field-entry" key={photo.src}>
                 {photo.body ? (
                   <div className="field-copy">
-                    {photo.title ? <h2>{photo.title[locale]}</h2> : null}
+                    {photo.title ? <h2><LinkedProjectText>{photo.title[locale]}</LinkedProjectText></h2> : null}
                     {photo.body.map((paragraph, i) => (
-                      <p key={i}>{paragraph[locale]}</p>
+                      <p key={i}><LinkedProjectText>{paragraph[locale]}</LinkedProjectText></p>
                     ))}
                   </div>
                 ) : null}
@@ -229,14 +231,14 @@ export default async function ProjectPage({
                     alt={photo.caption[locale]}
                     width={photo.width}
                     height={photo.height}
-                    sizes={slug === "sft-telemetry" ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 50vw"}
+                    sizes={slug === "sapienza-foiling-team" ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 50vw"}
                   />
                   <figcaption>
                     {photo.website ? (
                       <a href={photo.website} target="_blank" rel="noreferrer" className="text-link">
                         {new URL(photo.website).hostname} ↗
                       </a>
-                    ) : photo.caption[locale]}
+                    ) : <span><LinkedProjectText>{photo.caption[locale]}</LinkedProjectText></span>}
                   </figcaption>
                 </figure>
               </article>
@@ -264,7 +266,7 @@ export default async function ProjectPage({
           </figure>
         ) : null}
         <ProjectJourney project={project} locale={locale} />
-        {project.images.length > 1 && project.cover !== "pomodoro" ? (
+        {project.images.length > 1 && project.cover !== "pomodoro" && project.cover !== "team" && project.cover !== "edgeworks" ? (
           <section
             className="project-screenshots"
             aria-label={it ? "Immagini del progetto" : "Project images"}
@@ -285,6 +287,7 @@ export default async function ProjectPage({
             ))}
           </section>
         ) : null}
+        <ProjectResources project={project} locale={locale} />
         <TransitionLink
           className="next-project"
           href={localHref(`/projects/${next.slug}`, locale)}

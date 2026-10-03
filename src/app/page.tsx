@@ -14,8 +14,16 @@ import {
   TransitionLink,
 } from "@/components/PortfolioInteractions";
 import SpotifyRecentlyPlayed from "@/components/SpotifyRecentlyPlayed";
-const journalItems = homeMediaGallery.map(({ src, width, height, caption, credit, poster }) => ({
+const journalPalette = [
+  ...portfolioProjects.map(({ color, ink }) => ({ color, ink })),
+  { color: "#d5b8b3", ink: "#422c30" },
+  { color: "#b3c7a8", ink: "#2b3925" },
+  { color: "#cbbd9f", ink: "#3b3224" },
+  { color: "#b8c6d5", ink: "#293644" },
+];
+const journalItems = homeMediaGallery.map(({ src, width, height, caption, credit, poster }, index) => ({
   src, width, height, caption, credit, poster,
+  ...journalPalette[index % journalPalette.length],
   tag: personalPhotos.find((photo) => photo.src === src)?.tag || "Sapienza Foiling Team",
 }));
 export default async function Home({
@@ -63,14 +71,14 @@ export default async function Home({
             <div className="hero-photos hero-single-photo">
               <div className="portrait-photo">
                 <Image
-                  src="/personal/hero-hiking-2886.webp"
+                  src="/personal/profile-hiking.jpg"
                   alt={
                     it
                       ? "Giovanni durante un’escursione in montagna"
                       : "Giovanni hiking in the mountains"
                   }
-                  width={1600}
-                  height={2133}
+                  width={3024}
+                  height={3568}
                   sizes="(max-width:700px) 95vw, 42vw"
                   priority
                 />
@@ -100,7 +108,7 @@ export default async function Home({
                   : "A selection of things I build"}
               </p>
               <h2>
-                {it ? "Lavori scelti" : "Selected work"}
+                {it ? "Progetti" : "Projects"}
                 <sup>({portfolioProjects.length})</sup>
               </h2>
             </div>
@@ -149,23 +157,23 @@ export default async function Home({
             <div>
               <p className="eyebrow">
                 {it
-                  ? "La persona dietro i progetti"
-                  : "The person behind the projects"}
+                  ? "Freelance e collaborazioni"
+                  : "Freelance work and collaborations"}
               </p>
-              <h2>{it ? "Un po’ di me." : "A little about me."}</h2>
+              <h2>{it ? "Esperienze e collaborazioni." : "Work and collaborations."}</h2>
             </div>
           </div>
           <div className="about-layout">
             <div className="about-intro">
               <p>
                 {it
-                  ? "Mi piace capire come funzionano le cose. E poi provare a costruirle."
-                  : "I like figuring out how things work. Then trying to build them."}
+                  ? "Software costruito insieme a persone, aziende e associazioni."
+                  : "Software built with people, companies and organisations."}
               </p>
               <p className="body-copy">
                 {it
-                  ? "Sono Giovanni, software engineer a Roma e studente di Ingegneria Informatica alla Sapienza. Lavoro su applicazioni web, strumenti con AI e sistemi embedded. Mi interessa il punto in cui il codice incontra un bisogno reale."
-                  : "I’m Giovanni, a software engineer based in Rome and a Computer Engineering student at Sapienza. I work on web applications, AI tools and embedded systems. I’m interested in the point where code meets a real need."}
+                  ? "Lavoro come freelance su progetti per Edgeworks, RECUP e Marsilea. Accanto a questi incarichi, collaboro con Sapienza Foiling Team: un impegno continuativo e strutturato nello sviluppo software ed embedded, svolto senza retribuzione mentre studio Ingegneria Informatica alla Sapienza."
+                  : "I work as a freelancer on projects for Edgeworks, RECUP and Marsilea. Alongside these assignments, I contribute to Sapienza Foiling Team: a sustained, structured commitment to software and embedded development, undertaken without pay while studying Computer Engineering at Sapienza."}
               </p>
               <div className="cv-links">
                 {(["en", "it"] as const).map((lang) => (
@@ -193,27 +201,28 @@ export default async function Home({
                 <h3>Edgeworks</h3>
                 <p>
                   {it
-                    ? "Strumenti per il lavoro quotidiano: Timesheet per tempi e report, HireSight per organizzare e analizzare le candidature."
-                    : "Tools for everyday work: Timesheet for time tracking and reporting, HireSight for organising and analysing applications."}
+                    ? "HireSight per le candidature, Timesheet per tempi e report e Mora: un primo MVP per preparare bozze email con un piccolo sistema RAG."
+                    : "HireSight for applications, Timesheet for time tracking and reporting, and Mora: an early MVP for email drafts with a small RAG system."}
                 </p>
                 <div className="experience-links">
                   <TransitionLink
-                    href={localHref("/projects/timesheet", locale)}
+                    href={`${localHref("/projects/edgeworks", locale)}#timesheet`}
                   >
                     Timesheet ↗
                   </TransitionLink>
                   <TransitionLink
-                    href={localHref("/projects/hiresight", locale)}
+                    href={`${localHref("/projects/edgeworks", locale)}#hiresight`}
                   >
                     HireSight ↗
                   </TransitionLink>
+                  <TransitionLink href={`${localHref("/projects/edgeworks", locale)}#mora`}>Mora ↗</TransitionLink>
                 </div>
               </article>
               <article>
                 <span className="eyebrow">
                   {it
-                    ? "Collaborazione · Impatto sociale"
-                    : "Collaboration · Social impact"}
+                    ? "Freelance · Impatto sociale"
+                    : "Freelance · Social impact"}
                 </span>
                 <h3>RECUP</h3>
                 <p>
@@ -230,26 +239,30 @@ export default async function Home({
               </article>
               <article>
                 <span className="eyebrow">
+                  {it ? "Freelance · Progetto su commissione" : "Freelance · Client project"}
+                </span>
+                <h3>Marsilea</h3>
+                <p>
+                  {it ? "Collaborazione freelance su un progetto per Marsilea." : "Freelance collaboration on a project for Marsilea."}
+                </p>
+              </article>
+              <article>
+                <span className="eyebrow">
                   {it
-                    ? "Software engineer · Set 2024 — oggi"
-                    : "Software engineer · Sep 2024 — present"}
+                    ? "Collaborazione non retribuita · Set 2024 — oggi"
+                    : "Unpaid collaboration · Sep 2024 — present"}
                 </span>
                 <h3>Sapienza Foiling Team</h3>
                 <p>
                   {it
-                    ? "Dal sito del team alla telemetria della barca: software che incontra sensori, acqua e lavoro di squadra."
-                    : "From the team’s website to the boat’s telemetry: software meeting sensors, water and teamwork."}
+                    ? "Un’esperienza con responsabilità e continuità simili a quelle di un lavoro: dal sito del team alla telemetria della barca, tra software, sensori e lavoro di squadra."
+                    : "An experience with the responsibility and continuity of a job: from the team’s website to the boat’s telemetry, combining software, sensors and teamwork."}
                 </p>
                 <div className="experience-links">
                   <TransitionLink
                     href={localHref("/projects/sapienza-foiling-team", locale)}
                   >
-                    Website ↗
-                  </TransitionLink>
-                  <TransitionLink
-                    href={localHref("/projects/sft-telemetry", locale)}
-                  >
-                    Telemetry ↗
+                    {it ? "Il percorso nel team" : "My journey with the team"} ↗
                   </TransitionLink>
                 </div>
               </article>
@@ -262,7 +275,7 @@ export default async function Home({
               <p className="eyebrow">
                 {it ? "Lontano dalla scrivania" : "Away from the desk"}
               </p>
-              <h2>Touching the grass.</h2>
+              <h2>Touching the grass. Sometimes.</h2>
             </div>
             <p>
               {it

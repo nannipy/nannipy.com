@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Locale, PortfolioProject } from "@/lib/portfolio";
+import { LinkedProjectText } from "@/components/ProjectResources";
 function Diagram({
   kind,
 }: {
@@ -90,8 +91,8 @@ export default function ProjectJourney({
               {String(index + 1).padStart(2, "0")} /{" "}
               {String(project.journey!.length).padStart(2, "0")}
             </span>
-            <h2>{step.title[locale]}</h2>
-            <p>{step.body[locale]}</p>
+            <h2><LinkedProjectText>{step.title[locale]}</LinkedProjectText></h2>
+            <p><LinkedProjectText>{step.body[locale]}</LinkedProjectText></p>
           </div>
         </article>
       ))}

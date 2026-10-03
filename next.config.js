@@ -4,6 +4,14 @@
  */
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  async redirects() {
+    return [
+      { source: "/projects/sft-telemetry", destination: "/projects/sapienza-foiling-team", permanent: true },
+      { source: "/projects/hiresight", destination: "/projects/edgeworks#hiresight", permanent: true },
+      { source: "/projects/timesheet", destination: "/projects/edgeworks#timesheet", permanent: true },
+    ];
+  },
+};
 
 export default config;

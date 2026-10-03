@@ -32,10 +32,10 @@ export function SiteNav({
         }
       >
         <Link href={`${localHref("/", locale)}#work`}>
-          {locale === "it" ? "Progetti" : "Work"}
+          {locale === "it" ? "Progetti" : "Projects"}
         </Link>
         <Link href={`${localHref("/", locale)}#about`}>
-          {locale === "it" ? "Storia" : "About"}
+          {locale === "it" ? "Esperienze" : "Experience"}
         </Link>
         <Link href={`${localHref("/", locale)}#outside`}>
           {locale === "it" ? "Fuori" : "Outside"}
@@ -114,13 +114,43 @@ export function ProjectCover({
   } as CSSProperties;
   return (
     <div
-      className={`project-cover cover-${project.cover || "screen"}`}
+      className={`project-cover cover-${project.cover || "screen"}${project.slug === "recup" ? " cover-recup" : ""}`}
       style={style}
     >
-      {project.cover === "photo" ? (
+      {project.cover === "edgeworks" ? (
+        <div className="edgeworks-cover-art">
+          <span className="team-cover-title">Edgeworks</span>
+          <div className="edgeworks-cover-panels">
+            {project.images.map((src, index) => (
+              <div className="edgeworks-cover-panel" key={src}>
+                <span className="screen-toolbar"><i /><i /><i /><span>{index === 0 ? "HireSight" : "Timesheet"}</span></span>
+                <Image src={src} alt={index === 0 ? "HireSight" : "Timesheet"} width={1280} height={720} sizes="(max-width:700px) 40vw, 25vw" priority={priority} />
+              </div>
+            ))}
+            <div className="edgeworks-cover-panel mora-cover-panel">
+              <span className="screen-toolbar"><i /><i /><i /><span>Mora · MVP</span></span>
+              <Image className="mora-cover-logo" src="/work/mora-logo.webp" alt="Logo Mora" width={720} height={720} sizes="(max-width:700px) 40vw, 25vw" priority={priority} />
+            </div>
+          </div>
+          <span className="art-label">HireSight · Timesheet · Mora</span>
+        </div>
+      ) : project.cover === "team" ? (
+        <div className="team-cover-art">
+          <span className="team-cover-title">Sapienza Foiling Team</span>
+          <div className="team-cover-panels">
+            {project.images.map((src, index) => (
+              <div className="team-cover-panel" key={src}>
+                <span className="screen-toolbar"><i /><i /><i /><span>{index === 0 ? "Website" : "SFT Telemetry"}</span></span>
+                <Image src={src} alt={index === 0 ? "Sapienza Foiling Team · Website" : "Sapienza Foiling Team · SFT Telemetry"} width={index === 0 ? 1280 : 1672} height={index === 0 ? 720 : 941} sizes="(max-width:700px) 43vw, 40vw" priority={priority} />
+              </div>
+            ))}
+          </div>
+          <span className="art-label">website · electronics · teamwork</span>
+        </div>
+      ) : project.cover === "photo" ? (
         <Image
           src={project.images[0]}
-          alt={project.title}
+          alt={project.slug === "homelab" ? "Nannix server · MacBook Air con Immich, Pi-hole, Tailscale, Filebrowser, Scrutiny, Beszel, Uptime Kuma, Docker e Linux sullo schermo" : project.title}
           width={1024}
           height={683}
           sizes="(max-width:700px) 95vw, 85vw"
@@ -161,6 +191,8 @@ export function ProjectCover({
           </span>
         </div>
       ) : project.images.length > 0 ? (
+        <div className={project.slug === "recup" ? "recup-cover-art" : "screen-cover-art"}>
+        {project.slug === "recup" ? <span className="team-cover-title">RECUP</span> : null}
         <div className="screen-frame">
           <span className="screen-toolbar">
             <i />
@@ -176,6 +208,7 @@ export function ProjectCover({
             sizes="(max-width: 700px) 95vw, 60vw"
             priority={priority}
           />
+        </div>
         </div>
       ) : (
         <div

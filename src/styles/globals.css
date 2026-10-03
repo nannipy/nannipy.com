@@ -336,6 +336,63 @@ button {
   transform: rotate(-2deg);
   transition: transform 0.65s var(--ease);
 }
+.cover-team {
+  padding: clamp(20px, 4vw, 48px);
+}
+.screen-cover-art { width: 100%; display: flex; justify-content: center; }
+.project-card .cover-recup { padding: 20px; }
+.recup-cover-art { position: relative; z-index: 1; width: 100%; display: grid; gap: 12px; justify-items: center; }
+.recup-cover-art .screen-frame { width: 85%; }
+.recup-cover-art .team-cover-title { font-size: clamp(26px, 3vw, 44px); }
+.team-cover-art {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: grid;
+  gap: clamp(20px, 3vw, 40px);
+}
+.team-cover-title {
+  font-size: clamp(24px, 4vw, 56px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  text-align: center;
+}
+.team-cover-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(12px, 3vw, 32px);
+  align-items: center;
+}
+.team-cover-panel {
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 16px 30px #0003;
+  transform: rotate(-3deg);
+}
+.team-cover-panel + .team-cover-panel {
+  transform: rotate(3deg) translateY(12px);
+}
+.team-cover-panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.team-cover-art .art-label {
+  position: static;
+  text-align: center;
+}
+.cover-edgeworks { width: 100%; min-width: 0; padding: clamp(20px, 4vw, 48px); }
+.edgeworks-cover-art { position: relative; z-index: 1; display: grid; width: 100%; gap: clamp(20px, 3vw, 40px); }
+.edgeworks-cover-panels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 2vw, 24px); align-items: center; }
+.edgeworks-cover-panel { overflow: hidden; border-radius: 5px; background: #f4f1e9; color: #45351c; box-shadow: 0 14px 25px #0003; transform: rotate(-3deg); }
+.edgeworks-cover-panel:nth-child(2) { transform: translateY(16px); }
+.edgeworks-cover-panel:nth-child(3) { transform: rotate(3deg); }
+.edgeworks-cover-panel img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.edgeworks-cover-art .art-label { position: static; text-align: center; }
+.edgeworks-cover-panel img.mora-cover-logo { object-fit: contain; object-position: center; background: #fff; }
+.story-chapter .chapter-photo + .chapter-photo { margin-top: 40px; }
+.story-chapter[id] { scroll-margin-top: 100px; }
 .native-preview {
   position: relative;
   z-index: 1;
@@ -355,15 +412,14 @@ button {
   width: 280px;
   border-radius: 50%;
 }
+.project-detail .cover-watchface .native-preview > img {
+  width: clamp(120px, 20vw, 280px);
+}
 .native-preview .art-label {
   position: static;
   font-family: var(--font-geist-mono);
   font-size: 10px;
   letter-spacing: 0.04em;
-}
-.project-detail > .cover-watchface,
-.project-detail > .cover-pomodoro {
-  min-height: 360px;
 }
 .project-card:nth-child(even) .screen-frame {
   transform: rotate(2deg);
@@ -634,6 +690,7 @@ button {
   padding-bottom: 105px;
 }
 .photo-journal {
+  --journal-media-height: 275px;
   display: flex;
   gap: 20px;
   overflow-x: auto;
@@ -643,7 +700,8 @@ button {
   scrollbar-color: #82946f transparent;
 }
 .journal-photo {
-  background: #2c2128;
+  background: var(--journal-color);
+  color: var(--journal-ink);
   flex: 0 0 28%;
   padding: 7px;
   text-align: left;
@@ -659,13 +717,8 @@ button {
 }
 .journal-photo img {
   width: 100%;
-  height: 275px;
+  height: var(--journal-media-height);
   object-fit: cover;
-  filter: saturate(0.82);
-  transition: filter 0.5s;
-}
-.journal-photo:hover img {
-  filter: saturate(1);
 }
 .photo-caption {
   display: flex;
@@ -873,6 +926,66 @@ button {
   flex-wrap: wrap;
   gap: 25px;
   margin-top: 20px;
+}
+.project-inline-resource {
+  text-decoration: underline;
+  text-decoration-color: #ffffff45;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 0.2s;
+}
+.project-inline-resource:hover {
+  text-decoration-color: currentColor;
+}
+.project-tools .project-inline-resource {
+  text-decoration-color: #ffffff60;
+}
+.project-resources {
+  border-top: 1px solid var(--line);
+  padding: clamp(40px, 6vw, 72px) 0;
+}
+.project-resources h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  letter-spacing: -0.04em;
+  margin: 18px 0;
+}
+.project-resources > p:not(.eyebrow),
+.project-question p {
+  max-width: 680px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.project-resources ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 0 32px;
+}
+.project-resources li a {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.project-resources li a:hover {
+  color: var(--accent-text);
+}
+.project-question {
+  border-left: 2px solid var(--accent);
+  padding-left: 24px;
+}
+.project-question h3 {
+  font-size: 24px;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.project-question .text-link {
+  margin-top: 18px;
 }
 .project-story > div:last-child > p {
   font-size: 20px;
@@ -1113,8 +1226,8 @@ button {
   .journal-photo {
     flex-basis: 72%;
   }
-  .journal-photo img {
-    height: 285px;
+  .photo-journal {
+    --journal-media-height: 285px;
   }
   .outside-section {
     padding-bottom: 65px;
@@ -1271,16 +1384,17 @@ button {
 /* Photographic stories preserve the complete images and their credits. */
 .project-cover.cover-photo,
 .project-detail > .project-cover.cover-photo {
-  aspect-ratio: 1024 / 683;
   padding: 0;
-  background: transparent;
 }
 .cover-photo::after {
   display: none;
 }
 .cover-photo > img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 }
 .project-chapters {
   padding-top: 90px;
@@ -1403,7 +1517,7 @@ button {
 }
 .hero-single-photo .portrait-photo > img {
   height: 440px;
-  filter: grayscale(1) contrast(1.06);
+  filter: contrast(1.06);
   object-position: 50% 42%;
   border-radius: 3px;
 }
@@ -1434,11 +1548,13 @@ button {
   }
 }
 
+.journal-video {
+  flex: 0 0 calc(var(--journal-media-height) * var(--video-ratio) + 14px);
+}
 .journal-video > video {
   width: 100%;
-  height: 275px;
+  height: var(--journal-media-height);
   object-fit: contain;
-  background: #100d0f;
   display: block;
 }
 .journal-video .photo-caption {

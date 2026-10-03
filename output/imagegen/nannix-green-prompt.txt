@@ -1,0 +1,6 @@
+Built-in imagegen. References: user MacBook photograph and previous illustrated cover.
+Final asset: public/work/nannix-macbook-services-green.webp
+
+Initial prompt: Style-transfer landscape portfolio cover. Preserve the actual older silver MacBook Air from the user's photograph: broad silver bezel, camera, Italian keyboard, black hinge, centered trackpad, nearly frontal view from above. Match printed hand-drawn texture and grain. Remove room clutter. All text inside screen, heading Nannix server. Nine recognizable icons in 3x3 grid, labels Immich, Pi-hole, Tailscale, Filebrowser, Scrutiny, Beszel, Uptime Kuma, Docker, Linux. Entire laptop visible. No title outside screen or extra objects.
+
+Final edit prompt: Change only the color theme to green. Replace lavender paper background with sage green #94bda0 and dark plum ink/screen with dark forest green #173c2b. Preserve MacBook geometry, angle, aluminum, keyboard, camera, trackpad, composition, printed grain, heading and all nine icons and labels. Preserve the icons' native colors. No rearrangement or extra text.
