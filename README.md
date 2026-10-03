@@ -32,7 +32,9 @@ The wordmark is **nanni.py** with a sage dot; animation respects reduced-motion 
 
 ## Spotify
 
-Configure the server-only variables in `.env.example` using a Spotify app authorised by the owner with `user-read-recently-played`. Without credentials, or if the API fails, the site renders a placeholder. Tokens never go into public files or client props.
+Configure all three server-only variables in `.env.example`: `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET` and `SPOTIFY_REFRESH_TOKEN`. Client ID and client secret alone cannot read personal listening history. Authorise the owner’s Spotify account through the [Authorization Code Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-flow) with the `user-read-recently-played` scope, then use the refresh token returned by the token exchange. Add these values to the hosting environment and redeploy for them to take effect.
+
+Without all three values, or if the API fails, the site renders a placeholder. Tokens never go into public files or client props.
 
 Strava is not connected. The personal gallery displays owner-provided photographs without activity statistics. See `REDESIGN_NOTES.md` for media provenance and remaining integration limits.
 

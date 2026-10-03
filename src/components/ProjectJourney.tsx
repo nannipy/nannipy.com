@@ -1,6 +1,5 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type { Locale, PortfolioProject } from "@/lib/portfolio";
-import { LinkedProjectText } from "@/components/ProjectResources";
 function Diagram({
   kind,
 }: {
@@ -58,9 +57,11 @@ function Diagram({
 export default function ProjectJourney({
   project,
   locale,
+  linkText,
 }: {
   project: PortfolioProject;
   locale: Locale;
+  linkText: (text: string) => ReactNode;
 }) {
   if (!project.journey) return null;
   return (
@@ -74,7 +75,7 @@ export default function ProjectJourney({
         {locale === "it" ? "Dall’idea al progetto" : "From idea to execution"}
       </p>
       {project.journey.map((step, index) => (
-        <article className="journey-step" key={step.diagram}>
+        <article className="journey-step" key={`${step.diagram}-${index}`}>
           <div
             className="journey-art"
             style={
@@ -91,8 +92,8 @@ export default function ProjectJourney({
               {String(index + 1).padStart(2, "0")} /{" "}
               {String(project.journey!.length).padStart(2, "0")}
             </span>
-            <h2><LinkedProjectText>{step.title[locale]}</LinkedProjectText></h2>
-            <p><LinkedProjectText>{step.body[locale]}</LinkedProjectText></p>
+            <h2>{step.title[locale]}</h2>
+            <p>{linkText(step.body[locale])}</p>
           </div>
         </article>
       ))}

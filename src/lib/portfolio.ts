@@ -73,7 +73,7 @@ export const portfolioProjects: PortfolioProject[] = [
     "color": "#b53c4a",
     "ink": "#fff1e6",
     "website": "https://sapienzafoilingteam.com",
-    "github": "https://github.com/nannipy/SapienzaFoilingTeam",
+    "github": "https://github.com/nannipy/sapienzafoilingteam",
     "images": [
       "/work/sft-live.jpg",
       "/work/telemetry-map-cover.png"
@@ -86,7 +86,8 @@ export const portfolioProjects: PortfolioProject[] = [
       "ESP32-S3",
       "C++",
       "IMU + GPS",
-      "WebSocket"
+      "WebSocket",
+      "Supabase"
     ],
     "summary": {
       "en": "From the first website to the boat’s electronics. A team we built together.",
@@ -94,29 +95,45 @@ export const portfolioProjects: PortfolioProject[] = [
     },
     "story": [
       {
-        "en": "I joined Sapienza Foiling Team because I wanted a real project to put my curiosity and skills to work. I started alongside the founders, helping build the team from the ground up. The website was my first contribution; over time, that starting point became a much wider commitment.",
-        "it": "Sono entrato nel Sapienza Foiling Team perché volevo un progetto concreto in cui mettere alla prova le mie competenze e la voglia di fare. Ho iniziato insieme ai fondatori, contribuendo a costruire il team da zero. Il sito è stato il mio primo contributo; nel tempo, quel punto di partenza è diventato un impegno molto più ampio."
+        "en": "This started with a close friend, Federico Romeo, a physicist who discovered the SuMoth Challenge. Seeing universities from Europe and beyond take part, he could not believe that Sapienza, with so many students, had no team in the competition. We decided to try. At first, there was only an idea and a group of people who wanted to turn it into a boat.",
+        "it": "Tutto è iniziato da un mio caro amico, Federico Romeo, un fisico che aveva scoperto la SuMoth Challenge. Vedendo partecipare università da tutta Europa e dal resto del mondo, gli sembrava impossibile che la Sapienza, con così tanti studenti, non avesse un team in gara. Abbiamo deciso di provarci. All’inizio c’erano soltanto un’idea e un gruppo di persone che volevano trasformarla in una barca."
       },
       {
-        "en": "Today I lead the electronics subteam and help manage the team’s digital tools and electronics work. My responsibilities connect software, the embedded system and the organisation around them: deciding what needs doing, working with other people and helping the different pieces come together.",
-        "it": "Oggi gestisco il sottoteam di elettronica e seguo una parte del management del team, sia sul lato informatico sia su quello elettronico. Le mie responsabilità collegano il software, il sistema embedded e l’organizzazione del lavoro: capire cosa serve, collaborare con le altre persone e aiutare i diversi pezzi a funzionare insieme."
+        "en": "Until then, I had studied without putting much into practice. I saw other people building things and wanted to join in, get my hands on a real project and find out whether I enjoyed it. I offered to build the website and helped with whatever else needed doing. Over time, that grew into telemetry, electronics, communication and management. For the 2026–2027 season, I am also coordinating a small group working on software and electronics.",
+        "it": "Fino ad allora avevo studiato senza mettere davvero in pratica quello che imparavo. Vedevo altre persone costruire cose e volevo farne parte: mettere mano a un progetto vero e capire se mi piaceva. Ho proposto di realizzare il sito e ho aiutato con le mille altre cose che servivano. Nel tempo mi sono ritrovato a occuparmi anche di telemetria, elettronica, comunicazione e management. Per la stagione 2026–2027 seguo anche un piccolo gruppo di informatici ed elettronici."
       },
       {
-        "en": "It is an unpaid collaboration, with the continuity and responsibility of a job. I am happy to be part of it and proud of the effort we have put in. Building a team and a boat this ambitious has required time, persistence and people willing to learn together. Seeing what we have made keeps me committed to the next step.",
-        "it": "È una collaborazione non retribuita, con la continuità e la responsabilità di un lavoro. Sono felice di farne parte e orgoglioso dell’impegno che ci abbiamo messo. Costruire un team e una barca così ambiziosi ha richiesto tempo, costanza e persone disposte a imparare insieme. Vedere quello che abbiamo realizzato mi dà voglia di continuare a impegnarmi per il passo successivo."
+        "en": "It is a sustained collaboration, with responsibility for both the technical work and the team’s organisation. I am happy to be part of it and proud of the effort we have put in. Building a team and a boat this ambitious has required time, persistence and people willing to learn together. Seeing what we have made keeps me committed to the next step.",
+        "it": "È una collaborazione continuativa, con responsabilità sul lavoro tecnico e sull’organizzazione del team. Sono felice di farne parte e orgoglioso dell’impegno che ci abbiamo messo. Costruire un team e una barca così ambiziosi ha richiesto tempo, costanza e persone disposte a imparare insieme. Vedere quello che abbiamo realizzato mi dà voglia di continuare a impegnarmi per il passo successivo."
       }
     ],
     "cover": "team",
     "chapters": [
       {
         "title": {
-          "en": "Starting with the founders.",
-          "it": "Cominciare insieme ai fondatori."
+          "en": "An idea from a friend. Everything to build.",
+          "it": "L’idea di un amico. Tutto da costruire."
         },
         "body": [
           {
-            "en": "At the beginning there was a team to build, alongside the boat we wanted to make. I wanted to develop my skills through something shared and useful. Joining the founders meant finding my place while we were still creating the organisation, learning how to turn individual enthusiasm into work we could carry forward together.",
-            "it": "All’inizio c’era un team da costruire, insieme alla barca che volevamo realizzare. Volevo sviluppare le mie competenze attraverso qualcosa di condiviso e utile. Affiancare i fondatori ha significato trovare il mio posto mentre stavamo ancora creando l’organizzazione e imparare a trasformare l’entusiasmo individuale in un lavoro da portare avanti insieme."
+            "en": "Federico’s idea gave us a starting point, but there was no infrastructure behind it yet. We had to bring people together, organise the work, and find the materials and components we needed. Help came from friends and from people we had never met. Building the team was part of building the boat.",
+            "it": "L’idea di Federico ci aveva dato un punto di partenza, ma dietro non esisteva ancora nessuna infrastruttura. Bisognava raccogliere persone, organizzare il lavoro e trovare i materiali e i componenti necessari. Sono arrivati aiuti da amici e da persone che non conoscevamo. Costruire il team faceva parte del costruire la barca."
+          },
+          {
+            "en": "The competition set our deadlines. We held meetings to organise the work, exchange ideas and divide responsibilities among ourselves. There was a lot to learn, but also a date by which the work had to be ready. The pace also depended on the time we could devote to the project and the opportunities we had to test it.",
+            "it": "Le scadenze arrivavano soprattutto dalla gara. Facevamo riunioni per organizzare il lavoro, incontrarci e scambiarci idee; ci assegnavamo i compiti e dividevamo quello che c’era da fare. C’era tanto da imparare, ma anche una data entro cui il lavoro doveva essere pronto. Il ritmo dipendeva anche dal tempo che riuscivamo a dedicarci e dalle occasioni per fare le prove."
+          }
+        ]
+      },
+      {
+        "title": {
+          "en": "The people who made room for us.",
+          "it": "Le persone che ci hanno fatto spazio."
+        },
+        "body": [
+          {
+            "en": "Michele Saponara and Fluido Design were fundamental to making the boat possible. Michele made the boatyard and its tools available to us. For a group starting with nothing, having a place and the equipment to build was an enormous contribution. That generosity is part of the story as much as anything we made ourselves.",
+            "it": "Michele Saponara e Fluido Design sono stati fondamentali per rendere possibile la barca. Michele ci ha messo a disposizione il cantiere e gli strumenti per costruirla. Per un gruppo che partiva da zero, avere uno spazio e le attrezzature con cui lavorare è stato un aiuto enorme. Quella generosità fa parte della storia quanto tutto quello che abbiamo costruito noi."
           }
         ]
       },
@@ -127,12 +144,16 @@ export const portfolioProjects: PortfolioProject[] = [
         },
         "body": [
           {
-            "en": "The website was my way into the team. It needed to present the people, the boat, sponsors and the project’s progress. For me, it was also a real reason to learn React: understanding components and how to assemble a site that other people would actually use.",
-            "it": "Il sito è stato il mio ingresso nel team. Doveva presentare le persone, la barca, gli sponsor e l’avanzamento del progetto. Per me era anche un motivo concreto per imparare React: capire i componenti e come assemblare un sito che altre persone avrebbero usato davvero."
+            "en": "I proposed the website because we needed an identity. Other teams had one; we had an idea, but no boat, no images and little to show yet. The first site was a way to start giving that idea a shape, even before there was much to put on its pages.",
+            "it": "Ho proposto io di fare il sito perché ci serviva un’identità. Gli altri team ne avevano uno; noi avevamo un’idea, ma nessuna barca, nessuna immagine e ancora poco da mostrare. Il primo sito serviva a cominciare a dare una forma al progetto, prima ancora di avere contenuti con cui riempirlo."
           },
           {
-            "en": "Working on it took me beyond the visible page. I began learning how the backend and the data behind the site worked, how content reached the interface, and what server-side rendering could offer. React and Next.js became things to understand through decisions and results, with their benefits and their complexity.",
-            "it": "Lavorarci mi ha portato oltre la pagina visibile. Ho iniziato a capire il backend e i dati dietro il sito, come i contenuti arrivavano all’interfaccia e cosa poteva offrire il server-side rendering. React e Next.js sono diventati strumenti da comprendere attraverso scelte e risultati, con i loro vantaggi e la loro complessità."
+            "en": "I did not know how to build a website, so I learned by trying, making mistakes and trying again. The early versions were rough and painfully slow, with heavy images that took too long to load. React and Next.js became tools I learned through a real need. As the team progressed, the pages finally filled with people, work and a boat we had built. Seeing that change is incredibly satisfying.",
+            "it": "Non sapevo come si costruisse un sito, quindi ho imparato per tentativi, sbagliando e riprovando. Le prime versioni erano acerbe e lentissime, con immagini pesantissime che impiegavano troppo a caricarsi. React e Next.js sono diventati strumenti da imparare attraverso una necessità reale. Mentre il team cresceva, le pagine si sono finalmente riempite di persone, lavoro e di una barca costruita da noi. Vedere questo cambiamento è una soddisfazione incredibile."
+          },
+          {
+            "en": "My starting point was the HTML, CSS and JavaScript I had learned at university. I had also tried Ruby on Rails, but it did not feel like the right fit for me. Discovering React and Next.js gave me an approach I enjoyed studying in depth. After two years of building and maintaining the site, I can understand how its components, APIs, backend, frontend and rendering fit together, and how those choices affect performance. There is still plenty to learn.",
+            "it": "Partivo dall’HTML, dal CSS e dal JavaScript studiati all’università. Avevo provato anche Ruby on Rails, ma non mi trovavo con quel modo di lavorare. Scoprire React e Next.js mi ha dato un approccio che avevo voglia di studiare a fondo. Dopo due anni di sviluppo e gestione del sito, riesco a orientarmi tra componenti, API, backend, frontend e rendering, e a capire come queste scelte influiscano sulle prestazioni. Ho ancora tante cose da scoprire."
           }
         ],
         "image": {
@@ -152,8 +173,8 @@ export const portfolioProjects: PortfolioProject[] = [
         },
         "body": [
           {
-            "en": "A team website needs to work on the devices people already have. That made performance, compatibility and simplicity practical concerns. I learned to question whether an animation or another layer of the framework was helping the visitor enough to justify its cost.",
-            "it": "Il sito di un team deve funzionare sui dispositivi che le persone hanno già. Performance, compatibilità e semplicità sono quindi diventate questioni concrete. Ho imparato a chiedermi se un’animazione o un altro livello del framework aiutassero abbastanza chi visita il sito da giustificarne il costo."
+            "en": "The slow first versions made performance a concrete problem. I gradually learned to pay attention to image weight and loading, and to question what each visual effect added to the site. Improving it meant returning to mistakes I could now recognise and understand.",
+            "it": "Le prime versioni lente hanno reso le prestazioni un problema concreto. Col tempo ho imparato a fare attenzione al peso delle immagini e al caricamento, e a chiedermi cosa aggiungesse davvero ogni effetto visivo. Migliorare il sito significava tornare su errori che ora riuscivo a riconoscere e capire."
           },
           {
             "en": "The first design was rough. It has improved, but I still see plenty of room to make it better. Working with other people, listening to feedback and revisiting the choices is part of the learning. The blog gives that work a purpose: helping the team tell what it is building.",
@@ -177,12 +198,12 @@ export const portfolioProjects: PortfolioProject[] = [
         },
         "body": [
           {
-            "en": "The public site is one side of the work; the administration area is the other. Content and the data behind it need to be managed by the people who keep the project moving. I wanted the technical choices to support that everyday work, without making a simple task unnecessarily complicated.",
-            "it": "Il sito pubblico è una parte del lavoro; l’area di amministrazione è l’altra. I contenuti e i dati che li accompagnano devono essere gestiti dalle persone che fanno avanzare il progetto. Volevo che le scelte tecniche sostenessero questo lavoro quotidiano, senza rendere inutilmente complicata un’operazione semplice."
+            "en": "As the site grew, I built a backend and a private administration area for the communication team. They can now update the site’s content themselves, without every change having to go through me. Something I had initially built to learn became a tool other people could use independently.",
+            "it": "Con la crescita del sito ho realizzato anche un backend e un’area riservata per il team di comunicazione. Ora possono aggiornare i contenuti in autonomia, senza dover passare da me per ogni modifica. Quello che avevo iniziato per imparare è diventato uno strumento che altre persone possono usare da sole."
           },
           {
-            "en": "That experience gradually expanded my role. Today I help connect the team’s digital work with the electronics subteam I lead. I care about organising the work as well as writing the code, because the system only becomes useful when people can build and use it together.",
-            "it": "Questa esperienza ha ampliato gradualmente il mio ruolo. Oggi contribuisco a collegare il lavoro informatico del team con il sottoteam di elettronica che gestisco. Tengo all’organizzazione del lavoro quanto al codice, perché il sistema diventa utile quando le persone riescono a costruirlo e usarlo insieme."
+            "en": "My role grew with those needs: from the website to telemetry and electronics, then communication, organisation and coordinating a small software and electronics team. Each new responsibility came from something the group needed to move forward.",
+            "it": "Il mio ruolo è cresciuto insieme a queste necessità: dal sito alla telemetria e all’elettronica, poi alla comunicazione, all’organizzazione e al coordinamento di un piccolo team di informatici ed elettronici. Ogni nuova responsabilità è nata da qualcosa che serviva al gruppo per andare avanti."
           }
         ],
         "image": {
@@ -196,18 +217,64 @@ export const portfolioProjects: PortfolioProject[] = [
         }
       },
       {
+        "id": "sft-crm",
+        "title": {
+          "en": "A shared workspace for the next season.",
+          "it": "Uno spazio condiviso per la nuova stagione."
+        },
+        "body": [
+          {
+            "en": "For the 2026–2027 season, I also built the team’s CRM with Next.js, React and Supabase. It is a new project, intended to become our main workspace for commitments, deadlines, internal files and presentations. The public website tells our story; the CRM will help us organise the work behind it.",
+            "it": "Per la stagione 2026–2027 ho realizzato anche il CRM del team con Next.js, React e Supabase. È un progetto appena nato, che utilizzeremo come base principale per organizzare impegni, scadenze, file interni e presentazioni. Il sito pubblico racconta il nostro percorso; il CRM ci aiuterà a organizzare il lavoro che c’è dietro."
+          }
+        ],
+        "links": [
+          {
+            "label": {
+              "en": "Team CRM",
+              "it": "CRM del team"
+            },
+            "href": "https://crm.sapienzafoilingteam.com"
+          }
+        ],
+        "image": {
+          "src": "/work/sft-crm/home.webp",
+          "width": 1245,
+          "height": 984,
+          "caption": {
+            "en": "The team’s new shared workspace. The 2026–2027 season is still being set up.",
+            "it": "Il nuovo spazio condiviso del team. La stagione 2026–2027 è ancora in fase di avvio."
+          }
+        },
+        "images": [
+          {
+            "src": "/work/sft-crm/agenda.webp",
+            "width": 1245,
+            "height": 1198,
+            "caption": {
+              "en": "Agenda and competition deliverables, ready to organise the new season.",
+              "it": "Agenda e delivery della gara, pronte per organizzare la nuova stagione."
+            }
+          }
+        ]
+      },
+      {
         "title": {
           "en": "Making the boat’s movement visible.",
           "it": "Dare una forma al movimento della barca."
         },
         "body": [
           {
-            "en": "This was my first real experience building an electronic system and getting hands-on with hardware. I had to move from software alone to power, cables, sensors and physical connections. I worked with Francesco Miletto, who helped me build the embedded system: sharing that process made a difficult first step much more approachable.",
-            "it": "È stata la mia prima vera esperienza nella costruzione di un sistema elettronico e nel mettere le mani sull’hardware. Dovevo passare dal solo software ad alimentazione, cavi, sensori e collegamenti fisici. Ho collaborato con Francesco Miletto, che mi ha aiutato a costruire il sistema embedded: condividere questo percorso ha reso più affrontabile un primo passo difficile."
+            "en": "I moved into electronics because the team needed it and I wanted to experiment. I had always wanted to tinker with hardware, even though I had little experience. Taking that first step introduced me to a physical side of building that I had barely explored, and made me want to try more projects.",
+            "it": "Sono passato all’elettronica perché serviva al team e mi piaceva l’idea di sperimentare. Avevo sempre sognato di smanettare con l’hardware, anche se avevo pochissima esperienza. Buttarmi in questo lavoro mi ha aperto una parte fisica del costruire che conoscevo appena e mi ha fatto venire voglia di provare altri progetti."
           },
           {
-            "en": "The boat brought a very concrete question into my software work: how could we observe what it was doing, beyond watching it from the shore? I wanted to connect the movement of something we had built to information the team could actually read. Telemetry became my way of contributing to that shared project.",
-            "it": "La barca ha portato una domanda molto concreta nel mio lavoro software: come potevamo osservare cosa stava facendo, oltre a guardarla da riva? Volevo collegare il movimento di qualcosa che avevamo costruito a informazioni che il team potesse leggere. La telemetria è diventata il mio modo di contribuire a quel progetto collettivo."
+            "en": "Working alongside Francesco Miletto made a huge difference. He also belongs to Sapienza Gladiators, the university’s motorcycle team, and brought experience I did not have. We chose the components and designed the PCB together, then worked through assembly and soldering. Having someone experienced beside me helped me learn far more than I could have done alone.",
+            "it": "Lavorare accanto a Francesco Miletto ha fatto una differenza enorme. Fa parte anche di Sapienza Gladiators, il team della Sapienza dedicato alle moto, e aveva un’esperienza che a me mancava. Abbiamo scelto insieme i componenti e progettato la PCB, fino all’assemblaggio e alla saldatura. Avere accanto una persona esperta mi ha aiutato a imparare molto più di quanto avrei potuto fare da solo."
+          },
+          {
+            "en": "The aim was to record the boat’s position, speed, acceleration and movement with a compact system. We chose an ESP32-S3, a GPS module, a Pololu MinIMU-9 v5 with accelerometer, gyroscope and magnetometer, and a microSD reader for storing the data, powered by a battery intended for small FPV drones. The system is designed to sit inside a waterproof enclosure, so the electronics can stay dry aboard the boat.",
+            "it": "L’obiettivo era registrare posizione, velocità, accelerazione e movimenti della barca con un sistema compatto. Abbiamo scelto un ESP32-S3, un modulo GPS, una Pololu MinIMU-9 v5 con accelerometro, giroscopio e magnetometro e un lettore microSD per salvare i dati, alimentati da una batteria per piccoli droni FPV. Il sistema è pensato per stare dentro una scatola impermeabile, così da proteggere l’elettronica dall’acqua a bordo."
           },
           {
             "en": "That started on a table, with computers, cables and sensors. Before designing a finished board, I had to make the individual parts communicate and understand what they were telling me. The photograph captures that stage: the project spread across a workbench, while software and electronics began to meet.",
@@ -256,8 +323,8 @@ export const portfolioProjects: PortfolioProject[] = [
         },
         "body": [
           {
-            "en": "We designed a PCB from scratch, arranged the connections and components, and had the boards manufactured and shipped from China. Once they arrived, the drawing had to become something physical: soldering, assembling and checking whether the connections worked as intended.",
-            "it": "Abbiamo disegnato una PCB da zero, organizzato collegamenti e componenti e fatto produrre e spedire le schede dalla Cina. Quando sono arrivate, il disegno doveva diventare qualcosa di fisico: saldare, assemblare e controllare se i collegamenti funzionavano come previsto."
+            "en": "We chose the components together, while Francesco handled the PCB design software. We had the boards manufactured by JLCPCB and shipped from China. Once they arrived, the design had to become something physical: soldering, assembling and checking whether the connections worked as intended.",
+            "it": "Abbiamo scelto insieme i componenti, mentre Francesco ha seguito il disegno della PCB nel software di progettazione. Abbiamo fatto produrre le schede da JLCPCB e spedire dalla Cina. Quando sono arrivate, il disegno doveva diventare qualcosa di fisico: saldare, assemblare e controllare se i collegamenti funzionavano come previsto."
           },
           {
             "en": "A wired prototype is useful for trying things out, but it also makes every connection part of the experiment. The circuit boards represent the next step: moving towards a more organised assembly, with a place for the modules and their connections.",
@@ -293,8 +360,12 @@ export const portfolioProjects: PortfolioProject[] = [
             "it": "Rendere le letture comprensibili e il sistema affidabile significa anche controllare il comportamento dei sensori, calibrare, capire i dati mancanti o rumorosi e verificare ogni passaggio. Un modello che si muove è un traguardo utile; poter avere fiducia in ciò che mostra richiede altro lavoro."
           },
           {
-            "en": "Hardware brought a different kind of difficulty: a wiring mistake or a bad connection could stop the system even when the code looked right. Learning to solder, isolate a problem and test one part at a time became as important as programming the firmware.",
-            "it": "L’hardware ha portato difficoltà diverse: un errore nel cablaggio o un contatto problematico potevano fermare il sistema anche con un codice apparentemente corretto. Imparare a saldare, isolare un problema e verificare una parte alla volta è diventato importante quanto programmare il firmware."
+            "en": "The hardest part was intermittent behaviour: connections that seemed fine, a system that worked one moment and failed the next in apparently identical conditions. It took repeated attempts and checks to understand what was happening and find a setup that worked consistently. With hardware, writing the code was only part of the work.",
+            "it": "La difficoltà più grande era il comportamento intermittente: contatti che sembravano a posto, un sistema che funzionava e poi smetteva, in condizioni apparentemente identiche. Servivano prove e controlli ripetuti per capire cosa stesse succedendo e trovare una configurazione che funzionasse con continuità. Con l’hardware, scrivere il codice era soltanto una parte del lavoro."
+          },
+          {
+            "en": "As of October 2026, the telemetry system has not yet been tested on the water. The boat was launched too late for us to fit those trials in. Testing is continuing this autumn; validating the electronics aboard the boat remains a step ahead of us.",
+            "it": "A ottobre 2026 il sistema di telemetria non è ancora stato provato in acqua. Il varo della barca è arrivato troppo tardi per riuscire a fare anche quelle prove. I test stanno proseguendo questo autunno; verificare il funzionamento dell’elettronica a bordo resta un passaggio da affrontare."
           }
         ],
         "image": {
@@ -334,13 +405,13 @@ export const portfolioProjects: PortfolioProject[] = [
       },
       {
         "title": {
-          "en": "Very little money. A huge idea.",
-          "it": "Pochissimi soldi. Un’idea enorme."
+          "en": "An idea taking shape.",
+          "it": "Un’idea che prende forma."
         },
         "body": [
           {
-            "en": "October 2024. We set out to build a single-handed foiling Moth from scratch. With Sapienza Foiling Team, an idea became something we had to find a way to make real: a hull, a sail, the ability to rise out of the water. There was little money and no shortage of difficulties. What we had was a fantastic group of people.",
-            "it": "Ottobre 2024. Ci siamo messi in testa di costruire da zero un Moth monoposto capace di volare sui foil. Con il Sapienza Foiling Team, un’idea è diventata qualcosa a cui dovevamo trovare il modo di dare forma: uno scafo, una vela, la possibilità di sollevarsi dall’acqua. I soldi erano pochi e le difficoltà non mancavano. Avevamo però un gruppo fantastico."
+            "en": "October 2024. We set out to build a single-handed foiling Moth from scratch. With Sapienza Foiling Team, an idea became something we had to find a way to make real: a hull, a sail, the ability to rise out of the water. Each stage brought something new to learn and solve together. We had a fantastic group of people.",
+            "it": "Ottobre 2024. Ci siamo messi in testa di costruire da zero un Moth monoposto capace di volare sui foil. Con il Sapienza Foiling Team, un’idea è diventata qualcosa a cui dovevamo trovare il modo di dare forma: uno scafo, una vela, la possibilità di sollevarsi dall’acqua. Ogni passaggio portava qualcosa di nuovo da imparare e risolvere insieme. Avevamo un gruppo fantastico."
           },
           {
             "en": "Looking at this photo, I see more than a finished boat. I see everything it took to get it there. And the people who made it possible.",
@@ -398,8 +469,8 @@ export const portfolioProjects: PortfolioProject[] = [
             "it": "Poi si è rotto un pezzo. Dopo tutto quello che era servito per arrivare fin lì, ci siamo ritrovati davanti a un altro problema da risolvere. Abbiamo ricostruito il pezzo da capo, con le spranghe di ferro delle ferramenta e le saldature. Quelle ferramenta mitiche sono entrate a far parte del nostro progetto anche loro."
           },
           {
-            "en": "Twenty-four hours later, we put the boat back on the water. That return means as much to me as the first flight. Because I know what stood between the two: a broken part, limited resources, and a team that found a way together.",
-            "it": "Ventiquattro ore dopo, abbiamo rimesso la barca in acqua. Quel ritorno, per me, vale quanto il primo volo. Perché so cosa c’è stato in mezzo: un pezzo rotto, risorse limitate e un team che, insieme, ha trovato il modo."
+            "en": "Twenty-four hours later, we put the boat back on the water. That return means as much to me as the first flight. Because I know what stood between the two: a broken part, a repair to work out, and a team that found a way together.",
+            "it": "Ventiquattro ore dopo, abbiamo rimesso la barca in acqua. Quel ritorno, per me, vale quanto il primo volo. Perché so cosa c’è stato in mezzo: un pezzo rotto, una riparazione da inventare e un team che, insieme, ha trovato il modo."
           }
         ],
         "image": {
@@ -460,6 +531,10 @@ export const portfolioProjects: PortfolioProject[] = [
           {
             "en": "I started with a website to learn, and found myself helping build a team, leading electronics work and taking a boat to Garda. I am proud of that path because I know how much effort it took, and how much of it belongs to the people around me. There is still a lot to improve; being part of that work is something that makes me happy.",
             "it": "Sono partito da un sito per imparare e mi sono ritrovato a contribuire alla costruzione di un team, gestire il lavoro sull’elettronica e portare una barca al Garda. Sono orgoglioso di questo percorso perché so quanto impegno ha richiesto e quanto di quel risultato appartenga alle persone intorno a me. C’è ancora molto da migliorare; far parte di questo lavoro è una cosa che mi rende felice."
+          },
+          {
+            "en": "Balancing this with university did not go particularly well: I devoted a lot of time to the team, and my studies felt that cost. I still think it was worth it. Building and maintaining something real for two years taught me an enormous amount and helped me understand what I enjoy doing.",
+            "it": "Conciliare tutto questo con l’università non mi è riuscito particolarmente bene: ho dedicato molto tempo al team e lo studio ne ha risentito. Penso comunque che ne sia valsa la pena. Costruire e mantenere qualcosa di reale per due anni mi ha dato tantissimo e mi ha aiutato a capire cosa mi piace fare."
           }
         ]
       }
@@ -487,20 +562,44 @@ export const portfolioProjects: PortfolioProject[] = [
         "RECUP recupera il cibo invenduto nei mercati e lo ridistribuisce gratuitamente. Quello che ha perso valore economico diventa un’occasione di condivisione, incontro e partecipazione. L’impatto ambientale e il valore sociale nascono dalla stessa attività quotidiana.",
       ),
       text(
-        "The collaboration began through someone inside RECUP whom I had worked with on a previous project. That connection brought us together, and I joined the work on a management platform tailored to the association’s needs.",
-        "La collaborazione è nata attraverso una persona all’interno di RECUP con cui avevo già lavorato a un altro progetto. Da quel rapporto siamo entrati in contatto e ho collaborato alla realizzazione di un gestionale costruito su misura per le esigenze dell’associazione.",
+        "I already knew RECUP by name and through its social impact in Milan and Rome. The collaboration began through Marsilea: someone I had worked with there was also involved in RECUP and, following a good experience together, recommended me for this project. That introduction brought us into contact.",
+        "Conoscevo già RECUP per nome e per il suo impatto sociale a Milano e Roma. La collaborazione è nata attraverso Marsilea: una persona con cui avevo lavorato lì faceva parte anche di RECUP e, dopo la buona esperienza insieme, mi ha consigliato per questo progetto. Da quella presentazione siamo entrati in contatto.",
       ),
       text(
-        "Built with Next.js, TypeScript and Supabase, it connects two views of the same work: a portal for volunteers to record recovered food and the people present, and a private administration area to manage activities, review data and prepare reports.",
-        "Realizzato con Next.js, TypeScript e Supabase, il gestionale collega due punti di vista sullo stesso lavoro: un portale per le persone volontarie, che registrano il cibo recuperato e chi partecipa, e un’area privata per gli admin, che gestiscono le attività, consultano i dati e preparano i report.",
+        "The association had a management platform that no longer met its needs and had gradually been abandoned. Recovery data was also collected through Google Forms and a small software tool. A food name entered in the plural could differ from the database entry; a volunteer’s name could be misspelled or written differently, and quantities could contain typing errors. These small inconsistencies made filtering, cleaning and calculating useful indicators difficult. We decided to rebuild the platform around the way the association actually works.",
+        "L’associazione aveva un gestionale che non rispondeva alle sue esigenze e che aveva progressivamente abbandonato. I dati dei recuperi venivano raccolti anche attraverso Google Moduli e un piccolo software. Un alimento scritto al plurale poteva non corrispondere alla voce nel database; il nome di un volontario poteva essere scritto male o in modo diverso, e le quantità potevano contenere errori di battitura. Queste piccole differenze rendevano difficile filtrare, pulire i dati e ricavarne indicatori utili. Abbiamo deciso di rifare il gestionale partendo dal modo in cui l’associazione lavora davvero.",
+      ),
+      text(
+        "We agreed to start with an MVP focused on three essentials: the food name, kilograms recovered and volunteers present. That first version made the proposal concrete so we could assess it together. After a period of evaluation, the association chose to continue. The scope then grew to connect foods with their impact indicators and include volunteers, corporate volunteers, associations and guests who were not registered. Beta testing helped us refine the platform before introducing it into the markets.",
+        "Abbiamo concordato di partire da un MVP concentrato su tre informazioni essenziali: nome dell’alimento, chili recuperati e volontari presenti. Quella prima versione rendeva concreta la proposta e ci permetteva di valutarla insieme. Dopo un periodo di valutazione, l’associazione ha scelto di proseguire. Il progetto si è poi ampliato, collegando gli alimenti ai loro indicatori di impatto e includendo volontari, volontari aziendali, associazioni e ospiti non iscritti. Il beta testing ci ha aiutato a mettere a punto il gestionale prima di introdurlo nei mercati.",
+      ),
+      text(
+        "I chose Next.js and Supabase because they were technologies I knew and felt comfortable working with. They let me move quickly and fit well with AI-assisted development tools. The platform, built with TypeScript, connects two views of the same work: a portal for volunteers to record recovered food and the people present, and a private administration area to manage activities, review data and prepare reports.",
+        "Ho scelto Next.js e Supabase perché erano tecnologie che conoscevo e con cui mi trovavo bene. Mi permettevano di procedere rapidamente e si integravano bene con gli strumenti di sviluppo assistito dall’AI. Il gestionale, realizzato con TypeScript, collega due punti di vista sullo stesso lavoro: un portale per le persone volontarie, che registrano il cibo recuperato e chi partecipa, e un’area privata per gli admin, che gestiscono le attività, consultano i dati e preparano i report.",
       ),
       text(
         "Recording the food is only the beginning. The platform brings together recovered weight, participation and environmental indicators, including estimates of water saved and CO₂ emissions avoided. The numbers help make visible both the resources preserved and the people who make each recovery possible.",
         "Registrare gli alimenti è solo il punto di partenza. La piattaforma mette insieme peso recuperato, partecipazione e indicatori ambientali, comprese le stime di acqua risparmiata e CO₂ evitata. I numeri aiutano a rendere visibili sia le risorse preservate sia le persone che rendono possibile ogni recupero.",
       ),
       text(
-        "Having organised, reportable data can help RECUP explain its impact to donors and funding partners, support funding applications and identify where to improve its activities. For me, the value of this software lies in helping that work become easier to understand and sustain.",
-        "Avere dati organizzati e rendicontabili può aiutare RECUP a raccontare il proprio impatto a donatori e finanziatori, sostenere richieste di fondi e capire dove migliorare le attività. Per me il valore di questo software sta anche qui: aiutare un lavoro importante a essere più comprensibile e più sostenibile nel tempo.",
+        "The calculations for water saved, CO₂ emissions avoided and estimated economic savings were developed by RECUP with researchers at the University of Milan. My role was to implement the method supplied by the association in the platform. I also proposed other databases, but together we chose to keep this approach for the current version.",
+        "I calcoli per l’acqua risparmiata, la CO₂ evitata e il risparmio economico stimato sono stati elaborati da RECUP insieme a docenti dell’Università degli Studi di Milano. Il mio ruolo è stato tradurre nel gestionale il metodo fornito dall’associazione. Ho proposto anche altri database, ma per questa versione abbiamo scelto insieme di mantenere questo approccio.",
+      ),
+      text(
+        "Organised data changes how the association can see and explain its work. Recoveries that were previously scattered across individual entries become a shared overview of its activities and impact. For me, the value is in making that everyday work easier to understand, report and improve.",
+        "Avere dati organizzati cambia il modo in cui l’associazione può vedere e raccontare il proprio lavoro. I recuperi, prima dispersi tra singole registrazioni, diventano una visione condivisa delle attività e del loro impatto. Per me il valore sta nel rendere quel lavoro quotidiano più comprensibile, rendicontabile e migliorabile.",
+      ),
+      text(
+        "As of October 2026, the platform is being introduced into the markets. The association’s feedback has been positive, and we are continuing to fix issues and improve the workflows as they are used in everyday activity. Building it is an ongoing collaboration: real use tells us what needs refining next.",
+        "A ottobre 2026 il gestionale è in fase di introduzione nei mercati. Il riscontro dell’associazione è positivo e continuiamo a correggere i problemi e migliorare i flussi man mano che entrano nell’attività quotidiana. È una collaborazione che continua: l’utilizzo reale ci indica cosa affinare e cosa serve aggiungere.",
+      ),
+      text(
+        "I work directly with the association’s administrators to gather requests and define new features. Market administrators provide feedback from everyday use. These conversations connect the association’s overall needs with what happens when someone actually records a recovery.",
+        "Lavoro direttamente con gli amministratori dell’associazione per raccogliere le richieste e definire le nuove funzioni. Gli amministratori dei mercati mi restituiscono invece i feedback dell’utilizzo quotidiano. Questo confronto collega le esigenze generali di RECUP a ciò che succede quando qualcuno registra davvero un recupero.",
+      ),
+      text(
+        "The hardest part has been turning real needs into practical software. A request is not always fully defined at the start, and explaining possibilities, constraints and different workflows takes work on both sides. Sometimes a proposed solution only becomes clear after we explore another route and return to the original idea. That can be frustrating, but it has taught me to listen more carefully, make proposals concrete and give people time to understand how a feature would fit their work.",
+        "La difficoltà maggiore è stata tradurre le esigenze reali in un software pratico da usare. Una richiesta non è sempre del tutto definita all’inizio, e spiegare possibilità, limiti e diversi modi di lavorare richiede un confronto da entrambe le parti. A volte una soluzione proposta diventa chiara soltanto dopo aver esplorato un’altra strada ed essere tornati all’idea iniziale. Può essere frustrante, ma mi ha insegnato ad ascoltare meglio, rendere concrete le proposte e lasciare il tempo di capire come una funzione si inserirebbe nel lavoro quotidiano.",
       ),
       text(
         "The social impact of technology is one of the things that interests me most. Working with RECUP means meeting people who care deeply about sustainability and inclusion, with experiences and perspectives I find fascinating. It is a project I care about because the software supports something that matters to me, alongside people I enjoy learning from.",
@@ -541,6 +640,9 @@ export const portfolioProjects: PortfolioProject[] = [
         body: [text(
           "The next step records who took part. Keeping participation alongside the food data makes room for the social dimension: the time, energy and relationships that make the activity possible.",
           "Il passaggio successivo registra chi ha partecipato. Affiancare le presenze ai dati sul cibo dà spazio anche alla dimensione sociale: il tempo, l’energia e le relazioni che rendono possibile l’attività.",
+        ), text(
+          "At first, I thought food and volunteers could be entered in a single form. Using the application showed us that the workflow needed separate sections. That change came from trying it in practice and understanding which sequence made the task easier.",
+          "All’inizio pensavo che alimenti e volontari potessero essere inseriti in un unico modulo. Utilizzando l’applicazione abbiamo capito che il flusso aveva bisogno di sezioni distinte. Il cambiamento è nato dalle prove pratiche e dal capire quale sequenza rendesse il compito più semplice.",
         )],
         caption: text("Recovery form · finding the volunteers present.", "Modulo di recupero · ricerca delle persone presenti."),
       },
@@ -566,8 +668,8 @@ export const portfolioProjects: PortfolioProject[] = [
         src: "/Recup/reports.webp", width: 2848, height: 1640,
         title: text("Making the impact easier to explain.", "Rendere l’impatto più facile da raccontare."),
         body: [text(
-          "Reports bring together recovered food, attendance and environmental estimates. Filters and exports help turn daily entries into evidence the association can use for reporting, conversations with supporters and funding applications.",
-          "I report riuniscono cibo recuperato, presenze e stime ambientali. Filtri ed esportazioni aiutano a trasformare le registrazioni quotidiane in informazioni utili per la rendicontazione, il dialogo con chi sostiene RECUP e le richieste di finanziamento.",
+          "Reports bring together recovered food, attendance and environmental estimates. Filters and exports help turn daily entries into evidence the association can use to report its activities and explain their value to the community and its supporters.",
+          "I report riuniscono cibo recuperato, presenze e stime ambientali. Filtri ed esportazioni aiutano a trasformare le registrazioni quotidiane in informazioni utili per rendicontare le attività e raccontarne il valore alla comunità e a chi sostiene RECUP.",
         )],
         caption: text("Admin area · reports, environmental indicators and exports.", "Area admin · report, indicatori ambientali ed esportazioni."),
       },
@@ -584,7 +686,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     slug: "edocla",
-    title: "Edocla Costruzioni",
+    title: "EDOCLA Costruzioni",
     category: "Website · Construction",
     color: "#d3ad90",
     ink: "#412d20",
@@ -592,19 +694,23 @@ export const portfolioProjects: PortfolioProject[] = [
     github: "https://github.com/nannipy/ec-website",
     designCredit: { name: "Iachini Design" },
     images: ["/work/edocla-opening-v2.jpg"],
-    tools: ["React", "Vercel", "Resend"],
+    tools: ["React", "Figma", "Vercel", "Resend", "Cloudflare", "Umami"],
     summary: text(
       "A friend's construction company in Rome. A simple website to show the value of its work.",
       "L’impresa edile di un caro amico, a Roma. Un sito semplice per dare valore al suo lavoro.",
     ),
     story: [
       text(
-        "Edocla is a construction company in Rome run by a close friend. This project began with a very personal reason: helping someone I care about present his company online, with the same care he puts into his work.",
-        "Edocla è un’impresa edile a Roma di un mio caro amico. Questo progetto è nato da un motivo molto personale: aiutare una persona a cui tengo a presentare online la sua azienda, con la stessa cura che mette nel proprio lavoro.",
+        "EDOCLA is a construction company in Rome run by a close friend. Founded in 2026, it was starting from scratch and needed an online presence as it began taking on work. The goal was straightforward: a simple website to introduce the company and collect enquiries and requests for estimates from potential clients.",
+        "EDOCLA è un’impresa edile a Roma di un mio caro amico. Nata nel 2026, partiva da zero e aveva bisogno di una presenza online mentre iniziava a lavorare. L’obiettivo era concreto: un sito semplice per presentare l’azienda e raccogliere contatti, proposte e richieste di preventivo dai potenziali clienti.",
       ),
       text(
-        "We worked together with another friend, Iachini Design, who designed the website. My role was to implement that design in React, deploy the application on Vercel and connect the contact emails through Resend. It was a collaboration with clear roles and one shared goal: a lean, effective website that lets the company’s value come through.",
-        "Abbiamo lavorato insieme a un altro amico, Iachini Design, che ha realizzato il design del sito. Io mi sono occupato di implementarlo in React, pubblicare l’applicazione su Vercel e collegare le email del modulo di contatto tramite Resend. Una collaborazione con ruoli chiari e un obiettivo comune: un sito snello, efficace, capace di far emergere il valore dell’azienda.",
+        "Another friend, Giorgio Iachini of Iachini Design, created the complete design in Figma. Giorgio studied design in Cambridge; my role was to turn his design into a React web application. The work was fairly quick and straightforward, with most of the care going into translating each component faithfully into the functioning site.",
+        "Un altro amico, Giorgio Iachini di Iachini Design, ha realizzato interamente il progetto grafico in Figma. Giorgio ha studiato design a Cambridge; il mio ruolo è stato tradurre il suo design in un’applicazione web React. Il lavoro è stato piuttosto semplice e veloce: l’attenzione principale è andata a riprodurre correttamente i singoli componenti nel sito funzionante.",
+      ),
+      text(
+        "I connected the contact form at the bottom of the page to Resend so enquiries could reach the company by email, and deployed the application on Vercel. The domain was purchased through Cloudflare, and I added basic analytics with Umami. A small, focused implementation gave the new business a place to present itself and receive enquiries.",
+        "Ho collegato il modulo di contatto in fondo alla pagina a Resend, per far arrivare le richieste all’azienda via email, e pubblicato l’applicazione su Vercel. Il dominio è stato acquistato su Cloudflare e ho aggiunto alcune statistiche di base con Umami. Un’implementazione contenuta, pensata per dare alla nuova attività uno spazio in cui presentarsi e ricevere richieste.",
       ),
     ],
     gallery: [
@@ -624,8 +730,8 @@ export const portfolioProjects: PortfolioProject[] = [
         src: "/work/edocla-services-v2.jpg", width: 1195, height: 530,
         title: text("Make the work easy to explore.", "Rendere il lavoro facile da esplorare."),
         body: [text(
-          "The services section puts the practical questions first. Visitors can explore the kinds of work Edocla offers, from construction and renovation to interiors and systems. The expandable groups keep a substantial list readable without turning the page into a wall of text.",
-          "La sezione servizi parte dalle domande pratiche. Chi visita il sito può esplorare gli interventi di Edocla, dalle costruzioni alle ristrutturazioni, dagli interni agli impianti. I gruppi espandibili tengono leggibile un elenco ampio, senza trasformare la pagina in un muro di testo.",
+          "The services section puts the practical questions first. Visitors can explore the kinds of work EDOCLA offers, from construction and renovation to interiors and systems. The expandable groups keep a substantial list readable without turning the page into a wall of text.",
+          "La sezione servizi parte dalle domande pratiche. Chi visita il sito può esplorare gli interventi di EDOCLA, dalle costruzioni alle ristrutturazioni, dagli interni agli impianti. I gruppi espandibili tengono leggibile un elenco ampio, senza trasformare la pagina in un muro di testo.",
         ), text(
           "This is where a simple React application is enough: clear sections, direct interactions and content that is easy to find. I wanted the implementation to support the design and make the information useful, without adding complexity for its own sake.",
           "Qui una semplice applicazione React è sufficiente: sezioni chiare, interazioni dirette e contenuti facili da trovare. Volevo che l’implementazione sostenesse il design e rendesse utili le informazioni, senza aggiungere complessità fine a sé stessa.",
@@ -642,7 +748,7 @@ export const portfolioProjects: PortfolioProject[] = [
           "The large numbered steps are part of Iachini Design’s visual language. My contribution was to bring that layout into the application, keeping the sequence and the explanations connected as visitors move through the page.",
           "Le grandi fasi numerate fanno parte del linguaggio visivo di Iachini Design. Il mio contributo è stato portare quel layout nell’applicazione, mantenendo collegate la sequenza e le spiegazioni mentre si scorre la pagina.",
         )],
-        caption: text("A detail of the four stages of Edocla’s working process.", "Un dettaglio delle quattro fasi del processo di lavoro di Edocla."),
+        caption: text("A detail of the four stages of EDOCLA’s working process.", "Un dettaglio delle quattro fasi del processo di lavoro di EDOCLA."),
       },
       {
         src: "/work/edocla-contact-v2.jpg", width: 1195, height: 540,
@@ -660,8 +766,8 @@ export const portfolioProjects: PortfolioProject[] = [
         src: "/work/edocla-form-detail-v2.jpg", width: 487, height: 535,
         title: text("Simple, and useful.", "Semplice, e utile."),
         body: [text(
-          "Looking back, what matters most to me is the collaboration. A friend brought his company, another brought the design, and I helped turn it into a working website. The result does what we needed: it presents Edocla, explains its work and gives people a clear way to get in touch.",
-          "Ripensandoci, la parte che conta di più per me è la collaborazione. Un amico ha portato la sua azienda, un altro il design, e io ho aiutato a trasformare tutto in un sito funzionante. Il risultato fa ciò che ci serviva: presenta Edocla, spiega il suo lavoro e dà alle persone un modo chiaro per contattarla.",
+          "Looking back, what matters most to me is the collaboration. A friend brought his company, another brought the design, and I helped turn it into a working website. The result does what we needed: it presents EDOCLA, explains its work and gives people a clear way to get in touch.",
+          "Ripensandoci, la parte che conta di più per me è la collaborazione. Un amico ha portato la sua azienda, un altro il design, e io ho aiutato a trasformare tutto in un sito funzionante. Il risultato fa ciò che ci serviva: presenta EDOCLA, spiega il suo lavoro e dà alle persone un modo chiaro per contattarla.",
         )],
         caption: text("A closer look at the enquiry form connected to Resend.", "Uno sguardo ravvicinato al modulo di contatto collegato a Resend."),
       },
@@ -694,20 +800,32 @@ export const portfolioProjects: PortfolioProject[] = [
     },
     "story": [
       {
-        "en": "I wanted a small server running at home around the clock: somewhere to host a Telegram bot, start a Docker container, automate a task or try whatever idea came to mind. A computer that could keep doing its job when my laptop was closed, available whenever I needed it. That is where Nannix server began.",
-        "it": "Volevo un piccolo server acceso a casa H24: un posto dove ospitare un bot Telegram, avviare un container Docker, automatizzare un’attività o provare qualsiasi idea mi passasse per la testa. Un computer che continuasse a fare il suo lavoro anche con il mio portatile chiuso, disponibile quando mi serve. Nannix server nasce da questa esigenza."
+        "en": "Nannix server began with curiosity: I wanted a server of my own, with applications running around the clock that I could reach from anywhere. Immich was the first service I installed, followed by Tailscale to connect the machine to my other devices and access it away from home.",
+        "it": "Nannix server nasce dalla curiosità: volevo un server mio, con applicazioni in funzione H24 a cui poter accedere da ovunque. Il primo servizio che ho installato è stato Immich, seguito da Tailscale per collegare la macchina agli altri dispositivi e raggiungerla anche fuori casa."
       },
       {
-        "en": "Alongside that freedom to experiment, I wanted to depend less on Google and other cloud services. Paying recurring subscriptions as my photo library and files grew did not feel sustainable for me over time. I wanted to decide where my data lived and how to manage it, on hardware I could take care of myself.",
-        "it": "Accanto alla libertà di sperimentare, volevo dipendere meno da Google e dagli altri servizi cloud. Pagare abbonamenti ricorrenti mentre foto e file aumentano non mi sembrava sostenibile nel tempo, soprattutto dal punto di vista dei costi. Volevo scegliere dove conservare i miei dati e come gestirli, su hardware di cui potermi occupare direttamente."
+        "en": "Alongside that freedom to experiment, I wanted to depend less on Google and other cloud services. As my photo library and files grew, I wanted more control over their storage and the services I used. I wanted to decide where my data lived and how to manage it, on hardware I could take care of myself.",
+        "it": "Accanto alla libertà di sperimentare, volevo dipendere meno da Google e dagli altri servizi cloud. Con la crescita delle mie raccolte di foto e file, volevo avere più controllo sull’archiviazione e sui servizi che utilizzavo. Volevo scegliere dove conservare i miei dati e come gestirli, su hardware di cui potermi occupare direttamente."
       },
       {
-        "en": "I started with a 2016 MacBook Air I already had. Linux and Docker turned it into a home for both everyday services and new experiments. Reusing it kept the initial cost down and gave a second life to a machine that still had something to offer.",
-        "it": "Sono partito da un MacBook Air del 2016 che avevo già. Linux e Docker lo hanno trasformato in una casa per i servizi quotidiani e per nuovi esperimenti. Riutilizzarlo ha contenuto la spesa iniziale e dato una seconda vita a una macchina che aveva ancora qualcosa da offrire."
+        "en": "I started with a 2016 MacBook Air that was sitting unused at home: a modest machine, without a battery. Linux and Docker gave it a second life. Without a battery, a power cut interrupts the server immediately; that remains a limitation of this setup.",
+        "it": "Sono partito da un MacBook Air del 2016 che avevo fermo a casa: una macchina poco potente, senza batteria. Linux e Docker gli hanno dato una seconda vita. Senza batteria, un blackout interrompe subito il funzionamento del server: rimane un limite di questa configurazione."
       },
       {
         "en": "Today Immich holds my photos and videos, Filebrowser gives me access to my files and Pi-hole helps me control DNS traffic on my network. Tailscale lets me reach the server from my other devices, even away from home. The services make it useful today; being able to add the next idea is what keeps the project interesting.",
         "it": "Oggi Immich ospita le mie foto e i miei video, Filebrowser mi dà accesso ai file e Pi-hole mi aiuta a controllare il traffico DNS della rete. Tailscale mi permette di raggiungere il server dagli altri dispositivi, anche fuori casa. I servizi lo rendono utile oggi; poterci aggiungere la prossima idea è ciò che continua a rendere interessante il progetto."
+      },
+      {
+        "en": "Because the computer is old, I wanted to understand how it was coping with continuous use. I added monitoring for disk health, resource use and service availability, both to notice signs of trouble and to see which activities put the most load on the machine. During the summer in Rome, the temperatures I observed remained acceptable.",
+        "it": "Essendo un computer vecchio, volevo capire come affrontasse l’utilizzo continuo. Ho aggiunto il monitoraggio della salute dei dischi, dell’uso delle risorse e della disponibilità dei servizi, sia per accorgermi di eventuali segnali di problemi sia per capire quali attività pesassero di più sulla macchina. Durante l’estate romana, le temperature che ho osservato sono rimaste accettabili."
+      },
+      {
+        "en": "So far, the main challenge has been the computer’s limited processing power. Large batches of photos and backups take time, especially when Immich also has to process the images with its machine-learning features. This has made the hardware’s limits tangible and taught me to pay attention to workloads and cooling.",
+        "it": "Finora la difficoltà principale è stata la potenza limitata del computer. Grandi quantità di foto e backup richiedono tempo, soprattutto quando Immich deve anche elaborare le immagini con le sue funzioni di machine learning. È stato un modo concreto di conoscere i limiti dell’hardware e imparare a prestare attenzione ai carichi di lavoro e al raffreddamento."
+      },
+      {
+        "en": "The project also opened a door to many open-source tools, which account for most of the software I use here. I explored different Linux distributions and currently use Linux Mint; I would like to move to Ubuntu Server for a setup more focused on hosting services. Along the way I learned Linux commands, Docker and container management, and discovered what Kubernetes is for, although I have not used it myself.",
+        "it": "Il progetto mi ha fatto scoprire tanti strumenti open source, che costituiscono la maggior parte del software che uso qui. Ho esplorato diverse distribuzioni Linux e oggi utilizzo Linux Mint; vorrei passare a Ubuntu Server per una configurazione più orientata a ospitare servizi. Nel percorso ho imparato comandi Linux, Docker e la gestione dei container, e scoperto a cosa serve Kubernetes, anche se non l’ho ancora utilizzato."
       }
     ],
     "gallery": [
@@ -725,8 +843,8 @@ export const portfolioProjects: PortfolioProject[] = [
         },
         "body": [
           {
-            "en": "The machine sits in a corner of my desk, connected and ready to host services throughout the day. Its limited memory and ageing SSD shape what I can run. I can improve the setup as needs and budget change, without waiting for the perfect hardware to begin.",
-            "it": "La macchina occupa un angolo della scrivania, collegata e pronta a ospitare servizi durante tutta la giornata. La memoria limitata e l’SSD che invecchia orientano ciò che posso farci girare. Posso migliorare la configurazione man mano che cambiano le esigenze e il budget, senza aspettare l’hardware perfetto per cominciare."
+            "en": "The machine sits in a corner of my desk, connected and ready to host services throughout the day. Its limited memory and ageing SSD shape what I can run. I can improve the setup as my needs change, without waiting for the perfect hardware to begin.",
+            "it": "La macchina occupa un angolo della scrivania, collegata e pronta a ospitare servizi durante tutta la giornata. La memoria limitata e l’SSD che invecchia orientano ciò che posso farci girare. Posso migliorare la configurazione man mano che cambiano le esigenze, senza aspettare l’hardware perfetto per cominciare."
           }
         ]
       },
@@ -744,8 +862,8 @@ export const portfolioProjects: PortfolioProject[] = [
         },
         "body": [
           {
-            "en": "A familiar laptop now runs a Linux environment I can configure and understand. It is the foundation for the services I use and a place to learn by building something that stays running after the experiment is over.",
-            "it": "Un portatile familiare ora ospita un ambiente Linux che posso configurare e capire. È la base dei servizi che uso e uno spazio per imparare costruendo qualcosa che rimane in funzione anche dopo la fase di esperimento."
+            "en": "The laptop currently runs Linux Mint. Exploring distributions has become part of the project, alongside learning the commands and tools needed to maintain services. Ubuntu Server is a possible next step I would like to try.",
+            "it": "Il portatile oggi utilizza Linux Mint. Esplorare le distribuzioni è diventato parte del progetto, insieme a imparare i comandi e gli strumenti necessari per mantenere i servizi. Ubuntu Server è un possibile prossimo passo che vorrei provare."
           }
         ]
       },
@@ -930,8 +1048,12 @@ export const portfolioProjects: PortfolioProject[] = [
     ),
     story: [
       text(
-        "A personal Pomodoro tool written in Go, with a system-tray timer and desktop notifications. A deliberately small project built around the rhythm of working and taking a break.",
-        "Uno strumento Pomodoro personale scritto in Go, con timer nella barra di sistema e notifiche desktop. Un progetto volutamente piccolo, intorno al ritmo del lavoro e delle pause.",
+        "Pomodoro Go began as a quick experiment: I wanted to build an application for my Mac’s menu bar and try a new language. I chose Go for its efficiency, speed and lightness, and used AI tools to help me develop it. In about an hour, I went from the idea to studying with an application I had made myself.",
+        "Pomodoro Go nasce come un esperimento veloce: volevo costruire un’applicazione per la menu bar del mio Mac e provare un nuovo linguaggio. Ho scelto Go per l’efficienza, la velocità e la leggerezza, facendomi aiutare anche dagli strumenti AI nello sviluppo. In circa un’ora sono passato dall’idea a studiare con un’applicazione fatta da me.",
+      ),
+      text(
+        "The workflow is simple: I start a timer, get notified when it is time to stop and take a break, then start again. The satisfaction came from completing something small and using it straight away. It was a short project, but it gave me a practical first encounter with Go and building a menu-bar application.",
+        "Il funzionamento è semplice: avvio un timer, ricevo una notifica quando è il momento di fermarmi e fare una pausa, poi riparto. La soddisfazione è stata completare qualcosa di piccolo e usarlo subito. Un progetto breve, che mi ha dato un primo contatto pratico con Go e con lo sviluppo di un’applicazione per la menu bar.",
       ),
     ],
   },
@@ -951,28 +1073,44 @@ export const portfolioProjects: PortfolioProject[] = [
     ),
     story: [
       text(
-        "Training matters a lot to me. Cycling and running are part of my everyday life: I enjoy being outside, putting in the work and seeing how I change over time. That is why I care about understanding what is happening around each session, as well as the performance itself.",
-        "L’allenamento è una parte importante della mia vita. Il ciclismo e la corsa fanno parte della mia quotidianità: mi piace stare fuori, impegnarmi e vedere come cambio nel tempo. Per questo tengo a capire ciò che succede intorno a ogni allenamento, oltre alla prestazione in sé.",
+        "Aesculapius began with the idea of talking to the data recorded by my Garmin: an indirect way to listen to my body and understand it better. I wanted to use AI and software to explore training, recovery, sleep and wellbeing in the context of my own days.",
+        "Aesculapius nasce dall’idea di parlare con i dati registrati dal mio Garmin: un modo indiretto di ascoltare il mio corpo e conoscerlo meglio. Volevo usare l’AI e il software per esplorare allenamento, recupero, sonno e benessere nel contesto delle mie giornate.",
+      ),
+      text(
+        "Before Aesculapius there was FoxRun, a project still available on my GitHub. It connected to Strava, rather than Garmin Connect, collected my activity data and used it to build an intelligent dashboard for exploring training, performance and trends.",
+        "Prima di Aesculapius c’era FoxRun, un progetto ancora disponibile sul mio GitHub. Si collegava a Strava, invece che a Garmin Connect, raccoglieva i dati delle mie attività e li usava per costruire una dashboard intelligente con cui esplorare allenamenti, prestazioni e andamenti.",
+      ),
+      text(
+        "Changes to Strava’s API access conditions brought FoxRun to a halt. I wanted more independence in accessing my activity data and choosing how to use it. That led me to look for another way.",
+        "FoxRun si è fermato con il cambiamento delle condizioni di accesso alle API di Strava. Volevo più autonomia nell’accesso ai dati delle mie attività e nella scelta di come usarli. Da questa esigenza ho iniziato a cercare un’altra strada.",
+      ),
+      text(
+        "Garmin Connect gave me a richer, more detailed picture of my days, beyond the activities I shared on Strava. Aesculapius became possible thanks to python-garminconnect, the open source library maintained by cyberjunky. I am grateful for the work behind it: it gave me a starting point for accessing my Garmin data and building something around my own needs.",
+        "Garmin Connect mi offriva un quadro più ricco e preciso delle mie giornate, oltre alle attività che condividevo su Strava. Aesculapius è diventato possibile grazie a python-garminconnect, la libreria open source curata da cyberjunky. Apprezzo molto il lavoro che c’è dietro: mi ha dato una base per accedere ai miei dati Garmin e costruire qualcosa intorno alle mie esigenze.",
       ),
       text(
         "My Garmin records a lot about my days. Training, sleep, recovery and physiological measurements are all there, but I wanted to bring them into one picture and ask questions that start from my own context.",
         "Il mio Garmin registra molto delle mie giornate. Allenamento, sonno, recupero e parametri fisiologici ci sono tutti, ma volevo riunirli in un quadro unico e fare domande che partissero dal mio contesto.",
       ),
       text(
-        "I find it fascinating to observe those trends and explore whether they can help me anticipate changes in my condition. Managing effort, recovery and injury concerns, while performing at my best, is something I care about deeply. I want to understand the data alongside how I actually feel, and learn which questions are worth asking.",
-        "Trovo molto interessante osservare questi andamenti e capire se possono aiutarmi ad anticipare cambiamenti nella mia condizione. Gestire lo sforzo, il recupero e le difficoltà legate agli infortuni, cercando di esprimere al meglio le mie prestazioni, è una cosa a cui tengo molto. Voglio leggere i dati insieme a come mi sento davvero e imparare quali domande vale la pena fare.",
+        "Training is also a way for me to unwind and relax. I want it to be useful and suited to my situation, while leaving room for the pleasure of cycling and running. Finding that balance is part of what I want the assistant to help me explore.",
+        "L’allenamento è anche un modo per distendermi e rilassarmi. Voglio che sia funzionale e adatto alla mia situazione, lasciando spazio al piacere della corsa e della bici. Trovare questo equilibrio è parte di ciò che vorrei esplorare con l’assistente.",
       ),
       text(
-        "That was the reason for Aesculapius: a personal experiment in turning the data I already collect into something I can discuss. I wanted to connect training, food, rest and sleep in one conversation. Monitoring my own patterns and exploring possible predictions are goals of the project, rather than capabilities I have already validated.",
-        "Da qui nasce Aesculapius: un esperimento personale per trasformare i dati che già raccolgo in qualcosa su cui confrontarmi. Volevo collegare allenamenti, alimentazione, riposo e sonno in un’unica conversazione. Monitorare i miei andamenti ed esplorare possibili previsioni sono obiettivi del progetto, ancora da verificare nell’uso.",
+        "As of October 2026, the project works and I use it occasionally, but it is still experimental. Telegram is its main interface: a chat with an assistant built around my Garmin data. I am still looking for the form of conversation that makes it most useful in everyday life.",
+        "A ottobre 2026 il progetto funziona e ogni tanto lo utilizzo, ma è ancora sperimentale. L’interfaccia principale è Telegram: una chat con un assistente costruito intorno ai miei dati Garmin. Sto ancora cercando la forma di conversazione che lo renda più utile nella vita quotidiana.",
       ),
       text(
-        "The project combines Garmin Connect data with an AI and retrieval pipeline. I chose a Telegram bot as the interface so that the conversation could fit into a tool I already use, instead of another dashboard to check.",
-        "Il progetto combina i dati Garmin Connect con una pipeline AI e di retrieval. Ho scelto un bot Telegram come interfaccia per inserire la conversazione in uno strumento che uso già, invece di aggiungere un’altra dashboard da consultare.",
+        "The longer-term idea is something like a Jarvis for training: an assistant that can connect my personal data with books and technical sources on running, cycling and sport. I would like that combination to support a more scientific approach, grounded in my own context. Bringing those sources together is a direction I want to develop.",
+        "L’idea per il futuro è quasi un Jarvis per l’allenamento: un assistente capace di collegare i miei dati personali a libri e fonti tecniche sulla corsa, sul ciclismo e sullo sport. Vorrei che questo insieme permettesse un approccio più scientifico, legato alla mia situazione. Integrare queste fonti è una direzione che voglio sviluppare.",
       ),
       text(
-        "Self-hosting is part of the idea: I want to own the storage and understand the processing of my personal data. The bot is a project shaped around my needs, and something I can keep refining as I learn from using it.",
-        "Il self-hosting fa parte dell’idea: voglio gestire l’archiviazione e capire come vengono elaborati i miei dati personali. Il bot è un progetto costruito intorno alle mie esigenze, da affinare mentre imparo a usarlo.",
+        "The hardest part has been finding the right interaction: easy, intuitive and natural enough to fit into training. I want the information to stay up to date automatically and the conversation to be useful without becoming another task to manage. Solving that experience matters more to me than adding features; it could eventually make the project useful to other people too.",
+        "La difficoltà maggiore è trovare l’interazione giusta: facile, intuitiva e abbastanza naturale da inserirsi nell’allenamento. Vorrei che le informazioni si aggiornassero automaticamente e che la conversazione fosse utile senza diventare un’altra attività da gestire. Mettere a punto questa esperienza conta per me più che aggiungere funzioni; potrebbe rendere il progetto utile anche ad altre persone.",
+      ),
+      text(
+        "Self-hosting is part of the idea: I want to own the storage and understand the processing of my personal data. The project is still evolving: I am experimenting, learning from using it and looking for the right balance between data, questions and answers that are actually useful in everyday life.",
+        "Il self-hosting fa parte dell’idea: voglio gestire l’archiviazione e capire come vengono elaborati i miei dati personali. Il progetto è ancora in evoluzione: continuo a sperimentare, a imparare dall’uso e a cercare una quadra tra dati, domande e risposte che siano davvero utili nella vita quotidiana.",
       ),
     ],
     gallery: [
@@ -994,12 +1132,20 @@ export const portfolioProjects: PortfolioProject[] = [
         title: text("Running · Understanding my own rhythm.", "Corsa · Capire il mio ritmo."),
         caption: text("Outside, in Rome.", "Fuori, a Roma."),
         body: [text(
-          "Running is another part of that same curiosity. I want to improve my performance and understand how effort fits into the rest of my life. Aesculapius comes from wanting to bring those observations together: sessions, sleep, recovery and personal sensations, with room to ask questions as my situation changes.",
-          "Anche la corsa fa parte della stessa curiosità. Voglio migliorare le prestazioni e capire come lo sforzo si inserisce nel resto della mia vita. Aesculapius nasce dal desiderio di riunire queste osservazioni: allenamenti, sonno, recupero e sensazioni personali, con uno spazio in cui fare domande mentre la mia situazione cambia.",
+          "Running is part of that same curiosity, and also a way to relax. I want to understand how effort fits into the rest of my life, alongside sleep, recovery and personal sensations. The assistant should fit that rhythm and help me enjoy training as well as make it useful.",
+          "Anche la corsa fa parte della stessa curiosità ed è un modo per rilassarmi. Voglio capire come lo sforzo si inserisce nel resto della mia vita, insieme a sonno, recupero e sensazioni personali. L’assistente dovrebbe adattarsi a questo ritmo e aiutarmi a vivere l’allenamento con piacere, rendendolo anche funzionale.",
         )],
       },
     ],
     journey: [
+      {
+        title: text("It started with FoxRun.", "Tutto è iniziato con FoxRun."),
+        body: text(
+          "FoxRun turned my Strava activities into an intelligent dashboard. When the API access conditions changed, I stopped the project and looked for a way to keep working independently with my own data.",
+          "FoxRun trasformava le mie attività Strava in una dashboard intelligente. Quando le condizioni di accesso alle API sono cambiate, ho fermato il progetto e cercato un modo per continuare a lavorare autonomamente sui miei dati.",
+        ),
+        diagram: "signals",
+      },
       {
         title: text("The question came first.", "Prima di tutto, la domanda."),
         body: text(
@@ -1011,8 +1157,8 @@ export const portfolioProjects: PortfolioProject[] = [
       {
         title: text("Bring the context together.", "Riunire il contesto."),
         body: text(
-          "Garmin Connect provides the records. The project organises that personal context and uses retrieval to bring relevant information into the conversation.",
-          "Garmin Connect fornisce le registrazioni. Il progetto organizza il contesto personale e usa il retrieval per portare nella conversazione le informazioni pertinenti.",
+          "python-garminconnect gives me access to the richer context recorded by Garmin Connect. The project organises it and uses retrieval to bring relevant information into the conversation.",
+          "python-garminconnect mi permette di accedere al contesto più ricco registrato da Garmin Connect. Il progetto lo organizza e usa il retrieval per portare nella conversazione le informazioni pertinenti.",
         ),
         diagram: "context",
       },
@@ -1056,12 +1202,20 @@ export const portfolioProjects: PortfolioProject[] = [
     ),
     story: [
       text(
-        "OllaPy provides an interface for talking to local language models through Ollama. The conversations and models run on your own machine.",
-        "OllaPy offre un’interfaccia per parlare con modelli linguistici locali tramite Ollama. Conversazioni e modelli rimangono sul tuo computer.",
+        "OllaPy began with my interest in open-source models, especially those I could run locally on my own computer. As ChatGPT and chatbot interfaces were becoming familiar, I wanted to try building one myself: an interface connected to Ollama through its API. At the time, I did not have the front end I wanted for that local setup, so I made my own.",
+        "OllaPy nasce dalla mia passione per i modelli open source, soprattutto quelli che potevo eseguire in locale sul mio computer. Mentre ChatGPT e le interfacce chatbot iniziavano a diffondersi, volevo provare a costruirne una: un’interfaccia collegata a Ollama attraverso le sue API. In quel momento non avevo il front-end che cercavo per questa configurazione locale, così l’ho realizzato da solo.",
       ),
       text(
-        "The project explores model selection, chat and file uploads through a straightforward interface.",
-        "Il progetto esplora selezione dei modelli, chat e caricamento dei file attraverso un’interfaccia immediata.",
+        "I worked on switching between models, configuring the context window and handling attachments alongside the conversation. Taking inspiration from other chatbots helped me explore which features I wanted and how I wanted to use them. The project was as much about designing an interface as connecting it to a model.",
+        "Ho lavorato sulla scelta tra modelli diversi, sulla configurazione della finestra di contesto e sulla gestione degli allegati insieme alla conversazione. Prendere ispirazione da altri chatbot mi ha aiutato a capire quali funzioni desideravo e come volevo utilizzarle. Il progetto riguardava la progettazione dell’interfaccia tanto quanto il collegamento al modello.",
+      ),
+      text(
+        "I used it for a while on a MacBook Pro M1 with 8 GB of memory. That hardware shaped the experience: I had to use small models, with limited capabilities for what I wanted to do, and the responses were slow. Trying the application myself made the trade-offs of running models locally very concrete.",
+        "L’ho utilizzato per un periodo su un MacBook Pro M1 con 8 GB di memoria. L’hardware condizionava l’esperienza: dovevo usare modelli piccoli, con capacità limitate rispetto a ciò che cercavo, e le risposte erano lente. Provare personalmente l’applicazione mi ha fatto conoscere in modo concreto i compromessi dell’esecuzione locale.",
+      ),
+      text(
+        "As the tools around Ollama evolved, I no longer felt the same need for my own interface. OllaPy remains a learning project: it taught me to design a chatbot around the features and interactions I cared about. It was useful to me at that moment, and satisfying to build.",
+        "Con l’evoluzione degli strumenti intorno a Ollama, per me è venuta meno la stessa esigenza di avere un’interfaccia mia. OllaPy rimane un progetto di apprendimento: mi ha insegnato a progettare un chatbot intorno alle funzioni e alle interazioni che mi interessavano. In quel momento mi è stato utile ed è stato soddisfacente costruirlo.",
       ),
     ],
   },
@@ -1080,12 +1234,16 @@ export const portfolioProjects: PortfolioProject[] = [
     ),
     story: [
       text(
-        "Vector is a terminal-based Hacker News assistant. It brings together the feed, article reading and AI-assisted analysis of articles and discussions.",
-        "Vector è un assistente per Hacker News nel terminale. Riunisce feed, lettura degli articoli e analisi di articoli e discussioni con l’AI.",
+        "Vector grew out of my habit of reading Hacker News and wanting to build a terminal user interface. I like TUIs: they have a nerdy appeal, and I wanted to make something efficient and fun to use. Every now and then, I open Vector in the terminal and browse what is new on Hacker News.",
+        "Vector nasce dall’abitudine di leggere Hacker News e dalla voglia di costruire una TUI, un’interfaccia nel terminale. Le TUI mi piacciono molto: hanno un fascino da nerd e volevo realizzare qualcosa di efficiente e divertente da usare. Ogni tanto apro Vector nel terminale e spulcio le novità di Hacker News.",
       ),
       text(
-        "It supports local models through Ollama and cloud models through Gemini, with saved reports and contextual chat.",
-        "Supporta modelli locali tramite Ollama e modelli cloud tramite Gemini, con report salvati e chat contestuale.",
+        "I added AI as another experiment. The aim was to get a quick summary, pick out interesting ideas and explore how an article was received in the discussion. It supports local models through Ollama and cloud models through Gemini, with saved reports and contextual chat. Those features gave me another way to skim and explore the feed.",
+        "Ho aggiunto l’AI come un altro esperimento. L’obiettivo era ottenere un riassunto veloce, cogliere le idee interessanti ed esplorare come un articolo veniva accolto nella discussione. Supporta modelli locali tramite Ollama e modelli cloud tramite Gemini, con report salvati e chat contestuale. Queste funzioni mi davano un altro modo di leggere rapidamente e curiosare tra le notizie.",
+      ),
+      text(
+        "Building it was quick and fairly straightforward. It remains a rough experiment, and that is part of its character: a small project made for the enjoyment of trying an interface I like and putting it to use in an existing habit.",
+        "Realizzarlo è stato veloce e piuttosto semplice. Rimane un esperimento un po’ abbozzato, ed è parte del suo carattere: un piccolo progetto nato dal piacere di provare un’interfaccia che mi piace e inserirla in un’abitudine che avevo già.",
       ),
     ],
   },
@@ -1097,12 +1255,20 @@ export const portfolioProjects: PortfolioProject[] = [
     ink: "#33332e",
     cover: "cutout",
     images: ["/work/removebackground-local.jpg"],
-    tools: ["Python", "Image processing"],
-    summary: text("One task. Less friction.", "Un compito. Meno attrito."),
+    tools: ["Python", "Flask", "rembg", "Pillow", "HTML", "CSS", "JavaScript"],
+    summary: text("Remove a background, keeping the image on my computer.", "Rimuovere uno sfondo, mantenendo l’immagine sul mio computer."),
     story: [
       text(
-        "A small image-processing utility for removing backgrounds. Another personal tool built around a specific task.",
-        "Una piccola utility per rimuovere lo sfondo dalle immagini. Un altro strumento personale costruito intorno a un compito preciso.",
+        "Remove Background began with a simple need: I wanted to remove backgrounds without uploading my images to external websites. I preferred to keep control of the files and process them on my own computer. In a few minutes, I put together a small tool for that task.",
+        "Remove Background nasce da un’esigenza semplice: volevo rimuovere gli sfondi senza caricare le mie immagini su siti esterni. Preferivo mantenere il controllo dei file ed elaborarli sul mio computer. In pochi minuti ho messo insieme un piccolo strumento per questo compito.",
+      ),
+      text(
+        "I added a graphical interface so that people without technical experience could use it too. You select a photo, start the background removal, compare the original with the result and download a PNG with a transparent background. The workflow stays focused on that one task.",
+        "Ho aggiunto un’interfaccia grafica perché potesse utilizzarlo anche chi non ha esperienza tecnica. Si seleziona una foto, si avvia la rimozione dello sfondo, si confrontano originale e risultato e si scarica un PNG con sfondo trasparente. Il flusso rimane concentrato su questo singolo compito.",
+      ),
+      text(
+        "The interface is built with HTML, CSS and JavaScript and talks to a local Flask server. Python handles the image through Pillow and the open-source rembg library, then returns the result as a PNG. In my use, the cutouts generally work well: a quick experiment that turned an existing library into a tool I could use directly.",
+        "L’interfaccia è realizzata con HTML, CSS e JavaScript e comunica con un server Flask locale. Python gestisce l’immagine attraverso Pillow e la libreria open source rembg, poi restituisce il risultato in PNG. Nel mio utilizzo, gli scontorni funzionano generalmente bene: un esperimento rapido che ha trasformato una libreria esistente in uno strumento da usare direttamente.",
       ),
     ],
   },
@@ -1172,16 +1338,24 @@ portfolioProjects.push(
     ),
     story: [
       text(
-        "Running, cycling and hiking made my Garmin fēnix 7X part of my daily routine. I built Personal Fenix Face to choose what I see at a glance: a large, readable time display and the fields that matter to me, instead of a fixed layout designed for everyone.",
-        "Corsa, ciclismo e montagna hanno reso il Garmin fēnix 7X parte della mia quotidianità. Ho creato Personal Fenix Face per scegliere cosa vedere a colpo d’occhio: l’ora grande e leggibile e i campi che mi servono, invece di un layout fisso pensato per tutti.",
+        "Personal Fenix Face began with a watch face I already liked on my Garmin. I wanted to build my own version so I could choose the font, move information to a different position and decide how it interacted with me. The motivation was simply to make something tailored to the way I use my watch.",
+        "Personal Fenix Face nasce da un quadrante che mi piaceva già sul mio Garmin. Volevo costruire una versione mia per scegliere il font, spostare le informazioni e decidere come interagire con il quadrante. La motivazione era semplice: realizzare qualcosa su misura per il modo in cui uso l’orologio.",
+      ),
+      text(
+        "That freedom is one of the things I appreciate most about Garmin: being able to personalise the device and have more control over it. I used AI agents to build the face in Monkey C through Connect IQ. I did not learn the language myself during this project; the agents helped turn my choices into a working implementation.",
+        "Questa libertà è una delle cose che apprezzo di più di Garmin: poter personalizzare il dispositivo e averne maggiore controllo. Ho utilizzato agenti AI per costruire il quadrante in Monkey C attraverso Connect IQ. Durante questo progetto non ho imparato personalmente il linguaggio: gli agenti mi hanno aiutato a trasformare le mie scelte in un’implementazione funzionante.",
       ),
       text(
         "The challenge was fitting useful information into a round 280 × 280 MIP display. I worked on spacing, bitmap fonts, icons and configurable colours, with selectable fields for activity, battery, weather and other metrics available on the watch. The face uses local Garmin data without starting GPS or streaming sensors.",
         "La sfida era far entrare informazioni utili in un display MIP rotondo da 280 × 280 pixel. Ho lavorato su spaziature, font bitmap, icone e colori configurabili, con campi selezionabili per attività, batteria, meteo e altre metriche disponibili sull’orologio. Il quadrante usa dati locali Garmin senza avviare GPS o sensori in streaming.",
       ),
       text(
-        "Long-press interactions let me switch between opening a field’s associated Garmin app and changing the displayed metric. The image here is the current simulator capture; physical-device gestures and phone synchronisation still need verification.",
-        "Le pressioni prolungate permettono di alternare l’apertura dell’app Garmin associata a un campo e la modifica della metrica mostrata. L’immagine è la cattura corrente del simulatore; i gesti sul dispositivo fisico e la sincronizzazione con il telefono restano da verificare.",
+        "The implementation includes long-press interactions for opening a field’s associated Garmin app or changing the displayed metric. The image shown here comes from the simulator. After about a day of work, I had the face installed on my fēnix 7X; as of October 2026, I use it every day.",
+        "L’implementazione include interazioni con pressione prolungata per aprire l’app Garmin associata a un campo o cambiare la metrica mostrata. L’immagine qui proviene dal simulatore. Dopo circa un giorno di lavoro avevo il quadrante installato sul mio fēnix 7X; a ottobre 2026 lo utilizzo ogni giorno.",
+      ),
+      text(
+        "I would like to share it so that other people can use it, fork it or take inspiration for their own watch face. For now, its value to me is very concrete: something I shaped around my preferences is on my wrist every day.",
+        "Vorrei condividerlo perché altre persone possano utilizzarlo, crearne un fork o prendere ispirazione per il proprio quadrante. Per ora, il suo valore per me è molto concreto: ogni giorno porto al polso qualcosa che ho costruito intorno alle mie preferenze.",
       ),
     ],
   },
@@ -1198,6 +1372,7 @@ portfolioProjects.push(
     ],
     "website": "https://www.edgeworks.it/",
     "tools": [
+      "Next.js",
       "React",
       "TypeScript",
       "Python",
@@ -1207,20 +1382,114 @@ portfolioProjects.push(
       "RAG"
     ],
     "summary": {
-      "en": "HireSight, Timesheet and Mora. Three projects from my freelance work.",
-      "it": "HireSight, Timesheet e Mora. Tre progetti della mia esperienza freelance."
+      "en": "Time Tracker, HireSight and Mora. New products explored with the Edgeworks team.",
+      "it": "Time Tracker, HireSight e Mora. Nuovi prodotti sperimentati con il team Edgeworks."
     },
     "story": [
       {
-        "en": "My freelance collaboration with Edgeworks brought together three different kinds of work: recruitment with HireSight, time tracking and reporting with Timesheet, and an early email-automation MVP called Mora.",
-        "it": "La collaborazione freelance con Edgeworks ha riunito tre lavori diversi: il recruiting con HireSight, la gestione delle ore e dei report con Timesheet e un primo MVP di automazione delle email, Mora."
+        "en": "My collaboration with Edgeworks began through Salvatore Iannola, a senior software engineer and one of the company’s administrators. I wanted to put my knowledge into practice, while the team wanted to explore new products and solutions to show clients. Those two needs brought us together.",
+        "it": "La collaborazione con Edgeworks è nata attraverso Salvatore Iannola, senior software engineer e uno degli amministratori dell’azienda. Io volevo mettere in pratica le mie conoscenze; il team cercava nuovi prodotti e soluzioni da sperimentare e mostrare ai clienti. Queste due esigenze ci hanno fatto incontrare."
       },
       {
-        "en": "The common thread was making information easier to work with: connecting data, interfaces and workflows to the needs of the people using them. Each project had its own scope, from application development to a small experiment with language models and retrieval.",
-        "it": "Il filo comune era rendere le informazioni più facili da usare: collegare dati, interfacce e flussi di lavoro alle esigenze delle persone. Ogni progetto aveva un perimetro diverso, dallo sviluppo applicativo a un piccolo esperimento con modelli linguistici e recupero del contesto."
+        "en": "My role was to experiment with those solutions and help build them. I worked with Salvatore across Time Tracker, HireSight and Mora: he provided direction, feedback and corrections as the projects took shape. It was an interesting collaboration that also let me get to know the wider Edgeworks team.",
+        "it": "Il mio ruolo era sperimentare queste soluzioni e contribuire a costruirle. Ho lavorato con Salvatore su Time Tracker, HireSight e Mora: mi dava indicazioni, feedback e correzioni mentre i progetti prendevano forma. È stata una collaborazione interessante, che mi ha permesso anche di conoscere il resto del team Edgeworks."
+      },
+      {
+        "en": "Time Tracker is the most important result for me and is still in use as of October 2026. HireSight has also been used internally by Edgeworks and shown to interested clients, while Mora was an early prototype for classifying incoming emails and preparing draft replies. Each project was a different way to turn an everyday need into software.",
+        "it": "Time Tracker è per me il risultato più importante ed è ancora utilizzato a ottobre 2026. Anche HireSight è stato utilizzato internamente da Edgeworks e mostrato a clienti interessati, mentre Mora era un primo prototipo per classificare le email in arrivo e preparare bozze di risposta. Ogni progetto affrontava un’esigenza quotidiana diversa attraverso il software."
+      },
+      {
+        "en": "Salvatore encouraged me to keep improving and gave me constructive criticism alongside positive feedback. That ongoing exchange mattered more than any single correction: I could try ideas, discuss them with an experienced engineer and refine the work.",
+        "it": "Salvatore mi spronava a fare meglio e affiancava ai riscontri positivi critiche costruttive. Quel confronto continuo contava più di una singola correzione: potevo provare idee, discuterle con un ingegnere esperto e migliorare il lavoro."
       }
     ],
     "chapters": [
+      {
+        "id": "timesheet",
+        "title": {
+          "en": "Time Tracker · Time, projects and reports.",
+          "it": "Time Tracker · Ore, progetti e report."
+        },
+        "body": [
+          {
+            "en": "Time Tracker grew out of an earlier experience at Marsilea, where I had built a time-tracking tool with Google Sheets and Google Apps Script. Working with that setup had been frustrating. When Edgeworks also needed an efficient way to record hours, we decided to build a new application from scratch.",
+            "it": "Time Tracker nasce anche da una precedente esperienza con Marsilea, dove avevo costruito uno strumento per registrare le ore con Google Sheets e Google Apps Script. Lavorare con quella soluzione era stato frustrante. Quando anche Edgeworks ha avuto bisogno di contare le ore in modo efficiente, abbiamo deciso di costruire una nuova applicazione da zero."
+          }
+        ],
+        "image": {
+          "src": "/work/timesheet-reports.webp",
+          "width": 1660,
+          "height": 1146,
+          "caption": {
+            "en": "Time Tracker · Reports and overview",
+            "it": "Time Tracker · Report e panoramica"
+          }
+        }
+      },
+      {
+        "id": "timesheet-2",
+        "title": {
+          "en": "An interface built around the work.",
+          "it": "Un’interfaccia intorno al lavoro."
+        },
+        "body": [
+          {
+            "en": "We wanted a simple, intuitive interface that worked well on both phones and desktops, backed by a database. Next.js and React provided the interface, with TypeScript, Supabase and Recharts supporting the application, data and charts. The tool brings together time entries, projects, clients and reporting, with authentication and Excel exports.",
+            "it": "Volevamo un’interfaccia semplice e intuitiva, utilizzabile bene sia da telefono sia da desktop, con un database dietro. Next.js e React hanno dato forma all’interfaccia, con TypeScript, Supabase e Recharts a supporto dell’applicazione, dei dati e dei grafici. Lo strumento riunisce registrazioni delle ore, progetti, clienti e report, con autenticazione ed esportazioni Excel."
+          }
+        ],
+        "image": {
+          "src": "/work/timesheet-dashboard.webp",
+          "width": 1682,
+          "height": 1672,
+          "caption": {
+            "en": "Time Tracker · Dashboard",
+            "it": "Time Tracker · Dashboard"
+          }
+        }
+      },
+      {
+        "id": "timesheet-3",
+        "title": {
+          "en": "From a spreadsheet to a daily tool.",
+          "it": "Dal foglio di calcolo a uno strumento quotidiano."
+        },
+        "body": [
+          {
+            "en": "The main improvement for me was having a workflow tailored to the task. In the spreadsheet, entries could become disorganised and some errors were difficult to handle. Time Tracker gave us more control over how information was entered and managed in the database, through dedicated operations and an interface designed around recording hours.",
+            "it": "Il miglioramento principale per me era avere un flusso su misura. Nel foglio le registrazioni potevano diventare disordinate e alcuni errori erano difficili da gestire. Time Tracker ci dava maggiore controllo su come inserire e gestire le informazioni nel database, attraverso operazioni dedicate e un’interfaccia progettata intorno alla registrazione delle ore."
+          },
+          {
+            "en": "It is a straightforward tool, and that is what I like about it: it does the job and remains in use. Building it was satisfying because an experience with a cumbersome workflow became the starting point for something more practical.",
+            "it": "È uno strumento semplice, ed è questo che mi piace: fa ciò che serve e continua a essere utilizzato. Costruirlo è stato soddisfacente perché l’esperienza con un flusso poco comodo è diventata il punto di partenza per qualcosa di più pratico."
+          }
+        ],
+        "image": {
+          "src": "/work/timesheet-calendar.webp",
+          "width": 1672,
+          "height": 1116,
+          "caption": {
+            "en": "Time Tracker · Calendar",
+            "it": "Time Tracker · Calendario"
+          }
+        },
+        "links": [
+          {
+            "label": {
+              "en": "Time Tracker on Edgeworks",
+              "it": "Time Tracker sul sito Edgeworks"
+            },
+            "href": "https://www.edgeworks.it/products_timetracker.php"
+          },
+          {
+            "label": {
+              "en": "Source code",
+              "it": "Codice sorgente"
+            },
+            "href": "https://github.com/salvatoreiannola72/timetracker"
+          }
+        ]
+      },
       {
         "id": "hiresight",
         "title": {
@@ -1229,16 +1498,8 @@ portfolioProjects.push(
         },
         "body": [
           {
-            "en": "A recruitment platform developed in my work with Edgeworks. It helps organise job positions and candidates, with AI-assisted CV analysis.",
-            "it": "Una piattaforma di recruiting sviluppata nel mio lavoro con Edgeworks. Aiuta a organizzare posizioni e candidati, con analisi dei CV supportata dall’AI."
-          },
-          {
-            "en": "The interface connects candidate details, match scores and the reasoning behind them, so recruiters can review the information in context.",
-            "it": "L’interfaccia collega dettagli dei candidati, punteggi di corrispondenza e relative motivazioni, per esaminare le informazioni nel loro contesto."
-          },
-          {
-            "en": "React, TypeScript, Python and Supabase connect the interface, data and AI-assisted analysis.",
-            "it": "React, TypeScript, Python e Supabase collegano interfaccia, dati e analisi supportata dall’AI."
+            "en": "HireSight began with the need to receive CVs, analyse them and organise them so HR could have an overview of both candidates and employees.",
+            "it": "HireSight nasce dalla necessità di ricevere curriculum, analizzarli e organizzarli, dando a HR una visione d’insieme sia dei candidati sia dei dipendenti."
           }
         ],
         "image": {
@@ -1249,45 +1510,95 @@ portfolioProjects.push(
             "en": "HireSight · Overview",
             "it": "HireSight · Panoramica"
           }
+        }
+      },
+      {
+        "id": "hiresight-2",
+        "title": {
+          "en": "Connecting the interface and the data.",
+          "it": "Collegare l’interfaccia e i dati."
         },
-        "images": [
+        "body": [
           {
-            "src": "/work/hiresight-live.jpg",
-            "width": 1280,
-            "height": 720,
-            "caption": {
-              "en": "HireSight · Screen 2",
-              "it": "HireSight · Schermata 2"
-            }
-          },
-          {
-            "src": "/hiresight/posizioni.png",
-            "width": 1908,
-            "height": 1038,
-            "caption": {
-              "en": "HireSight · Screen 3",
-              "it": "HireSight · Schermata 3"
-            }
-          },
-          {
-            "src": "/hiresight/candidati.png",
-            "width": 1908,
-            "height": 1038,
-            "caption": {
-              "en": "HireSight · Screen 4",
-              "it": "HireSight · Schermata 4"
-            }
-          },
-          {
-            "src": "/hiresight/dettaglio_candidato.png",
-            "width": 1908,
-            "height": 1038,
-            "caption": {
-              "en": "HireSight · Screen 5",
-              "it": "HireSight · Schermata 5"
-            }
+            "en": "React, TypeScript, Python and Supabase connect the interface, data and AI-assisted analysis.",
+            "it": "React, TypeScript, Python e Supabase collegano interfaccia, dati e analisi supportata dall’AI."
           }
         ],
+        "image": {
+          "src": "/work/hiresight-live.jpg",
+          "width": 1280,
+          "height": 720,
+          "caption": {
+            "en": "HireSight · Sign-in to the application",
+            "it": "HireSight · Accesso all’applicazione"
+          }
+        }
+      },
+      {
+        "id": "hiresight-3",
+        "title": {
+          "en": "Starting with the job positions.",
+          "it": "Partire dalle posizioni aperte."
+        },
+        "body": [
+          {
+            "en": "A recruitment platform developed in my work with Edgeworks. It helps organise job positions and candidates, with AI-assisted CV analysis.",
+            "it": "Una piattaforma di recruiting sviluppata nel mio lavoro con Edgeworks. Aiuta a organizzare posizioni e candidati, con analisi dei CV supportata dall’AI."
+          }
+        ],
+        "image": {
+          "src": "/hiresight/posizioni.png",
+          "width": 1908,
+          "height": 1038,
+          "caption": {
+            "en": "HireSight · Job positions",
+            "it": "HireSight · Posizioni aperte"
+          }
+        }
+      },
+      {
+        "id": "hiresight-4",
+        "title": {
+          "en": "Bringing CVs and skills together.",
+          "it": "Riunire curriculum e competenze."
+        },
+        "body": [
+          {
+            "en": "The idea was to bring CVs and skills into a shared database, useful for preparing interviews and understanding which capabilities were available for different projects.",
+            "it": "L’idea era riunire curriculum e competenze in un database condiviso, utile per preparare colloqui e capire quali capacità fossero disponibili per i diversi progetti."
+          }
+        ],
+        "image": {
+          "src": "/hiresight/candidati.png",
+          "width": 1908,
+          "height": 1038,
+          "caption": {
+            "en": "HireSight · Candidates",
+            "it": "HireSight · Candidati"
+          }
+        }
+      },
+      {
+        "id": "hiresight-5",
+        "title": {
+          "en": "Understanding the match.",
+          "it": "Capire la corrispondenza."
+        },
+        "body": [
+          {
+            "en": "The interface connects candidate details, match scores and the reasoning behind them, so recruiters can review the information in context.",
+            "it": "L’interfaccia collega dettagli dei candidati, punteggi di corrispondenza e relative motivazioni, per esaminare le informazioni nel loro contesto."
+          }
+        ],
+        "image": {
+          "src": "/hiresight/dettaglio_candidato.png",
+          "width": 1908,
+          "height": 1038,
+          "caption": {
+            "en": "HireSight · Candidate details and analysis",
+            "it": "HireSight · Dettaglio e analisi del candidato"
+          }
+        },
         "links": [
           {
             "label": {
@@ -1306,72 +1617,6 @@ portfolioProjects.push(
         ]
       },
       {
-        "id": "timesheet",
-        "title": {
-          "en": "Timesheet · Time, projects and reports.",
-          "it": "Timesheet · Ore, progetti e report."
-        },
-        "body": [
-          {
-            "en": "An internal timesheet management application for Edgeworks, bringing together time entries, projects, clients and reporting.",
-            "it": "Un’applicazione di gestione timesheet per Edgeworks che riunisce registrazioni delle ore, progetti, clienti e report."
-          },
-          {
-            "en": "The application includes authentication, interactive charts and Excel exports. I worked on modernising the interface and the full-stack workflow.",
-            "it": "L’applicazione include autenticazione, grafici interattivi ed esportazioni Excel. Ho lavorato alla modernizzazione dell’interfaccia e del flusso full-stack."
-          },
-          {
-            "en": "React, TypeScript, Supabase and Recharts support the application, its data and charts.",
-            "it": "React, TypeScript, Supabase e Recharts supportano l’applicazione, i dati e i grafici."
-          }
-        ],
-        "image": {
-          "src": "/work/timesheet-reports.webp",
-          "width": 1660,
-          "height": 1146,
-          "caption": {
-            "en": "Timesheet · Overview",
-            "it": "Timesheet · Panoramica"
-          }
-        },
-        "images": [
-          {
-            "src": "/work/timesheet-dashboard.webp",
-            "width": 1682,
-            "height": 1672,
-            "caption": {
-              "en": "Timesheet · Screen 2",
-              "it": "Timesheet · Schermata 2"
-            }
-          },
-          {
-            "src": "/work/timesheet-calendar.webp",
-            "width": 1672,
-            "height": 1116,
-            "caption": {
-              "en": "Timesheet · Screen 3",
-              "it": "Timesheet · Schermata 3"
-            }
-          }
-        ],
-        "links": [
-          {
-            "label": {
-              "en": "Timesheet on Edgeworks",
-              "it": "Timesheet sul sito Edgeworks"
-            },
-            "href": "https://www.edgeworks.it/products_timetracker.php"
-          },
-          {
-            "label": {
-              "en": "Source code",
-              "it": "Codice sorgente"
-            },
-            "href": "https://github.com/salvatoreiannola72/timetracker"
-          }
-        ]
-      },
-      {
         "id": "mora",
         "title": {
           "en": "Mora · A first email-automation MVP.",
@@ -1381,6 +1626,10 @@ portfolioProjects.push(
           {
             "en": "Mora was a very early MVP: an email orchestrator that prepared automatic draft replies based on specific company requests. My experience with it was an initial experiment, with a small RAG system to retrieve relevant context for the drafts.",
             "it": "Mora era un MVP davvero embrionale: un orchestratore di email che preparava automaticamente bozze di risposta in base a richieste specifiche delle aziende. La mia esperienza era una prima sperimentazione, con un piccolo sistema RAG per recuperare il contesto utile alle bozze."
+          },
+          {
+            "en": "The prototype explored repetitive, standard communications: information requests, requests for estimates and other categories of incoming mail. It also explored distinguishing spam from other messages and switching language models according to cost and other requirements. The aim was to test a product that could save companies time when handling recurring enquiries.",
+            "it": "Il prototipo esplorava le comunicazioni standard e ripetitive: richieste di informazioni, di preventivo e altre categorie di email in arrivo. Comprendeva anche la distinzione tra spam e altri messaggi e la possibilità di cambiare modello linguistico in base ai costi e ad altre esigenze. L’obiettivo era provare un prodotto che potesse far risparmiare tempo alle aziende nella gestione delle richieste ricorrenti."
           },
           {
             "en": "The interesting part was connecting an incoming request to information that could help answer it. Retrieval provided context to the language model; the result was a draft to review. The scope of this work was to test that idea in an early prototype.",

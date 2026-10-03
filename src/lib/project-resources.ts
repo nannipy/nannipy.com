@@ -6,9 +6,11 @@ export type ProjectResource = {
   terms: string[];
 };
 
-// Official documentation and project sites, shared by inline links and reading lists.
+// Curated tools and useful guides; generic brands and language names stay plain text.
 export const projectResources: ProjectResource[] = [
-  { label: "Linux", href: "https://docs.kernel.org/", terms: ["Linux"] },
+  { label: "FoxRun · Source code", href: "https://github.com/nannipy/foxrun", terms: ["FoxRun"] },
+  { label: "Strava · Developer program", href: "https://communityhub.strava.com/insider-journal-9/an-update-to-our-developer-program-13428", terms: ["Strava"] },
+  { label: "python-garminconnect · Source & setup", href: "https://github.com/cyberjunky/python-garminconnect", terms: ["python-garminconnect"] },
   { label: "Docker · Get started", href: "https://docs.docker.com/get-started/", terms: ["Docker"] },
   { label: "Docker Compose", href: "https://docs.docker.com/compose/", terms: ["Docker Compose"] },
   { label: "Telegram · Bot tutorial", href: "https://core.telegram.org/bots/tutorial", terms: ["Telegram"] },
@@ -16,48 +18,43 @@ export const projectResources: ProjectResource[] = [
   { label: "Pi-hole · Documentation", href: "https://docs.pi-hole.net/", terms: ["Pi-hole"] },
   { label: "Filebrowser · Source & setup", href: "https://github.com/filebrowser/filebrowser", terms: ["Filebrowser", "File Browser"] },
   { label: "Tailscale · Quickstart", href: "https://tailscale.com/docs/how-to/quickstart", terms: ["Tailscale"] },
-  { label: "Scrutiny · Source & setup", href: "https://github.com/AnalogJ/scrutiny", terms: ["Scrutiny", "S.M.A.R.T."] },
+  { label: "Scrutiny · Source & setup", href: "https://github.com/AnalogJ/scrutiny", terms: ["Scrutiny"] },
   { label: "Beszel · Getting started", href: "https://beszel.dev/guide/getting-started", terms: ["Beszel"] },
   { label: "Uptime Kuma · Source & setup", href: "https://github.com/louislam/uptime-kuma", terms: ["Uptime Kuma"] },
-  { label: "Google Photos", href: "https://photos.google.com/", terms: ["Google Photos", "Google Foto"] },
-  { label: "Google", href: "https://about.google/", terms: ["Google"] },
-  { label: "MacBook Air · Support", href: "https://support.apple.com/mac/macbook-air", terms: ["MacBook Air", "MacBook"] },
-  { label: "Open source · Definition", href: "https://opensource.org/osd", terms: ["open source", "open-source"] },
-  { label: "Self-hosted · Data ownership", href: "https://www.gnu.org/philosophy/who-does-that-server-really-serve.html", terms: ["Self-hosted"] },
   { label: "Next.js · Documentation", href: "https://nextjs.org/docs", terms: ["Next.js"] },
   { label: "TypeScript · Handbook", href: "https://www.typescriptlang.org/docs/", terms: ["TypeScript"] },
   { label: "Supabase · Documentation", href: "https://supabase.com/docs", terms: ["Supabase"] },
   { label: "React · Learn", href: "https://react.dev/learn", terms: ["React 19", "React"] },
   { label: "Vercel · Documentation", href: "https://vercel.com/docs", terms: ["Vercel"] },
   { label: "Resend · Documentation", href: "https://resend.com/docs", terms: ["Resend"] },
-  { label: "Python · Tutorial", href: "https://docs.python.org/3/tutorial/", terms: ["Python"] },
-  { label: "Go · Documentation", href: "https://go.dev/doc/", terms: ["Go"] },
-  { label: "macOS · Developer resources", href: "https://developer.apple.com/macos/", terms: ["macOS"] },
-  { label: "ESP32-S3 · Programming guide", href: "https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/", terms: ["ESP32-S3"] },
-  { label: "C++ · Learn", href: "https://learn.microsoft.com/en-us/cpp/cpp/", terms: ["C++"] },
+  { label: "ESP32-S3 · Overview", href: "https://www.espressif.com/en/products/socs/esp32-s3", terms: ["ESP32-S3"] },
   { label: "WebSocket · Web API", href: "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket", terms: ["WebSocket"] },
-  { label: "GPS · Official information", href: "https://www.gps.gov/", terms: ["GPS"] },
-  { label: "IMU · Inertial sensors", href: "https://www.bosch-sensortec.com/products/motion-sensors/imus/", terms: ["IMU"] },
-  { label: "Web design · Learn", href: "https://developer.mozilla.org/en-US/docs/Learn_web_development", terms: ["Web design"] },
-  { label: "System tray · macOS status bar", href: "https://developer.apple.com/documentation/appkit/nsstatusbar", terms: ["System tray"] },
-  { label: "TUI · Console interfaces", href: "https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences", terms: ["TUI"] },
-  { label: "Image processing · Pixel manipulation", href: "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas", terms: ["Image processing"] },
-  { label: "LLMs · Learn", href: "https://huggingface.co/learn/llm-course/chapter1/1", terms: ["LLMs"] },
-  { label: "Garmin Connect", href: "https://connect.garmin.com/", terms: ["Garmin Connect"] },
-  { label: "Garmin", href: "https://www.garmin.com/", terms: ["Garmin"] },
-  { label: "Connect IQ · SDK & documentation", href: "https://developer.garmin.com/connect-iq/overview/", terms: ["Connect IQ", "Garmin fēnix 7X", "Personal Fenix Face", "MIP display"] },
+  { label: "IMU · Inertial sensors", href: "https://www.pololu.com/product/2738", terms: ["IMU"] },
+  { label: "System tray · macOS status bar", href: "https://developer.apple.com/documentation/appkit/nsstatusbar", terms: ["System tray", "menu bar", "menu-bar"] },
+  { label: "LLMs · Learn", href: "https://huggingface.co/learn/llm-course/chapter1/1", terms: ["LLMs", "LLM", "Local LLMs", "LLM locali", "modelli linguistici", "language models"] },
+  { label: "Connect IQ · SDK & documentation", href: "https://developer.garmin.com/connect-iq/overview/", terms: ["Connect IQ"] },
   { label: "Monkey C · Language reference", href: "https://developer.garmin.com/connect-iq/monkey-c/", terms: ["Monkey C"] },
-  { label: "Ollama · Documentation", href: "https://docs.ollama.com/", terms: ["Ollama", "Local LLMs"] },
+  { label: "Ollama · Documentation", href: "https://docs.ollama.com/", terms: ["Ollama"] },
   { label: "Gemini · API documentation", href: "https://ai.google.dev/gemini-api/docs", terms: ["Gemini"] },
-  { label: "RAG · Original paper", href: "https://arxiv.org/abs/2005.11401", terms: ["RAG"] },
+  { label: "RAG · Introduction", href: "https://aws.amazon.com/what-is/retrieval-augmented-generation/", terms: ["RAG"] },
   { label: "Recharts · Documentation", href: "https://recharts.github.io/en-US/guide/", terms: ["Recharts"] },
   { label: "Hacker News", href: "https://news.ycombinator.com/", terms: ["Hacker News"] },
-  { label: "RECUP · Association", href: "https://associazionerecup.org/", terms: ["RECUP"] },
-  { label: "Sapienza Foiling Team", href: "https://sapienzafoilingteam.com/", terms: ["Sapienza Foiling Team"] },
   { label: "SuMoth Challenge", href: "https://sumoth.org/", terms: ["SuMoth Challenge"] },
-  { label: "Edgeworks", href: "https://www.edgeworks.it/", terms: ["Edgeworks"] },
-  { label: "Mora · Edgeworks", href: "https://www.edgeworks.it/products_mora.php", terms: ["Mora"] },
   { label: "Gmail API · Documentation", href: "https://developers.google.com/workspace/gmail/api/guides", terms: ["Gmail API"] },
+  { label: "Ruby on Rails · Get started", href: "https://rubyonrails.org/", terms: ["Ruby on Rails"] },
+  { label: "Pololu MinIMU-9 v5 · Overview", href: "https://www.pololu.com/product/2738", terms: ["Pololu MinIMU-9 v5", "MinIMU-9 v5"] },
+  { label: "Linux Mint · Installation guide", href: "https://linuxmint-installation-guide.readthedocs.io/en/latest/", terms: ["Linux Mint"] },
+  { label: "Ubuntu Server · Documentation", href: "https://ubuntu.com/server/docs/", terms: ["Ubuntu Server"] },
+  { label: "Kubernetes · Overview", href: "https://kubernetes.io/docs/concepts/overview/", terms: ["Kubernetes"] },
+  { label: "DNS · Introduction", href: "https://www.cloudflare.com/learning/dns/what-is-dns/", terms: ["DNS"] },
+  { label: "Figma · Learn", href: "https://help.figma.com/hc/en-us", terms: ["Figma"] },
+  { label: "Cloudflare · Domain management", href: "https://developers.cloudflare.com/registrar/", terms: ["Cloudflare"] },
+  { label: "Umami · Documentation", href: "https://umami.is/docs", terms: ["Umami"] },
+  { label: "Google Apps Script · Overview", href: "https://developers.google.com/apps-script/overview", terms: ["Google Apps Script", "Apps Script"] },
+  { label: "MIP display · Visual design guide", href: "https://developer.garmin.com/connect-iq/user-experience-guidelines/incorporating-the-visual-design-and-product-personalities/", terms: ["MIP display", "display MIP"] },
+  { label: "Flask · Get started", href: "https://flask.palletsprojects.com/en/stable/", terms: ["Flask"] },
+  { label: "rembg · Source & setup", href: "https://github.com/danielgatis/rembg", terms: ["rembg"] },
+  { label: "Pillow · Documentation", href: "https://pillow.readthedocs.io/en/stable/", terms: ["Pillow"] },
 ];
 
 const escapePattern = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -75,6 +72,7 @@ export function resourceLabel(resource: ProjectResource, locale: "en" | "it") {
   const translations: Record<string, string> = {
     "Get started": "Guida introduttiva", "Getting started": "Guida introduttiva",
     "Bot tutorial": "Creare un bot", "Installation & mobile backup": "Installazione e backup dal telefono",
+    "Source code": "Codice sorgente", "Developer program": "Programma sviluppatori",
     "Documentation": "Documentazione", "Source & setup": "Codice e installazione",
     "Quickstart": "Guida rapida", "Support": "Supporto", "Definition": "Definizione",
     "Data ownership": "Controllo dei dati", "Handbook": "Manuale", "Learn": "Da dove iniziare",
@@ -82,29 +80,37 @@ export function resourceLabel(resource: ProjectResource, locale: "en" | "it") {
     "Official information": "Informazioni ufficiali", "Inertial sensors": "Sensori inerziali",
     "Console interfaces": "Interfacce nel terminale", "Pixel manipulation": "Elaborazione dei pixel",
     "SDK & documentation": "SDK e documentazione", "Language reference": "Riferimento del linguaggio",
+    "Overview": "Panoramica", "Introduction": "Introduzione",
+    "Installation guide": "Guida all’installazione", "Domain management": "Gestione del dominio",
+    "Visual design guide": "Guida al design del display",
     "API documentation": "Documentazione API", "Original paper": "Articolo originale", "Association": "Associazione",
   };
   const [name, detail] = resource.label.split(" · ");
   return detail ? `${name} · ${translations[detail] || detail}` : name;
 }
 
-export function resourcesForProject(project: PortfolioProject) {
+export function resourcesForProject(project: PortfolioProject, locale: "en" | "it") {
   // Scan prose and tool names, never media paths or URLs.
   const prose = [
-    ...project.tools, project.category, ...Object.values(project.summary),
-    ...project.story.flatMap(Object.values),
+    ...project.tools, project.summary[locale],
+    ...project.story.map((paragraph) => paragraph[locale]),
     ...(project.chapters || []).flatMap((chapter) => [
-      ...Object.values(chapter.title), ...chapter.body.flatMap(Object.values),
-      ...Object.values(chapter.image?.caption || {}), chapter.image?.credit || "",
+      chapter.title[locale], ...chapter.body.map((paragraph) => paragraph[locale]),
+      ...[...(chapter.image ? [chapter.image] : []), ...(chapter.images || [])].map((image) => image.caption[locale]),
+      chapter.video?.caption[locale] || "",
     ]),
     ...(project.gallery || []).flatMap((entry) => [
-      ...Object.values(entry.title || {}), ...Object.values(entry.caption),
-      ...(entry.body || []).flatMap(Object.values),
+      entry.title?.[locale] || "", entry.caption[locale],
+      ...(entry.body || []).map((paragraph) => paragraph[locale]),
     ]),
-    ...(project.journey || []).flatMap((step) => [...Object.values(step.title), ...Object.values(step.body)]),
+    ...(project.journey || []).flatMap((step) => [step.title[locale], step.body[locale]]),
   ].join("\n");
-  const found = new Set([...prose.matchAll(resourcePattern())].map((match) => resourceForTerm(match[2])!));
+  const found = new Map<string, ProjectResource>();
+  for (const match of prose.matchAll(resourcePattern())) {
+    const resource = resourceForTerm(match[2])!;
+    if (!found.has(resource.href)) found.set(resource.href, resource);
+  }
   // Compose is the practical next step for readers replicating the Docker setup.
-  if (project.slug === "homelab") found.add(resourceForTerm("Docker Compose")!);
-  return [...found];
+  if (project.slug === "homelab") found.set(resourceForTerm("Docker Compose")!.href, resourceForTerm("Docker Compose")!);
+  return [...found.values()];
 }

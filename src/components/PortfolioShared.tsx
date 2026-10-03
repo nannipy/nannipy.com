@@ -123,8 +123,8 @@ export function ProjectCover({
           <div className="edgeworks-cover-panels">
             {project.images.map((src, index) => (
               <div className="edgeworks-cover-panel" key={src}>
-                <span className="screen-toolbar"><i /><i /><i /><span>{index === 0 ? "HireSight" : "Timesheet"}</span></span>
-                <Image src={src} alt={index === 0 ? "HireSight" : "Timesheet"} width={1280} height={720} sizes="(max-width:700px) 40vw, 25vw" priority={priority} />
+                <span className="screen-toolbar"><i /><i /><i /><span>{index === 0 ? "HireSight" : "Time Tracker"}</span></span>
+                <Image src={src} alt={index === 0 ? "HireSight" : "Time Tracker"} width={1280} height={720} sizes="(max-width:700px) 40vw, 25vw" priority={priority} />
               </div>
             ))}
             <div className="edgeworks-cover-panel mora-cover-panel">
@@ -132,7 +132,7 @@ export function ProjectCover({
               <Image className="mora-cover-logo" src="/work/mora-logo.webp" alt="Logo Mora" width={720} height={720} sizes="(max-width:700px) 40vw, 25vw" priority={priority} />
             </div>
           </div>
-          <span className="art-label">HireSight · Timesheet · Mora</span>
+          <span className="art-label">HireSight · Time Tracker · Mora</span>
         </div>
       ) : project.cover === "team" ? (
         <div className="team-cover-art">

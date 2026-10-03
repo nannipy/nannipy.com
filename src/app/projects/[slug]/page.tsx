@@ -1,5 +1,6 @@
 import ProjectJourney from "@/components/ProjectJourney";
-import ProjectResources, { LinkedProjectText } from "@/components/ProjectResources";
+import ProjectImage, { needsImageFrame } from "@/components/ProjectImage";
+import ProjectResources, { LinkedProjectText, createProjectTextLinker } from "@/components/ProjectResources";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -40,12 +41,14 @@ export default async function ProjectPage({
     it = locale === "it",
     index = portfolioProjects.indexOf(project),
     next = portfolioProjects[(index + 1) % portfolioProjects.length];
+  const linkText = createProjectTextLinker();
   return (
     <div className="portfolio-page">
       <SiteNav locale={locale} path={`/projects/${slug}`} />
       <main
         id="main-content"
-        className={`project-detail ${slug === "sapienza-foiling-team" ? "project-telemetry" : ""}`}
+        className={`project-detail ${slug === "sapienza-foiling-team" ? "project-telemetry project-narrative" : slug === "edgeworks" ? "project-narrative" : ""}`}
+        style={{ "--project-color": project.color, "--project-ink": project.ink } as CSSProperties}
       >
         <TransitionLink
           href={`${localHref("/", locale)}#work`}
@@ -59,7 +62,7 @@ export default async function ProjectPage({
             {project.title}
             <span style={{ color: project.color }}>.</span>
           </h1>
-          <p>{project.summary[locale]}</p>
+          <p>{linkText(project.summary[locale])}</p>
         </div>
         <ProjectCover project={project} priority />
         <section className="project-story">
@@ -125,7 +128,7 @@ export default async function ProjectPage({
           </div>
           <div>
             {project.story.map((p, i) => (
-              <p key={i}><LinkedProjectText>{p[locale]}</LinkedProjectText></p>
+              <p key={i}>{linkText(p[locale])}</p>
             ))}
           </div>
         </section>
@@ -145,9 +148,9 @@ export default async function ProjectPage({
                     {String(index + 1).padStart(2, "0")} /{" "}
                     {slug === "edgeworks" ? (it ? "Il progetto" : "The project") : (it ? "La nostra storia" : "Our story")}
                   </p>
-                  <h2><LinkedProjectText>{chapter.title[locale]}</LinkedProjectText></h2>
+                  <h2>{chapter.title[locale]}</h2>
                   {chapter.body.map((paragraph, i) => (
-                    <p key={i}><LinkedProjectText>{paragraph[locale]}</LinkedProjectText></p>
+                    <p key={i}>{linkText(paragraph[locale])}</p>
                   ))}
                   {chapter.links ? (
                     <div className="experience-links">
@@ -180,20 +183,20 @@ export default async function ProjectPage({
                   {[...(chapter.image ? [chapter.image] : []), ...(chapter.images || [])].map(photo => (
                     <figure
                       key={photo.src}
-                      className="chapter-photo"
+                      className={`chapter-photo ${needsImageFrame(photo.width, photo.height) ? "framed-photo" : ""}`}
                       style={{ "--media-ratio": photo.width / photo.height } as CSSProperties}
                     >
-                      <Image
+                      <ProjectImage
                         src={photo.src}
                         alt={photo.caption[locale]}
                         width={photo.width}
                         height={photo.height}
-                        sizes={slug === "sapienza-foiling-team" ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 85vw"}
+                        sizes={(slug === "sapienza-foiling-team" || slug === "edgeworks") ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 85vw"}
                       />
                       <figcaption>
-                        <span><LinkedProjectText>{photo.caption[locale]}</LinkedProjectText></span>
+                        <span>{photo.caption[locale]}</span>
                         {photo.credit ? (
-                          <span>© <LinkedProjectText>{photo.credit}</LinkedProjectText></span>
+                          <span>© {photo.credit}</span>
                         ) : null}
                       </figcaption>
                     </figure>
@@ -216,29 +219,30 @@ export default async function ProjectPage({
               <article className="field-entry" key={photo.src}>
                 {photo.body ? (
                   <div className="field-copy">
-                    {photo.title ? <h2><LinkedProjectText>{photo.title[locale]}</LinkedProjectText></h2> : null}
+                    {photo.title ? <h2>{photo.title[locale]}</h2> : null}
                     {photo.body.map((paragraph, i) => (
-                      <p key={i}><LinkedProjectText>{paragraph[locale]}</LinkedProjectText></p>
+                      <p key={i}>{linkText(paragraph[locale])}</p>
                     ))}
                   </div>
                 ) : null}
                 <figure
-                  className={`chapter-photo ${photo.mediaKind === "logo" ? "service-logo" : ""}`}
+                  className={`chapter-photo ${photo.mediaKind === "logo" ? "service-logo" : slug === "edocla" || needsImageFrame(photo.width, photo.height) ? "framed-photo" : ""}`}
                   style={{ "--media-ratio": photo.width / photo.height } as CSSProperties}
                 >
-                  <Image
+                  <ProjectImage
+                    frame={photo.mediaKind !== "logo" && (slug === "edocla" || needsImageFrame(photo.width, photo.height))}
                     src={photo.src}
                     alt={photo.caption[locale]}
                     width={photo.width}
                     height={photo.height}
-                    sizes={slug === "sapienza-foiling-team" ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 50vw"}
+                    sizes={(slug === "sapienza-foiling-team" || slug === "edgeworks") ? "(max-width:900px) 90vw, 45vw" : "(max-width:700px) 95vw, 50vw"}
                   />
                   <figcaption>
                     {photo.website ? (
                       <a href={photo.website} target="_blank" rel="noreferrer" className="text-link">
                         {new URL(photo.website).hostname} ↗
                       </a>
-                    ) : <span><LinkedProjectText>{photo.caption[locale]}</LinkedProjectText></span>}
+                    ) : <span>{photo.caption[locale]}</span>}
                   </figcaption>
                 </figure>
               </article>
@@ -265,7 +269,7 @@ export default async function ProjectPage({
             </figcaption>
           </figure>
         ) : null}
-        <ProjectJourney project={project} locale={locale} />
+        <ProjectJourney project={project} locale={locale} linkText={linkText} />
         {project.images.length > 1 && project.cover !== "pomodoro" && project.cover !== "team" && project.cover !== "edgeworks" ? (
           <section
             className="project-screenshots"

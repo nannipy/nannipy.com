@@ -2,23 +2,38 @@ import type { ReactNode } from "react";
 import type { Locale, PortfolioProject } from "@/lib/portfolio";
 import { resourcePattern, resourceForTerm, resourceLabel, resourcesForProject } from "@/lib/project-resources";
 
-export function LinkedProjectText({ children }: { children: string }) {
+function linkedProjectText(children: string, seen: Set<string>) {
   const nodes: ReactNode[] = [];
   let cursor = 0;
   for (const match of children.matchAll(resourcePattern())) {
     const start = match.index! + match[1].length;
     nodes.push(children.slice(cursor, start));
     const resource = resourceForTerm(match[2])!;
-    nodes.push(<a className="project-inline-resource" key={start} href={resource.href} target="_blank" rel="noreferrer">{match[2]}</a>);
+    if (seen.has(resource.href)) {
+      nodes.push(match[2]);
+    } else {
+      seen.add(resource.href);
+      nodes.push(<a className="project-inline-resource" key={start} href={resource.href} target="_blank" rel="noreferrer">{match[2]}</a>);
+    }
     cursor = start + match[2].length;
   }
   nodes.push(children.slice(cursor));
   return <>{nodes}</>;
 }
 
+export function LinkedProjectText({ children }: { children: string }) {
+  return linkedProjectText(children, new Set());
+}
+
+// Each page creates its own linker: one prose link per destination, independently of tool badges.
+export function createProjectTextLinker() {
+  const seen = new Set<string>();
+  return (text: string) => linkedProjectText(text, seen);
+}
+
 export default function ProjectResources({ project, locale }: { project: PortfolioProject; locale: Locale }) {
   const it = locale === "it";
-  const resources = resourcesForProject(project);
+  const resources = resourcesForProject(project, locale);
   const email = `mailto:gb.pernazza@gmail.com?subject=${encodeURIComponent(`${project.title} · ${it ? "Una domanda sul progetto" : "A question about the project"}`)}`;
   return (
     <section className="project-resources" aria-labelledby="project-resources-title">

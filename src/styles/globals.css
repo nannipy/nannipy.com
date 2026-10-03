@@ -929,15 +929,16 @@ button {
 }
 .project-inline-resource {
   text-decoration: underline;
-  text-decoration-color: #ffffff45;
-  text-underline-offset: 0.2em;
-  transition: text-decoration-color 0.2s;
-}
-.project-inline-resource:hover {
   text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.project-inline-resource:hover,
+.project-inline-resource:focus-visible {
+  text-decoration-thickness: 2px;
 }
 .project-tools .project-inline-resource {
-  text-decoration-color: #ffffff60;
+  text-decoration-color: currentColor;
 }
 .project-resources {
   border-top: 1px solid var(--line);
@@ -1437,6 +1438,31 @@ button {
   font-size: 11px;
   line-height: 1.5;
 }
+.project-image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--project-color);
+}
+.project-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/personal/grain.png");
+  mix-blend-mode: multiply;
+  opacity: 0.26;
+  pointer-events: none;
+}
+.project-image-frame > img {
+  object-fit: contain;
+  padding: 7%;
+  filter: drop-shadow(0 10px 16px rgb(0 0 0 / 18%));
+}
+.project-telemetry .chapter-photo.framed-photo {
+  width: 100%;
+}
 .technical-photo {
   margin-bottom: 80px;
 }
@@ -1610,108 +1636,108 @@ button {
 
 .project-design-credit { margin-top: 24px; color: var(--muted); font-size: 13px; line-height: 1.7; }
 
-/* SFT: consistent reading columns and uncropped, proportionate photographs. */
-.project-telemetry .project-chapters {
+/* Narrative projects: text paired with one image at each step. */
+.project-narrative .project-chapters {
   padding-top: clamp(56px, 7vw, 96px);
 }
-.project-telemetry .story-chapter,
-.project-telemetry .gallery-with-story .field-entry {
+.project-narrative .story-chapter,
+.project-narrative .gallery-with-story .field-entry {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(32px, 5vw, 72px);
   margin-bottom: clamp(64px, 8vw, 112px);
 }
-.project-telemetry .chapter-text {
+.project-narrative .chapter-text {
   max-width: 65ch;
   margin: 0;
 }
-.project-telemetry .chapter-text h2,
-.project-telemetry .field-copy h2 {
+.project-narrative .chapter-text h2,
+.project-narrative .field-copy h2 {
   font-size: clamp(30px, 3.5vw, 48px);
   line-height: 1.12;
   margin-bottom: 24px;
 }
-.project-telemetry .chapter-text > p:not(.eyebrow),
-.project-telemetry .field-copy p,
-.project-telemetry .project-story > div:last-child > p {
+.project-narrative .chapter-text > p:not(.eyebrow),
+.project-narrative .field-copy p,
+.project-narrative .project-story > div:last-child > p {
   font-size: clamp(17px, 1.5vw, 20px);
   line-height: 1.7;
   margin-bottom: 20px;
 }
-.project-telemetry .chapter-text > p:last-child,
-.project-telemetry .field-copy p:last-child {
+.project-narrative .chapter-text > p:last-child,
+.project-narrative .field-copy p:last-child {
   margin-bottom: 0;
 }
-.project-telemetry .chapter-photo {
+.project-narrative .chapter-photo {
   width: min(100%, calc(640px * var(--media-ratio, 1.6)));
   margin: 0 auto;
 }
-.project-telemetry .chapter-photo > img {
+.project-narrative .chapter-photo > img {
   width: 100%;
   height: auto;
   max-height: none;
   border-radius: 4px;
 }
-.project-telemetry .chapter-photo figcaption {
+.project-narrative .chapter-photo figcaption {
   font-size: 12px;
   gap: 6px 16px;
   margin-top: 12px;
 }
-.project-telemetry .story-chapter.chapter-with-video,
-.project-telemetry .story-chapter.chapter-text-only {
+.project-narrative .story-chapter.chapter-with-video,
+.project-narrative .story-chapter.chapter-text-only {
   grid-template-columns: minmax(0, 1fr);
 }
-.project-telemetry .chapter-with-video .chapter-text,
-.project-telemetry .chapter-text-only .chapter-text {
+.project-narrative .chapter-with-video .chapter-text,
+.project-narrative .chapter-text-only .chapter-text {
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
 }
-.project-telemetry .chapter-media-pair {
+.project-narrative .chapter-media-pair {
   width: 100%;
   max-width: 920px;
   margin: 0 auto;
   gap: clamp(24px, 4vw, 48px);
 }
-.project-telemetry .chapter-media-pair .chapter-photo {
+.project-narrative .chapter-media-pair .chapter-photo {
   --media-ratio: 0.5625;
 }
-.project-telemetry .chapter-media-pair .chapter-video > video {
+.project-narrative .chapter-media-pair .chapter-video > video {
   width: 100%;
   height: auto;
   max-height: none;
   aspect-ratio: 9 / 16;
   border-radius: 4px;
 }
-.project-telemetry .project-story {
+.project-narrative .project-story {
   border-top: 1px solid var(--line);
   padding: clamp(40px, 5vw, 64px) 0;
   gap: clamp(32px, 5vw, 72px);
 }
-.project-telemetry .technical-photo {
+.project-narrative .technical-photo {
   margin-bottom: 80px;
 }
 @media (max-width: 900px) {
-  .project-telemetry .story-chapter,
-  .project-telemetry .gallery-with-story .field-entry,
-  .project-telemetry .project-story {
+  .project-narrative .story-chapter,
+  .project-narrative .gallery-with-story .field-entry,
+  .project-narrative .project-story {
     grid-template-columns: minmax(0, 1fr);
   }
-  .project-telemetry .gallery-with-story .field-entry {
+  .project-narrative .gallery-with-story .field-entry {
     display: grid;
   }
-  .project-telemetry .gallery-with-story .field-entry .field-copy,
-  .project-telemetry .gallery-with-story .field-entry .chapter-photo {
+  .project-narrative .gallery-with-story .field-entry .field-copy,
+  .project-narrative .gallery-with-story .field-entry .chapter-photo {
     grid-column: auto;
     grid-row: auto;
   }
-  .project-telemetry .chapter-photo {
+  .project-narrative .chapter-photo {
     width: min(100%, calc(560px * var(--media-ratio, 1.6)));
   }
 }
 @media (max-width: 700px) {
-  .project-telemetry .chapter-media-pair {
+  .project-narrative .chapter-media-pair {
     grid-template-columns: minmax(0, 1fr);
   }
 }

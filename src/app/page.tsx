@@ -172,8 +172,8 @@ export default async function Home({
               </p>
               <p className="body-copy">
                 {it
-                  ? "Lavoro come freelance su progetti per Edgeworks, RECUP e Marsilea. Accanto a questi incarichi, collaboro con Sapienza Foiling Team: un impegno continuativo e strutturato nello sviluppo software ed embedded, svolto senza retribuzione mentre studio Ingegneria Informatica alla Sapienza."
-                  : "I work as a freelancer on projects for Edgeworks, RECUP and Marsilea. Alongside these assignments, I contribute to Sapienza Foiling Team: a sustained, structured commitment to software and embedded development, undertaken without pay while studying Computer Engineering at Sapienza."}
+                  ? "Lavoro come freelance su progetti per Edgeworks, RECUP e Marsilea. Accanto a questi incarichi, collaboro con Sapienza Foiling Team: un impegno continuativo e strutturato nello sviluppo software ed embedded, che porto avanti mentre studio Ingegneria Informatica alla Sapienza."
+                  : "I work as a freelancer on projects for Edgeworks, RECUP and Marsilea. Alongside these assignments, I contribute to Sapienza Foiling Team: a sustained, structured commitment to software and embedded development, which I pursue while studying Computer Engineering at Sapienza."}
               </p>
               <div className="cv-links">
                 {(["en", "it"] as const).map((lang) => (
@@ -201,14 +201,14 @@ export default async function Home({
                 <h3>Edgeworks</h3>
                 <p>
                   {it
-                    ? "HireSight per le candidature, Timesheet per tempi e report e Mora: un primo MVP per preparare bozze email con un piccolo sistema RAG."
-                    : "HireSight for applications, Timesheet for time tracking and reporting, and Mora: an early MVP for email drafts with a small RAG system."}
+                    ? "HireSight per le candidature, Time Tracker per tempi e report e Mora: un primo MVP per preparare bozze email con un piccolo sistema RAG."
+                    : "HireSight for applications, Time Tracker for time tracking and reporting, and Mora: an early MVP for email drafts with a small RAG system."}
                 </p>
                 <div className="experience-links">
                   <TransitionLink
                     href={`${localHref("/projects/edgeworks", locale)}#timesheet`}
                   >
-                    Timesheet ↗
+                    Time Tracker ↗
                   </TransitionLink>
                   <TransitionLink
                     href={`${localHref("/projects/edgeworks", locale)}#hiresight`}
@@ -249,8 +249,8 @@ export default async function Home({
               <article>
                 <span className="eyebrow">
                   {it
-                    ? "Collaborazione non retribuita · Set 2024 — oggi"
-                    : "Unpaid collaboration · Sep 2024 — present"}
+                    ? "Collaborazione nel team · Set 2024 — oggi"
+                    : "Team collaboration · Sep 2024 — present"}
                 </span>
                 <h3>Sapienza Foiling Team</h3>
                 <p>
