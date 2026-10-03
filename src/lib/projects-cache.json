@@ -1,22 +1,5 @@
 [
   {
-    "id": "sapienzafoilingteam",
-    "name": "Sapienzafoilingteam",
-    "github": "https://github.com/nannipy/sapienzafoilingteam",
-    "link": "https://sapienzafoilingteam.com",
-    "description": "Sapienza Sailing Team web app",
-    "language": "TypeScript",
-    "stars": 0,
-    "updatedAt": "2026-09-15T11:44:33Z",
-    "pushedAt": "2026-09-15T11:44:29Z",
-    "topics": [
-      "mobile",
-      "sft",
-      "website"
-    ],
-    "isFeatured": false
-  },
-  {
     "id": "opengym",
     "name": "OpenGym",
     "github": "https://github.com/nannipy/opengym",
@@ -25,8 +8,25 @@
     "language": "JavaScript",
     "stars": 0,
     "updatedAt": "2026-09-05T10:38:06Z",
-    "pushedAt": "2026-09-05T10:38:03Z",
+    "pushedAt": "2026-10-01T22:55:26Z",
     "topics": [],
+    "isFeatured": false
+  },
+  {
+    "id": "sapienzafoilingteam",
+    "name": "Sapienzafoilingteam",
+    "github": "https://github.com/nannipy/sapienzafoilingteam",
+    "link": "https://sapienzafoilingteam.com",
+    "description": "Sapienza Sailing Team web app",
+    "language": "TypeScript",
+    "stars": 0,
+    "updatedAt": "2026-09-22T11:18:03Z",
+    "pushedAt": "2026-09-30T07:45:37Z",
+    "topics": [
+      "mobile",
+      "sft",
+      "website"
+    ],
     "isFeatured": false
   },
   {
@@ -37,8 +37,8 @@
     "description": "ec-website",
     "language": "TypeScript",
     "stars": 0,
-    "updatedAt": "2026-09-04T18:23:42Z",
-    "pushedAt": "2026-09-04T18:23:38Z",
+    "updatedAt": "2026-09-16T18:10:45Z",
+    "pushedAt": "2026-09-16T18:10:41Z",
     "topics": [],
     "isFeatured": false
   },
