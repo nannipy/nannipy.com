@@ -75,7 +75,8 @@ argomenti e nota nelle due lingue. Per esempio:
 }
 ```
 
-Tipi supportati: `channel`, `video`, `book`, `paper`, `documentation`, `website`.
+Tipi supportati: `channel`, `video`, `book`, `paper`, `documentation`, `website`,
+`repository` (mostrato come “Repository”).
 I nuovi argomenti compaiono automaticamente nel filtro. Libri, video e paper
 possono essere aggiunti senza cambiare la pagina. I filtri vuoti mostrano uno
 stato dedicato e un pulsante per ripristinare l’intero catalogo.

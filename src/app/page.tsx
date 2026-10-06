@@ -45,9 +45,6 @@ export default async function Home({
                 ? "Software engineer · Roma, Italia"
                 : "Software engineer · Rome, Italy"}
             </span>
-            <span className="eyebrow hero-note">
-              {it ? "Curioso, per natura." : "Curious, by nature."}
-            </span>
           </div>
           <div className="hero-layout">
             <div className="hero-copy">
