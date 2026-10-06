@@ -49,7 +49,7 @@ export function SiteNav({
           }
         >
           {locale === "en" ? "IT" : "EN"}
-          <span>↗</span>
+          <span>↗︎</span>
         </Link>
       </nav>
     </header>
@@ -68,20 +68,20 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       </div>
       <a className="contact-title" href="mailto:gb.pernazza@gmail.com">
         {locale === "it" ? "Costruiamola insieme." : "Let’s build it together."}
-        <span>↗</span>
+        <span>↗︎</span>
       </a>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Giovanni Battista Pernazza</span>
         <div>
           <a href="https://github.com/nannipy" target="_blank" rel="noreferrer">
-            GitHub ↗
+            GitHub ↗︎
           </a>
           <a
             href="https://www.linkedin.com/in/giovannibpernazza/"
             target="_blank"
             rel="noreferrer"
           >
-            LinkedIn ↗
+            LinkedIn ↗︎
           </a>
           {siteContent.cv[locale] ? (
             <a href={siteContent.cv[locale]!} download>
@@ -93,7 +93,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               target="_blank"
               rel="noreferrer"
             >
-              CV ↗
+              CV ↗︎
             </a>
           )}
         </div>
@@ -109,6 +109,7 @@ export function ProjectCover({
   priority?: boolean;
 }) {
   const style = {
+    backgroundColor: project.slug === "homelab" ? "#141614" : undefined,
     "--project-color": project.color,
     "--project-ink": project.ink,
   } as CSSProperties;
@@ -150,7 +151,7 @@ export function ProjectCover({
       ) : project.cover === "photo" ? (
         <Image
           src={project.images[0]}
-          alt={project.slug === "homelab" ? "Nannix server · MacBook Air con Immich, Pi-hole, Tailscale, Filebrowser, Scrutiny, Beszel, Uptime Kuma, Docker e Linux sullo schermo" : project.title}
+          alt={project.slug === "homelab" ? "NANNIX" : project.title}
           width={1024}
           height={683}
           sizes="(max-width:700px) 95vw, 85vw"
@@ -258,7 +259,7 @@ export function ProjectCover({
             </>
           ) : project.cover === "cutout" ? (
             <>
-              <div className="cutout-art">↗</div>
+              <div className="cutout-art">↗︎</div>
               <span className="art-label">keep what matters.</span>
             </>
           ) : (
@@ -270,7 +271,7 @@ export function ProjectCover({
         </div>
       )}
       <span className="cover-arrow" aria-hidden="true">
-        ↗
+        ↗︎
       </span>
     </div>
   );

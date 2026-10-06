@@ -780,7 +780,7 @@ export const portfolioProjects: PortfolioProject[] = [
     color: "#94bda0",
     ink: "#173c2b",
     cover: "photo",
-    images: ["/work/nannix-macbook-services-green.webp"],
+    images: ["/work/nannix-wordmark.webp"],
     tools: ["Linux Mint", "Docker", "Immich", "Tailscale", "Pi-hole", "File Browser", "Beszel", "Scrutiny", "Uptime Kuma", "Watchtower"],
     summary: text(
       "Self-hosting, my data and the convenience I am learning to build myself.",

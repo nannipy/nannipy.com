@@ -103,7 +103,7 @@ export function PhotoJournal({ locale, items }: { locale: Locale; items: (Galler
             />
             <span className="photo-caption">
               <span>{item.tag}</span>
-              <span>↗</span>
+              <span>↗︎</span>
             </span>
           </button>
         ))}

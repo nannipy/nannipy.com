@@ -144,7 +144,7 @@ export default async function Home({
                   <small>{p.summary[locale]}</small>
                 </span>
                 <span className="row-category">{p.category}</span>
-                <span className="row-arrow">↗</span>
+                <span className="row-arrow">↗︎</span>
               </TransitionLink>
             ))}
           </div>
@@ -205,14 +205,14 @@ export default async function Home({
                   <TransitionLink
                     href={`${localHref("/projects/edgeworks", locale)}#timesheet`}
                   >
-                    Time Tracker ↗
+                    Time Tracker ↗︎
                   </TransitionLink>
                   <TransitionLink
                     href={`${localHref("/projects/edgeworks", locale)}#hiresight`}
                   >
-                    HireSight ↗
+                    HireSight ↗︎
                   </TransitionLink>
-                  <TransitionLink href={`${localHref("/projects/edgeworks", locale)}#mora`}>Mora ↗</TransitionLink>
+                  <TransitionLink href={`${localHref("/projects/edgeworks", locale)}#mora`}>Mora ↗︎</TransitionLink>
                 </div>
               </article>
               <article>
@@ -231,7 +231,7 @@ export default async function Home({
                   className="text-link"
                   href={localHref("/projects/recup", locale)}
                 >
-                  {it ? "Il progetto" : "The project"} ↗
+                  {it ? "Il progetto" : "The project"} ↗︎
                 </TransitionLink>
               </article>
               <article>
@@ -259,7 +259,7 @@ export default async function Home({
                   <TransitionLink
                     href={localHref("/projects/sapienza-foiling-team", locale)}
                   >
-                    {it ? "Il percorso nel team" : "My journey with the team"} ↗
+                    {it ? "Il percorso nel team" : "My journey with the team"} ↗︎
                   </TransitionLink>
                 </div>
               </article>

@@ -103,14 +103,10 @@ export default async function NannixPage({
       </header>
       <section className="nannix-machine" aria-labelledby="machine-title">
         <Image
-          src="/work/nannix-macbook-services-green.webp"
-          alt={
-            it
-              ? "Il MacBook Air che ospita il mio Home Lab"
-              : "The MacBook Air hosting my Home Lab"
-          }
-          width={1024}
-          height={683}
+          src="/work/nannix-wordmark.webp"
+          alt="NANNIX"
+          width={1600}
+          height={1066}
           sizes="(max-width: 700px) 90vw, 55vw"
           priority
         />

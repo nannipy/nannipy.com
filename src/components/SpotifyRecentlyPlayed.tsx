@@ -43,7 +43,7 @@ export default async function SpotifyRecentlyPlayed({
                 {t.name}
                 <small>{t.artist}</small>
               </span>
-              <span aria-hidden="true">↗</span>
+              <span aria-hidden="true">↗︎</span>
             </a>
           ))}
         </div>

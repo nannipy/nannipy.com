@@ -694,7 +694,7 @@ export default function OsmoLandingView({ onExploreVault }: OsmoLandingViewProps
             </p>
             <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-xs font-mono text-neutral-600">
               <span>24 RESOURCES USED</span>
-              <span className="text-[#65a30d] font-bold">LIVE PRODUCTION ↗</span>
+              <span className="text-[#65a30d] font-bold">LIVE PRODUCTION ↗︎</span>
             </div>
           </div>
 

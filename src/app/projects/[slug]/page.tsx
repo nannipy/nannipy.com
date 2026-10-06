@@ -81,7 +81,7 @@ export default async function ProjectPage({
                   height={154}
                 />
                 <span>
-                  {it ? "L’associazione RECUP" : "RECUP association"} ↗
+                  {it ? "L’associazione RECUP" : "RECUP association"} ↗︎
                 </span>
               </a>
             ) : null}
@@ -98,7 +98,7 @@ export default async function ProjectPage({
                 {it ? "Design di" : "Design by"}{" "}
                 {project.designCredit.instagram ? (
                   <a href={project.designCredit.instagram} target="_blank" rel="noreferrer" className="text-link">
-                    {project.designCredit.name} ↗
+                    {project.designCredit.name} ↗︎
                   </a>
                 ) : <span>{project.designCredit.name}</span>}
               </p>
@@ -111,7 +111,7 @@ export default async function ProjectPage({
                   rel="noreferrer"
                   className="text-link"
                 >
-                  {it ? "Visita il sito" : "Visit website"} ↗
+                  {it ? "Visita il sito" : "Visit website"} ↗︎
                 </a>
               ) : null}
               {project.github ? (
@@ -121,7 +121,7 @@ export default async function ProjectPage({
                   rel="noreferrer"
                   className="text-link"
                 >
-                  GitHub ↗
+                  GitHub ↗︎
                 </a>
               ) : null}
             </div>
@@ -164,7 +164,7 @@ export default async function ProjectPage({
                   ))}
                   {chapter.links ? (
                     <div className="experience-links">
-                      {chapter.links.map(link => <a key={link.href} href={link.href} className="text-link" target="_blank" rel="noreferrer">{link.label[locale]} ↗</a>)}
+                      {chapter.links.map(link => <a key={link.href} href={link.href} className="text-link" target="_blank" rel="noreferrer">{link.label[locale]} ↗︎</a>)}
                     </div>
                   ) : null}
                 </div>
@@ -250,7 +250,7 @@ export default async function ProjectPage({
                   <figcaption>
                     {photo.website ? (
                       <a href={photo.website} target="_blank" rel="noreferrer" className="text-link">
-                        {new URL(photo.website).hostname} ↗
+                        {new URL(photo.website).hostname} ↗︎
                       </a>
                     ) : <span>{photo.caption[locale]}</span>}
                   </figcaption>
@@ -309,7 +309,7 @@ export default async function ProjectPage({
           <span className="eyebrow">
             {it ? "Continua a esplorare" : "Keep exploring"}
           </span>
-          <span>{next.title} ↗</span>
+          <span>{next.title} ↗︎</span>
         </TransitionLink>
       </main>
       <SiteFooter locale={locale} />

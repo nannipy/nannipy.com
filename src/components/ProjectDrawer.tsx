@@ -157,7 +157,7 @@ export default function ProjectDrawer({ project, onClose }: ProjectDrawerProps) 
                     href={`/projects/${project.id}`}
                     className="hover:text-osmo-lime flex items-center gap-1 text-osmo-text-secondary transition-colors"
                   >
-                    FULL SPEC ↗
+                    FULL SPEC ↗︎
                   </Link>
                 </div>
               </div>
