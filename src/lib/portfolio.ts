@@ -774,264 +774,28 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
   },
   {
-    "slug": "homelab",
-    "title": "Homelab",
-    "category": "Infrastructure · Personal",
-    "color": "#94bda0",
-    "ink": "#173c2b",
-    "cover": "photo",
-    "images": [
-      "/work/nannix-macbook-services-green.webp"
+    slug: "homelab",
+    title: "Nannix server",
+    category: "Infrastructure · Personal",
+    color: "#94bda0",
+    ink: "#173c2b",
+    cover: "photo",
+    images: ["/work/nannix-macbook-services-green.webp"],
+    tools: ["Linux Mint", "Docker", "Immich", "Tailscale", "Pi-hole", "File Browser", "Beszel", "Scrutiny", "Uptime Kuma", "Watchtower"],
+    summary: text(
+      "Self-hosting, my data and the convenience I am learning to build myself.",
+      "Self hosting, i miei dati e la comodità che sto imparando a costruire da me.",
+    ),
+    story: [
+      text(
+        "I have been getting into self-hosting and understanding what happens around my data: DNS, tracking, advertising and the dependencies I choose. My frustration with subscriptions also played a part. In January 2026 I started a lab on a 2016 MacBook Air I already had at home, to try building some of the convenience I use every day.",
+        "Da un po’ di tempo mi sono appassionato al self hosting e a capire cosa succede attorno ai miei dati: DNS, tracking, pubblicità e dipendenze che scelgo. C’entra anche il mio fastidio per gli abbonamenti. A gennaio 2026 ho iniziato un laboratorio su un MacBook Air del 2016 che avevo già a casa, per provare a costruirmi una parte della comodità che uso ogni giorno.",
+      ),
+      text(
+        "Today it runs Linux Mint and Docker, with 256 GB of storage and no battery. Immich holds my photo library; Tailscale lets me reach the services away from home. Alongside them are DNS filtering, file access, monitoring and small Telegram experiments.",
+        "Oggi gira con Linux Mint e Docker, ha 256 GB di spazio e nessuna batteria. Immich ospita la mia raccolta fotografica; Tailscale mi permette di raggiungere i servizi fuori casa. Accanto ci sono filtro DNS, accesso ai file, monitoraggio e piccoli esperimenti Telegram.",
+      ),
     ],
-    "tools": [
-      "Linux",
-      "Docker",
-      "Tailscale",
-      "Pi-hole",
-      "Immich",
-      "Beszel",
-      "Scrutiny",
-      "Uptime Kuma",
-      "File Browser"
-    ],
-    "summary": {
-      "en": "Nannix server. A place for my data, my services and whatever comes next.",
-      "it": "Nannix server. Uno spazio per i miei dati, i miei servizi e le prossime idee."
-    },
-    "story": [
-      {
-        "en": "Nannix server began with curiosity: I wanted a server of my own, with applications running around the clock that I could reach from anywhere. Immich was the first service I installed, followed by Tailscale to connect the machine to my other devices and access it away from home.",
-        "it": "Nannix server nasce dalla curiosità: volevo un server mio, con applicazioni in funzione H24 a cui poter accedere da ovunque. Il primo servizio che ho installato è stato Immich, seguito da Tailscale per collegare la macchina agli altri dispositivi e raggiungerla anche fuori casa."
-      },
-      {
-        "en": "Alongside that freedom to experiment, I wanted to depend less on Google and other cloud services. As my photo library and files grew, I wanted more control over their storage and the services I used. I wanted to decide where my data lived and how to manage it, on hardware I could take care of myself.",
-        "it": "Accanto alla libertà di sperimentare, volevo dipendere meno da Google e dagli altri servizi cloud. Con la crescita delle mie raccolte di foto e file, volevo avere più controllo sull’archiviazione e sui servizi che utilizzavo. Volevo scegliere dove conservare i miei dati e come gestirli, su hardware di cui potermi occupare direttamente."
-      },
-      {
-        "en": "I started with a 2016 MacBook Air that was sitting unused at home: a modest machine, without a battery. Linux and Docker gave it a second life. Without a battery, a power cut interrupts the server immediately; that remains a limitation of this setup.",
-        "it": "Sono partito da un MacBook Air del 2016 che avevo fermo a casa: una macchina poco potente, senza batteria. Linux e Docker gli hanno dato una seconda vita. Senza batteria, un blackout interrompe subito il funzionamento del server: rimane un limite di questa configurazione."
-      },
-      {
-        "en": "Today Immich holds my photos and videos, Filebrowser gives me access to my files and Pi-hole helps me control DNS traffic on my network. Tailscale lets me reach the server from my other devices, even away from home. The services make it useful today; being able to add the next idea is what keeps the project interesting.",
-        "it": "Oggi Immich ospita le mie foto e i miei video, Filebrowser mi dà accesso ai file e Pi-hole mi aiuta a controllare il traffico DNS della rete. Tailscale mi permette di raggiungere il server dagli altri dispositivi, anche fuori casa. I servizi lo rendono utile oggi; poterci aggiungere la prossima idea è ciò che continua a rendere interessante il progetto."
-      },
-      {
-        "en": "Because the computer is old, I wanted to understand how it was coping with continuous use. I added monitoring for disk health, resource use and service availability, both to notice signs of trouble and to see which activities put the most load on the machine. During the summer in Rome, the temperatures I observed remained acceptable.",
-        "it": "Essendo un computer vecchio, volevo capire come affrontasse l’utilizzo continuo. Ho aggiunto il monitoraggio della salute dei dischi, dell’uso delle risorse e della disponibilità dei servizi, sia per accorgermi di eventuali segnali di problemi sia per capire quali attività pesassero di più sulla macchina. Durante l’estate romana, le temperature che ho osservato sono rimaste accettabili."
-      },
-      {
-        "en": "So far, the main challenge has been the computer’s limited processing power. Large batches of photos and backups take time, especially when Immich also has to process the images with its machine-learning features. This has made the hardware’s limits tangible and taught me to pay attention to workloads and cooling.",
-        "it": "Finora la difficoltà principale è stata la potenza limitata del computer. Grandi quantità di foto e backup richiedono tempo, soprattutto quando Immich deve anche elaborare le immagini con le sue funzioni di machine learning. È stato un modo concreto di conoscere i limiti dell’hardware e imparare a prestare attenzione ai carichi di lavoro e al raffreddamento."
-      },
-      {
-        "en": "The project also opened a door to many open-source tools, which account for most of the software I use here. I explored different Linux distributions and currently use Linux Mint; I would like to move to Ubuntu Server for a setup more focused on hosting services. Along the way I learned Linux commands, Docker and container management, and discovered what Kubernetes is for, although I have not used it myself.",
-        "it": "Il progetto mi ha fatto scoprire tanti strumenti open source, che costituiscono la maggior parte del software che uso qui. Ho esplorato diverse distribuzioni Linux e oggi utilizzo Linux Mint; vorrei passare a Ubuntu Server per una configurazione più orientata a ospitare servizi. Nel percorso ho imparato comandi Linux, Docker e la gestione dei container, e scoperto a cosa serve Kubernetes, anche se non l’ho ancora utilizzato."
-      }
-    ],
-    "gallery": [
-      {
-        "src": "/work/homelab-0726.webp",
-        "width": 1600,
-        "height": 1200,
-        "title": {
-          "en": "A server that starts with what I have.",
-          "it": "Un server che parte da quello che ho."
-        },
-        "caption": {
-          "en": "The closed MacBook Air, connected on my desk.",
-          "it": "Il MacBook Air chiuso, collegato sulla scrivania."
-        },
-        "body": [
-          {
-            "en": "The machine sits in a corner of my desk, connected and ready to host services throughout the day. Its limited memory and ageing SSD shape what I can run. I can improve the setup as my needs change, without waiting for the perfect hardware to begin.",
-            "it": "La macchina occupa un angolo della scrivania, collegata e pronta a ospitare servizi durante tutta la giornata. La memoria limitata e l’SSD che invecchia orientano ciò che posso farci girare. Posso migliorare la configurazione man mano che cambiano le esigenze, senza aspettare l’hardware perfetto per cominciare."
-          }
-        ]
-      },
-      {
-        "src": "/work/homelab-0727.webp",
-        "width": 1200,
-        "height": 1600,
-        "title": {
-          "en": "Linux, as a base for new ideas.",
-          "it": "Linux, come base per nuove idee."
-        },
-        "caption": {
-          "en": "The MacBook Air running its Linux desktop.",
-          "it": "Il MacBook Air con il desktop Linux in esecuzione."
-        },
-        "body": [
-          {
-            "en": "The laptop currently runs Linux Mint. Exploring distributions has become part of the project, alongside learning the commands and tools needed to maintain services. Ubuntu Server is a possible next step I would like to try.",
-            "it": "Il portatile oggi utilizza Linux Mint. Esplorare le distribuzioni è diventato parte del progetto, insieme a imparare i comandi e gli strumenti necessari per mantenere i servizi. Ubuntu Server è un possibile prossimo passo che vorrei provare."
-          }
-        ]
-      },
-      {
-        "src": "/work/homelab-0728.webp",
-        "width": 1200,
-        "height": 1600,
-        "title": {
-          "en": "Docker · Room for the next experiment.",
-          "it": "Docker · Spazio per il prossimo esperimento."
-        },
-        "caption": {
-          "en": "The MacBook with a terminal open.",
-          "it": "Il MacBook con il terminale aperto."
-        },
-        "body": [
-          {
-            "en": "Docker lets me organise the applications into containers. When I want to build a Telegram bot, run a scheduled task or try a new tool, I have somewhere to put it. The server is a platform I can keep extending, alongside the services already in use.",
-            "it": "Docker mi permette di organizzare le applicazioni in container. Quando voglio creare un bot Telegram, eseguire un’attività periodica o provare un nuovo strumento, ho un posto in cui farlo girare. Il server è una piattaforma che posso continuare ad ampliare, accanto ai servizi già in uso."
-          }
-        ]
-      },
-      {
-        "src": "/work/immich-logo.svg",
-        "width": 792,
-        "height": 792,
-        "mediaKind": "logo",
-        "website": "https://immich.app",
-        "title": {
-          "en": "Immich · My alternative to Google Photos.",
-          "it": "Immich · La mia alternativa a Google Foto."
-        },
-        "caption": {
-          "en": "Immich logo",
-          "it": "Logo Immich"
-        },
-        "body": [
-          {
-            "en": "Immich is one of the main reasons this server matters in my daily life. It gives my photos and videos a library on my own hardware, with mobile backup and a way to browse and rediscover them. It takes the place Google Photos had for me, while letting me choose how to store my memories.",
-            "it": "Immich è uno dei motivi principali per cui questo server conta nella mia vita quotidiana. Dà alle mie foto e ai miei video una libreria sul mio hardware, con backup dal telefono e un modo comodo per sfogliarli e ritrovarli. Prende il posto che per me aveva Google Foto, lasciandomi scegliere come conservare i miei ricordi."
-          },
-          {
-            "en": "It is also one of the open-source projects I find most exciting. I love seeing something this useful and thoughtfully built available for people to run themselves. Photos from cycling, the mountains, friends and the boat make the value very tangible: I am using it to look after things I care about.",
-            "it": "È anche uno dei progetti open source che trovo più interessanti. Mi entusiasma vedere qualcosa di così utile e curato che le persone possono far girare da sé. Le foto del ciclismo, della montagna, degli amici e della barca rendono il suo valore molto concreto: lo uso per prendermi cura di cose a cui tengo."
-          }
-        ]
-      },
-      {
-        "src": "/work/homelab-pihole.webp",
-        "width": 1500,
-        "height": 910,
-        "title": {
-          "en": "Pi-hole · Less tracking, more control.",
-          "it": "Pi-hole · Meno tracking, più controllo."
-        },
-        "caption": {
-          "en": "Pi-hole: DNS activity and filtering dashboard.",
-          "it": "Pi-hole: dashboard delle attività DNS e del filtraggio."
-        },
-        "body": [
-          {
-            "en": "Pi-hole filters DNS requests on my network. Blocking domains associated with advertising and tracking reduces some of the noise and gives me more control over what my devices contact. The dashboard lets me see queries, blocked requests and their history; DNS filtering can stop many unwanted domains, though it cannot remove every ad.",
-            "it": "Pi-hole filtra le richieste DNS della mia rete. Bloccare domini associati a pubblicità e tracking riduce una parte del rumore e mi dà più controllo su ciò che contattano i dispositivi. La dashboard mostra le query, le richieste bloccate e il loro storico: il filtraggio DNS può fermare molti domini indesiderati, anche se non elimina ogni pubblicità."
-          }
-        ]
-      },
-      {
-        "src": "/work/homelab-filebrowser.webp",
-        "width": 1500,
-        "height": 910,
-        "title": {
-          "en": "Filebrowser · My files, on my server.",
-          "it": "Filebrowser · I miei file, sul mio server."
-        },
-        "caption": {
-          "en": "File Browser: the server’s web file manager.",
-          "it": "File Browser: il gestore dei file del server via web."
-        },
-        "body": [
-          {
-            "en": "For documents and other files, Filebrowser gives me a web interface to browse, upload and organise what I keep on the machine. Together with Immich for photos, it helps me move more of my digital life onto my own server and reduce my reliance on external storage services.",
-            "it": "Per documenti e altri file, Filebrowser mi dà un’interfaccia web per consultare, caricare e organizzare ciò che conservo sulla macchina. Insieme a Immich per le foto, mi aiuta a portare una parte maggiore della mia vita digitale sul mio server e a dipendere meno dai servizi di archiviazione esterni."
-          }
-        ]
-      },
-      {
-        "src": "/work/tailscale-logo.svg",
-        "width": 256,
-        "height": 256,
-        "mediaKind": "logo",
-        "website": "https://tailscale.com",
-        "title": {
-          "en": "Tailscale · The part that makes it simple.",
-          "it": "Tailscale · La parte che rende tutto semplice."
-        },
-        "caption": {
-          "en": "Tailscale logo",
-          "it": "Logo Tailscale"
-        },
-        "body": [
-          {
-            "en": "All of this would be much less convenient without Tailscale. My server stays at home, but I can reach it from my phone or laptop when I am elsewhere. Photos, files and dashboards remain within reach through a private, encrypted network between my devices.",
-            "it": "Tutto questo sarebbe molto meno comodo senza Tailscale. Il server rimane a casa, ma posso raggiungerlo dal telefono o dal portatile quando sono altrove. Foto, file e dashboard restano a portata di mano attraverso una rete privata e cifrata tra i miei dispositivi."
-          },
-          {
-            "en": "That simplicity is a big part of why the homelab works for me. I can use my services remotely without setting up port forwarding for each one, and spend more time building and using them.",
-            "it": "Questa semplicità è una parte importante del motivo per cui l’homelab funziona per me. Posso usare i servizi da remoto senza configurare il port forwarding per ciascuno e dedicare più tempo a costruirli e usarli."
-          }
-        ]
-      },
-      {
-        "src": "/work/homelab-scrutiny.webp",
-        "width": 1500,
-        "height": 910,
-        "title": {
-          "en": "Scrutiny · Watching the SSD over time.",
-          "it": "Scrutiny · Seguire l’SSD nel tempo."
-        },
-        "caption": {
-          "en": "Scrutiny: SSD health and temperature history.",
-          "it": "Scrutiny: salute dell’SSD e storico della temperatura."
-        },
-        "body": [
-          {
-            "en": "Scrutiny brings together disk health information, S.M.A.R.T. data and temperature history. On an older machine, being able to follow those changes helps me notice warning signs and plan maintenance before a problem takes me by surprise.",
-            "it": "Scrutiny riunisce informazioni sulla salute dei dischi, dati S.M.A.R.T. e storico delle temperature. Su una macchina non più nuova, seguire questi cambiamenti mi aiuta a riconoscere segnali da approfondire e pianificare la manutenzione prima che un problema mi colga di sorpresa."
-          }
-        ]
-      },
-      {
-        "src": "/work/homelab-beszel.webp",
-        "width": 1500,
-        "height": 910,
-        "title": {
-          "en": "Beszel · Knowing what the machine is doing.",
-          "it": "Beszel · Capire cosa sta facendo la macchina."
-        },
-        "caption": {
-          "en": "Beszel: CPU, memory and Docker resource charts.",
-          "it": "Beszel: grafici di CPU, memoria e risorse Docker."
-        },
-        "body": [
-          {
-            "en": "Beszel shows CPU, memory, disk and network usage, together with the resources used by Docker containers. Its historical charts help me understand loads and trends. Supported hardware sensors add context, so I can judge how much room this small server has for another service.",
-            "it": "Beszel mostra l’utilizzo di CPU, memoria, disco e rete, insieme alle risorse usate dai container Docker. I grafici storici mi aiutano a capire carichi e andamento nel tempo. I sensori supportati dall’hardware aggiungono contesto, così posso valutare quanto spazio ha ancora questo piccolo server per un altro servizio."
-          }
-        ]
-      },
-      {
-        "src": "/work/homelab-uptime.webp",
-        "width": 1500,
-        "height": 910,
-        "title": {
-          "en": "Uptime Kuma · Are my sites and services responding?",
-          "it": "Uptime Kuma · Siti e servizi rispondono?"
-        },
-        "caption": {
-          "en": "Uptime Kuma: server and service availability.",
-          "it": "Uptime Kuma: disponibilità del server e dei servizi."
-        },
-        "body": [
-          {
-            "en": "Uptime Kuma monitors my websites and the availability of the server’s services. It gives me response times and uptime history in one place, helping me distinguish a machine that is powered on from a service I can actually reach. Together, these three monitoring tools close the loop: disk health, resource use and availability.",
-            "it": "Uptime Kuma controlla i miei siti e la disponibilità dei servizi del server. Riunisce tempi di risposta e storico dell’uptime, aiutandomi a distinguere una macchina accesa da un servizio che riesco davvero a raggiungere. Questi tre strumenti di monitoraggio completano il quadro: salute dei dischi, uso delle risorse e disponibilità."
-          }
-        ]
-      }
-    ]
   },
   {
     slug: "pomodoro-go",

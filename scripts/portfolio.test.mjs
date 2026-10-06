@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 import { portfolioProjects, homeMediaGallery, siteContent, getLocale, localHref } from '../src/lib/portfolio.ts';
 import { getRecentTracks } from '../src/lib/spotify.ts';
+import { nannixArticles } from '../src/lib/nannix.ts';
 
 test('Every curated route and local media asset exists in both languages', () => {
   const slugs = portfolioProjects.map(p => p.slug);
@@ -29,7 +30,7 @@ test('Every curated route and local media asset exists in both languages', () =>
     } else if (Array.isArray(value)) value.forEach(visit);
     else if (value && typeof value === 'object') Object.values(value).forEach(visit);
   };
-  visit([portfolioProjects, homeMediaGallery, siteContent]);
+  visit([portfolioProjects, homeMediaGallery, siteContent, nannixArticles]);
   for (const file of ['src/app/page.tsx', 'src/components/PortfolioShared.tsx', 'src/styles/globals.css', 'src/app/metadata.ts']) {
     const source = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
     for (const match of source.matchAll(/["'(](\/(?:personal|work|cv|brand)\/[^"'()\s]+)/g)) visit(match[1]);
@@ -93,6 +94,17 @@ test('Production server renders both languages, all projects, downloads and 404s
     assert.ok(html.includes(locale === 'it' ? 'Progetti' : 'Projects'));
     assert.ok(html.includes('wordmark-dot'));
     assert.ok(!html.includes('/brand/urchin.svg'));
+    for (const path of ['/nannix', '/nannix/biblioteca', ...nannixArticles.map(a => `/nannix/${a.slug}`)]) {
+      const response = await fetch(`${base}${localHref(path, locale)}`);
+      assert.equal(response.status, 200, path);
+      const content = await response.text();
+      assert.ok(content.includes('Nannix'), path);
+      assert.ok(content.includes(`/nannix/biblioteca?lang=${locale}`), path);
+      const article = nannixArticles.find(a => path === `/nannix/${a.slug}`);
+      if (article) for (const section of article.sections) {
+        assert.ok(content.includes(`id="${section.id}"`), `${path} #${section.id}`);
+      }
+    }
     for (let i = 0; i < portfolioProjects.length; i += 4) {
       await Promise.all(portfolioProjects.slice(i, i + 4).map(async project => {
         const page = await fetch(`${base}${localHref(`/projects/${project.slug}`, locale)}`);
@@ -111,4 +123,5 @@ test('Production server renders both languages, all projects, downloads and 404s
     assert.ok(response.headers.get('content-type')?.includes(mime), path);
   }
   assert.equal((await fetch(`${base}/projects/not-a-real-project`)).status, 404);
+  assert.equal((await fetch(`${base}/nannix/not-a-real-chapter`)).status, 404);
 });

@@ -132,6 +132,16 @@ export default async function ProjectPage({
             ))}
           </div>
         </section>
+        {slug === "homelab" && (
+          <section className="nannix-project-entry">
+            <div>
+              <p className="eyebrow">Nannix</p>
+              <h2>{it ? "Dentro il mio Home Lab." : "Inside my Home Lab."}</h2>
+              <p>{it ? "Il mio percorso nel self hosting: quello che esploro, gli strumenti che mi piace usare e la comodità che provo a costruire da me. Nannix raccoglie il racconto, insieme alle idee e alle letture che lo accompagnano." : "My self-hosting journey: what I explore, the tools I enjoy using and the convenience I try to build myself. Nannix brings together the story, the ideas and the readings that accompany it."}</p>
+            </div>
+            <TransitionLink href={localHref("/nannix", locale)} className="text-link">{it ? "Esplora Nannix" : "Explore Nannix"} ↗︎</TransitionLink>
+          </section>
+        )}
         {project.chapters ? (
           <section
             className="project-chapters"

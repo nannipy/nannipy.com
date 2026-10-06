@@ -1750,3 +1750,108 @@ button {
 
 @media (max-width: 370px) { .wordmark { font-size: 16px; } .site-nav nav { gap: 11px; } }
 @media (prefers-reduced-motion: reduce) { .wordmark-dot { transition: none; } .wordmark:hover .wordmark-dot, .wordmark:focus-visible .wordmark-dot { transform: none; } }
+
+/* Nannix: the personal lab and its growing library. */
+.nannix-page { --accent: #94bda0; --accent-text: #b6d4be; }
+.nannix-nav { display: flex; flex-wrap: wrap; gap: 12px 30px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; font-size: 14px; }
+.nannix-nav a { padding: 8px 0; }
+.nannix-nav a[aria-current], .nannix-sidebar a[aria-current], .site-nav a[aria-current] { color: var(--accent-text); text-decoration: underline; text-underline-offset: 6px; }
+.nannix-hero { padding: 68px 0 55px; max-width: 850px; }
+.nannix-hero h1 { font-size: clamp(76px, 12vw, 160px); line-height: 1; letter-spacing: -.07em; margin: 20px 0 30px; }
+.nannix-hero h1 span { color: var(--accent); }
+.nannix-lead { font-size: clamp(22px, 3vw, 32px); line-height: 1.4; letter-spacing: -.025em; }
+.nannix-hero > p:not(.eyebrow):not(.nannix-lead), .nannix-article-header > p:not(.eyebrow):not(.nannix-lead) { margin-top: 24px; max-width: 68ch; font-size: 18px; line-height: 1.75; color: var(--muted); }
+.nannix-page strong { color: var(--paper); font-weight: 700; }
+.nannix-hero-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px; }
+.nannix-machine { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; padding: 32px 0 64px; border-bottom: 1px solid var(--line); }
+.nannix-machine > img { width: 100%; height: auto; border-radius: 8px; }
+.nannix-machine h2 { font-size: 36px; letter-spacing: -.04em; margin: 12px 0 20px; }
+.nannix-machine p:not(.eyebrow) { font-size: 17px; line-height: 1.7; color: var(--muted); }
+.nannix-services { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 24px 0 0; }
+.nannix-services li, .nannix-tags li { border: 1px solid var(--line); border-radius: 30px; padding: 7px 11px; font-size: 12px; }
+.nannix-index { padding: 64px 0; }
+.nannix-section-heading { max-width: 65ch; margin-bottom: 32px; }
+.nannix-section-heading h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -.04em; margin: 12px 0 18px; }
+.nannix-section-heading > p:last-child { color: var(--muted); line-height: 1.7; font-size: 17px; }
+.nannix-card-grid, .nannix-bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.nannix-card { position: relative; padding: 30px 34px 50px; border: 1px solid var(--line); border-radius: 6px; transition: border-color .2s; }
+.nannix-card:hover { border-color: var(--accent); }
+.nannix-card h3, .nannix-card h2 { font-size: 28px; letter-spacing: -.035em; line-height: 1.2; margin: 20px 0 16px; max-width: 24ch; }
+.nannix-card p:not(.eyebrow) { color: var(--muted); font-size: 16px; line-height: 1.65; max-width: 50ch; }
+.nannix-card-arrow { position: absolute; bottom: 18px; right: 24px; font-size: 26px; color: var(--accent-text); }
+.nannix-bottom-grid { padding-bottom: 70px; }
+.nannix-idea { background: #94bda012; }
+.nannix-article-header { padding: 48px 0 55px; max-width: 950px; }
+.nannix-article-header > .eyebrow { margin-top: 28px; }
+.nannix-article-header h1 { font-size: clamp(40px, 6vw, 78px); line-height: 1.06; letter-spacing: -.055em; margin: 22px 0 28px; }
+.nannix-article-header .nannix-lead { color: var(--muted); max-width: 55ch; }
+.nannix-reading-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 70px; align-items: start; padding-bottom: 60px; }
+.nannix-sidebar { position: sticky; top: 28px; }
+.nannix-sidebar nav { display: flex; flex-direction: column; gap: 12px; }
+.nannix-sidebar nav a { font-size: 14px; line-height: 1.5; color: var(--muted); padding: 4px 0; }
+.nannix-sidebar nav a:hover { color: var(--paper); }
+.nannix-chapters { margin-top: 38px; padding-top: 24px; border-top: 1px solid var(--line); }
+.nannix-chapters a { display: flex; gap: 12px; }
+.nannix-chapters a span { font-size: 11px; padding-top: 3px; font-family: var(--font-geist-mono), monospace; color: var(--accent-text); }
+.nannix-prose { max-width: 72ch; min-width: 0; }
+.nannix-prose figure { margin: 0 0 48px; }
+.nannix-prose figure img { width: 100%; height: auto; border-radius: 6px; }
+.nannix-prose figcaption { color: var(--muted); font-size: 12px; margin-top: 12px; }
+.nannix-prose section { margin-bottom: 48px; scroll-margin-top: 28px; }
+.nannix-prose h2 { font-size: clamp(27px, 3vw, 36px); line-height: 1.2; letter-spacing: -.035em; margin-bottom: 22px; }
+.nannix-prose p { font-size: 18px; line-height: 1.8; color: var(--muted); }
+.nannix-prose p + p { margin-top: 22px; }
+.nannix-sources { border-top: 1px solid var(--line); padding-top: 32px; }
+.nannix-sources > .eyebrow { font-size: 10px; margin-bottom: 16px; }
+.nannix-sources ul { list-style: none; padding: 0; margin: 0 0 28px; }
+.nannix-sources li { padding: 10px 0; }
+.nannix-sources a { text-decoration: underline; text-underline-offset: 5px; }
+.nannix-next { border-top: 1px solid var(--line); padding-top: 28px; }
+.nannix-next > .eyebrow { font-size: 10px; margin-bottom: 16px; }
+.nannix-next a { display: flex; justify-content: space-between; gap: 20px; font-size: 26px; line-height: 1.4; }
+.nannix-library { padding-bottom: 80px; }
+.nannix-library-controls { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+.nannix-library label { display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+.nannix-library input, .nannix-library select { width: 100%; min-height: 48px; color: var(--paper); background: var(--canvas); border: 1px solid var(--line); border-radius: 4px; padding: 12px; font: inherit; }
+.nannix-library input:focus-visible, .nannix-library select:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.nannix-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.nannix-filters button { min-height: 44px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 30px; background: transparent; font-size: 13px; }
+.nannix-filters button[aria-pressed="true"] { background: var(--accent); color: #173c2b; border-color: var(--accent); font-weight: 600; }
+.nannix-results { margin: 26px 0 16px; }
+.nannix-library-list { list-style: none; padding: 0; margin: 0; }
+.nannix-library-list > li { display: grid; grid-template-columns: 1fr 1.25fr; gap: 40px; padding: 32px 0; border-top: 1px solid var(--line); }
+.nannix-library-list h2 { font-size: 27px; letter-spacing: -.025em; margin: 10px 0; }
+.nannix-library-list h2 a:hover { color: var(--accent-text); }
+.nannix-library-list p { color: var(--muted); line-height: 1.7; font-size: 16px; }
+.nannix-library-list .nannix-library-author { font-size: 13px; }
+.nannix-tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin-top: 16px; }
+.nannix-empty { border-top: 1px solid var(--line); padding: 40px 0; }
+.nannix-empty h2 { font-size: 26px; margin-bottom: 16px; }
+.nannix-empty p { color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+.nannix-empty button { background: transparent; }
+.nannix-project-entry { border-top: 1px solid var(--line); padding: 40px 0; display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+.nannix-project-entry h2 { font-size: 30px; margin: 12px 0; }
+.nannix-project-entry p:not(.eyebrow) { color: var(--muted); line-height: 1.7; max-width: 60ch; }
+@media (max-width: 1000px) { .nannix-reading-layout { grid-template-columns: 210px minmax(0, 1fr); gap: 35px; } }
+@media (max-width: 700px) {
+  .site-nav { height: auto; min-height: 96px; flex-wrap: wrap; gap: 14px; padding: 22px 0; }
+  .site-nav nav { flex-wrap: wrap; gap: 14px; }
+  .nannix-nav { gap: 12px 20px; }
+  .nannix-hero { padding: 42px 0 30px; }
+  .nannix-hero h1 { margin-bottom: 22px; }
+  .nannix-machine, .nannix-card-grid, .nannix-bottom-grid, .nannix-reading-layout, .nannix-library-controls, .nannix-library-list > li { grid-template-columns: 1fr; }
+  .nannix-machine { gap: 28px; padding-bottom: 38px; }
+  .nannix-index { padding: 40px 0; }
+  .nannix-card { padding: 25px 24px 48px; }
+  .nannix-article-header { padding: 32px 0; }
+  .nannix-reading-layout { gap: 35px; }
+  .nannix-sidebar { position: static; border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+  .nannix-sidebar .nannix-chapters { display: none; }
+  .nannix-prose p { font-size: 17px; }
+  .nannix-library-list > li { gap: 18px; }
+  .nannix-project-entry { flex-direction: column; align-items: flex-start; }
+}
+.nannix-network > div { display: flex; gap: 12px; align-items: center; justify-content: space-between; }
+.nannix-network > div span:nth-child(odd) { border: 1px solid var(--line); border-radius: 4px; padding: 18px 12px; font-size: 14px; text-align: center; flex: 1; }
+.nannix-network > div span:nth-child(even) { color: var(--accent-text); }
+@media (max-width: 700px) { .nannix-network > div { flex-direction: column; align-items: stretch; } .nannix-network > div span:nth-child(even) { text-align: center; transform: rotate(90deg); } }

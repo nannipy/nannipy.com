@@ -40,6 +40,9 @@ export function SiteNav({
         <Link href={`${localHref("/", locale)}#outside`}>
           {locale === "it" ? "Fuori" : "Outside"}
         </Link>
+        <Link href={localHref("/nannix", locale)} aria-current={path.startsWith("/nannix") ? "page" : undefined}>
+          Nannix
+        </Link>
         <Link
           href={localHref(path, locale === "en" ? "it" : "en")}
           hrefLang={locale === "en" ? "it" : "en"}

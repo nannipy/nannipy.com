@@ -41,3 +41,42 @@ Strava is not connected. The personal gallery displays owner-provided photograph
 Original photographs, unused media and design previews are preserved outside
 the repository in `../nannipy-materiale-archiviato-2026-10-02/`. See its
 `manifest.json` for original paths and verified checksums.
+
+## Nannix: Home Lab, open source e biblioteca
+
+La sezione `/nannix?lang=it` raccoglie la panoramica del laboratorio e i capitoli
+`setup`, `immich`, `tailscale-pihole`, `file-browser`, `monitoraggio`,
+`manutenzione` e `open-source`. Le stesse pagine sono disponibili in inglese
+con `?lang=en`. La pagina portfolio `/projects/homelab` conserva una presentazione
+breve e rimanda a Nannix.
+
+I testi sono in `src/lib/nannix.ts`: ogni capitolo ha titolo, descrizione,
+sezioni con ancore, paragrafi italiani e inglesi, eventuale immagine e fonti.
+La sintassi `**testo**` crea enfasi semantica in grassetto. Il renderer non
+interpreta HTML. Le esperienze personali sono basate sull’intervista;
+configurazioni non confermate non sono presentate come guide riproducibili.
+
+### Aggiungere risorse alla biblioteca
+
+La biblioteca `/nannix/biblioteca` permette ricerca libera e filtri combinabili
+per tipo e argomento. Per aggiungere una risorsa, aggiungere un elemento a
+`nannixLibrary` in `src/lib/nannix.ts`, con ID univoco, titolo, autore, URL,
+argomenti e nota nelle due lingue. Per esempio:
+
+```ts
+{
+  id: 'identificatore-univoco',
+  title: 'Titolo della risorsa',
+  kind: 'paper',
+  author: 'Autore',
+  href: 'https://indirizzo-della-risorsa.example',
+  topics: ['Ricerca', 'Open source'],
+  note: { it: 'Perché mi interessa.', en: 'Why it interests me.' },
+}
+```
+
+Tipi supportati: `channel`, `video`, `book`, `paper`, `documentation`, `website`.
+I nuovi argomenti compaiono automaticamente nel filtro. Libri, video e paper
+possono essere aggiunti senza cambiare la pagina. I filtri vuoti mostrano uno
+stato dedicato e un pulsante per ripristinare l’intero catalogo.
+La raccolta è mantenuta nel repository; non è presente un editor amministrativo.

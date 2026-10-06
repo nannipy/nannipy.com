@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
-    "lint": "eslint src/app src/components/Portfolio*.tsx src/components/ProjectJourney.tsx src/components/ProjectResources.tsx src/components/SpotifyRecentlyPlayed.tsx src/lib/portfolio.ts src/lib/project-resources.ts src/lib/spotify.ts --max-warnings 0",
+    "lint": "eslint src/app src/components/Portfolio*.tsx src/components/Nannix*.tsx src/components/ProjectJourney.tsx src/components/ProjectResources.tsx src/components/SpotifyRecentlyPlayed.tsx src/lib/portfolio.ts src/lib/nannix.ts src/lib/project-resources.ts src/lib/spotify.ts --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test scripts/portfolio.test.mjs",
     "start": "next start"
