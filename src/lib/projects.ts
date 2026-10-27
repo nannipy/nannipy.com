@@ -8,12 +8,12 @@ export const projectItems: ExperienceItem[] = [
     github: "https://github.com/nannipy/SapienzaFoilingTeam",
     link: "https://sapienzafoilingteam.com",
     screenshots: [
-      "/SFT/SFT_homepage.png",
-      "/SFT/SFT_blog.png",
+      "/work/sft-website-home-2026.webp",
+      "/work/sft-website-blog-2026.webp",
       "/SFT/SFT_article_edit.png",
       "/SFT/SFT_admin_dashboard.png",
       "/SFT/SFT_media.png",
-      "/SFT/SFT_sponsor.png",
+      "/work/sft-website-sponsor-2026.webp",
     ],
     description:
       "Official website for Sapienza Foiling Team: a modern platform with blog, admin area to share news and grow the sailing community."

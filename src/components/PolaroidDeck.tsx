@@ -26,7 +26,7 @@ const polaroids: PolaroidItem[] = [
     id: "sailing",
     title: "Sapienza Foiling Team telemetry",
     tag: "AERO // TELEMETRY",
-    image: "/SFT/SFT_team.png",
+    image: "/work/sft-website-team-2026.webp",
     location: "Sardinia / Rome",
     date: "Regatta Season",
   },

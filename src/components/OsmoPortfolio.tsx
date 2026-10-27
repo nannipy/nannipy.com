@@ -225,7 +225,7 @@ export default function OsmoPortfolio({
                 className="absolute w-44 sm:w-56 h-60 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border border-black/10 transition-all duration-500 hover:scale-110 hover:z-30 cursor-pointer -translate-x-56 sm:-translate-x-80 -rotate-12 translate-y-8 bg-[#09090b] group"
               >
                 <Image
-                  src="/SFT/SFT_homepage.png"
+                  src="/work/sft-website-home-2026.webp"
                   alt="Sapienza Foiling Team"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -495,7 +495,7 @@ export default function OsmoPortfolio({
               </div>
               <div className="relative w-full h-40 rounded-xl overflow-hidden my-4 border border-white/20">
                 <Image
-                  src="/SFT/SFT_homepage.png"
+                  src="/work/sft-website-home-2026.webp"
                   alt="Sapienza Foiling Team"
                   fill
                   className="object-cover"

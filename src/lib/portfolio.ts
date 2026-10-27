@@ -75,7 +75,7 @@ export const portfolioProjects: PortfolioProject[] = [
     "website": "https://sapienzafoilingteam.com",
     "github": "https://github.com/nannipy/sapienzafoilingteam",
     "images": [
-      "/work/sft-live.jpg",
+      "/work/sft-website-home-2026.webp",
       "/work/telemetry-map-cover.png"
     ],
     "tools": [
@@ -157,7 +157,7 @@ export const portfolioProjects: PortfolioProject[] = [
           }
         ],
         "image": {
-          "src": "/work/sft-live.jpg",
+          "src": "/work/sft-website-home-2026.webp",
           "width": 1280,
           "height": 720,
           "caption": {
@@ -182,9 +182,9 @@ export const portfolioProjects: PortfolioProject[] = [
           }
         ],
         "image": {
-          "src": "/SFT/SFT_blog.png",
-          "width": 2824,
-          "height": 2102,
+          "src": "/work/sft-website-blog-2026.webp",
+          "width": 1280,
+          "height": 720,
           "caption": {
             "en": "The website’s blog and team stories.",
             "it": "Il blog del sito e i racconti del team."
@@ -539,7 +539,7 @@ export const portfolioProjects: PortfolioProject[] = [
         ]
       }
     ],
-    "technicalImage": "/work/telemetry-local.jpg"
+    "technicalImage": "/work/telemetry-map-cover.png"
   },
   {
     slug: "recup",

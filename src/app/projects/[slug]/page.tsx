@@ -268,8 +268,8 @@ export default async function ProjectPage({
                   ? "Visualizzatore di telemetria SFT senza sensore collegato"
                   : "SFT telemetry visualiser without a connected sensor"
               }
-              width={1800}
-              height={1125}
+              width={1672}
+              height={941}
               sizes="(max-width:700px) 95vw, 85vw"
             />
             <figcaption>
