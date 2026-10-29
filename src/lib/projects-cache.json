@@ -1,22 +1,5 @@
 [
   {
-    "id": "sapienzafoilingteam",
-    "name": "Sapienzafoilingteam",
-    "github": "https://github.com/nannipy/sapienzafoilingteam",
-    "link": "https://sapienzafoilingteam.com",
-    "description": "Sapienza Foiling Team website",
-    "language": "TypeScript",
-    "stars": 0,
-    "updatedAt": "2026-10-27T10:39:21Z",
-    "pushedAt": "2026-10-27T10:39:17Z",
-    "topics": [
-      "mobile",
-      "sft",
-      "website"
-    ],
-    "isFeatured": false
-  },
-  {
     "id": "opengym",
     "name": "OpenGym",
     "github": "https://github.com/nannipy/opengym",
