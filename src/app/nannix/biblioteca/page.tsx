@@ -5,7 +5,7 @@ import NannixLibrary from "@/components/NannixLibrary";
 export const metadata: Metadata = {
   title: "Biblioteca · Nannix",
   description:
-    "Canali, video, libri, paper e progetti: una biblioteca personale di cose interessanti.",
+    "Guide e progetti che consulto per Linux, self-hosting e sviluppo software, insieme a letture da approfondire.",
 };
 export default async function LibraryPage({
   searchParams,
@@ -18,23 +18,23 @@ export default async function LibraryPage({
     <NannixShell locale={locale} path="/nannix/biblioteca">
       <header className="nannix-article-header">
         <p className="eyebrow">
-          {it ? "Appunti di curiosità" : "Notes of curiosity"}
+          {it ? "Riferimenti e letture" : "References and reading"}
         </p>
         <h1>{it ? "La biblioteca." : "The library."}</h1>
         <p className="nannix-lead">
           {it
-            ? "Le cose su cui voglio tornare."
-            : "Things I want to return to."}
+            ? "Guide che uso e letture da approfondire."
+            : "Guides I use and reading to follow up on."}
         </p>
         <p>
           {it
-            ? "Molto di quello che faccio è iniziato da un video, una guida o qualcuno che raccontava il proprio lavoro. Qui tengo i riferimenti che mi hanno aiutato a partire e quelli che mi fanno venire voglia di approfondire: self hosting, Linux, dati, software aperto e modi di costruire insieme."
-            : "Much of what I do started with a video, a guide or someone describing their work. Here I keep references that helped me get started and those that make me want to dig deeper: self-hosting, Linux, data, open software and ways of building together."}
+            ? "Qui raccolgo guide, progetti e persone che consulto per Linux, self-hosting e sviluppo software. Alcuni riferimenti mi hanno aiutato a configurare strumenti che uso ogni giorno; altri sono ancora da approfondire."
+            : "I keep guides, projects and people I refer to for Linux, self-hosting and software development here. Some helped me configure tools I use daily; others are still on my reading list."}
         </p>
         <p>
           {it
-            ? "Alcuni accompagnano strumenti che uso davvero; altri sono ancora piste da esplorare. Mi piace tenere vicine queste due cose, perché spesso il prossimo esperimento nasce proprio da una lettura lasciata qui. La raccolta crescerà anche con video, libri e paper, seguendo la mia curiosità dentro e fuori dall’informatica."
-            : "Some accompany tools I actually use; others are still paths to explore. I like keeping the two close, because the next experiment often starts with something I saved here to read. The collection will grow with videos, books and papers too, following my curiosity in computing and beyond."}
+            ? "Le note spiegano perché ho salvato ogni risorsa. Puoi cercare un argomento o filtrare per tipo."
+            : "The notes explain why I saved each resource. You can search by subject or filter by type."}
         </p>
       </header>
       <NannixLibrary locale={locale} />

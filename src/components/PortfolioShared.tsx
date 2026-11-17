@@ -1,4 +1,5 @@
 import Image from "next/image";
+import pomodoroStyles from "./PomodoroDemo.module.css";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import {
@@ -63,11 +64,11 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <span className="wordmark-name">nanni<span className="wordmark-dot">.</span><span className="wordmark-extension">py</span></span>
         </Link>
         <p className="eyebrow">
-          {locale === "it" ? "La prossima cosa bella" : "The next good thing"}
+          {locale === "it" ? "Progetti e collaborazioni" : "Projects and collaborations"}
         </p>
       </div>
       <a className="contact-title" href="mailto:gb.pernazza@gmail.com">
-        {locale === "it" ? "Costruiamola insieme." : "Let’s build it together."}
+        {locale === "it" ? "Parliamo del tuo progetto." : "Tell me about your project."}
         <span>↗︎</span>
       </a>
       <div className="footer-bottom">
@@ -109,13 +110,13 @@ export function ProjectCover({
   priority?: boolean;
 }) {
   const style = {
-    backgroundColor: project.slug === "homelab" ? "#141614" : undefined,
+    backgroundColor: project.slug === "homelab" ? "#141614" : project.slug === "nanni-pdf" ? "#f8f9fa" : undefined,
     "--project-color": project.color,
     "--project-ink": project.ink,
   } as CSSProperties;
   return (
     <div
-      className={`project-cover cover-${project.cover || "screen"}${project.slug === "recup" ? " cover-recup" : ""}`}
+      className={`project-cover cover-${project.cover || "screen"}${project.slug === "recup" ? " cover-recup" : project.slug === "nanni-pdf" ? " cover-nanni-pdf" : ""}`}
       style={style}
     >
       {project.cover === "edgeworks" ? (
@@ -157,39 +158,24 @@ export function ProjectCover({
           sizes="(max-width:700px) 95vw, 85vw"
           priority={priority}
         />
-      ) : project.images.length > 0 &&
-        (project.cover === "watchface" || project.cover === "pomodoro") ? (
+      ) : project.cover === "pomodoro" ? (
+        <div className={pomodoroStyles.cover}>
+          <span className={pomodoroStyles.label}>Pomodoro Go / macOS</span>
+          <Image src="/work/pomodoro-work.webp" alt="Pomodoro Go — macOS menu-bar countdown" width={170} height={60} sizes="240px" priority={priority} className={pomodoroStyles.coverTimer} />
+          <Image src="/work/pomodoro-launch.webp" alt="Pomodoro Go — Start Pomodoro command in Raycast" width={747} height={123} sizes="(max-width:700px) 75vw, 560px" priority={priority} className={pomodoroStyles.launch} />
+          <span className="art-label">a little room to focus.</span>
+        </div>
+      ) : project.images.length > 0 && project.cover === "watchface" ? (
         <div className="native-preview">
           <Image
             src={project.images[0]}
-            alt={
-              project.cover === "watchface"
-                ? "Personal Fenix Face — Garmin fēnix 7X simulator"
-                : "Pomodoro Go — Start Pomodoro command"
-            }
-            width={project.cover === "watchface" ? 280 : 747}
-            height={project.cover === "watchface" ? 280 : 123}
-            sizes={
-              project.cover === "watchface"
-                ? "280px"
-                : "(max-width:700px) 80vw, 747px"
-            }
+            alt="Personal Fenix Face — Garmin fēnix 7X simulator"
+            width={280}
+            height={280}
+            sizes="280px"
             priority={priority}
           />
-          {project.cover === "pomodoro" && project.images[1] ? (
-            <Image
-              src={project.images[1]}
-              alt="Pomodoro Go — macOS menu-bar timer"
-              width={81}
-              height={65}
-              sizes="81px"
-            />
-          ) : null}
-          <span className="art-label">
-            {project.cover === "watchface"
-              ? "fēnix 7X · 280 × 280 · MIP"
-              : "a little room to focus."}
-          </span>
+          <span className="art-label">fēnix 7X · 280 × 280 · MIP</span>
         </div>
       ) : project.images.length > 0 ? (
         <div className={project.slug === "recup" ? "recup-cover-art" : "screen-cover-art"}>
@@ -248,24 +234,17 @@ export function ProjectCover({
                 <span />
                 <span />
               </div>
-              <span className="art-label">a second life.</span>
-            </>
-          ) : project.cover === "pomodoro" ? (
-            <>
-              <div className="timer-art">
-                25<span>:00</span>
-              </div>
-              <span className="art-label">time for one thing.</span>
+              <span className="art-label">a home server.</span>
             </>
           ) : project.cover === "cutout" ? (
             <>
               <div className="cutout-art">↗︎</div>
-              <span className="art-label">keep what matters.</span>
+              <span className="art-label">local background removal.</span>
             </>
           ) : (
             <>
               <span className="ai-art">æ</span>
-              <span className="art-label">code meets movement.</span>
+              <span className="art-label">Garmin data in Telegram.</span>
             </>
           )}
         </div>
@@ -294,7 +273,7 @@ export function ProjectCard({
         <ProjectCover project={project} />
         <div className="project-info">
           <div>
-            <p className="eyebrow">{project.category}</p>
+            <p className="eyebrow">{locale === "it" ? project.categoryIt : project.category}</p>
             <h3>{project.title}</h3>
             <p>{project.summary[locale]}</p>
           </div>

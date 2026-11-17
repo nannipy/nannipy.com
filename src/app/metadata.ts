@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     default: 'Giovanni Battista Pernazza — Software Engineer',
     template: '%s | Giovanni Battista Pernazza',
   },
-  description: 'Software engineer in Rome. Web applications, AI tools, embedded systems — and a life outside the screen.',
+  description: 'I’m Giovanni, a software engineer in Rome. I build web applications, APIs and hardware prototypes for teams, associations and my own experiments.',
   verification: {
     google: 'kJUIQCIwNWnDtwEV658OTfsyg68KzpmVixVQbDE1LnI',
   },
   openGraph: {
     title: 'Giovanni Battista Pernazza — Software Engineer',
-    description: 'Software engineer in Rome. Web applications, AI tools, embedded systems — and a life outside the screen.',
+    description: 'I’m Giovanni, a software engineer in Rome. I build web applications, APIs and hardware prototypes for teams, associations and my own experiments.',
     url: 'https://nannipy.com',
     siteName: 'Giovanni Battista Pernazza',
     locale: 'en_US',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Giovanni Battista Pernazza — Software Engineer',
-    description: 'Software engineer in Rome. Web applications, AI tools, embedded systems — and a life outside the screen.',
+    description: 'I’m Giovanni, a software engineer in Rome. I build web applications, APIs and hardware prototypes for teams, associations and my own experiments.',
     images: ['/brand/social-card.png'],
   },
   robots: {
@@ -65,7 +65,6 @@ export const metadata: Metadata = {
   keywords: [
     'Giovanni Battista Pernazza',
     'developer',
-    'entrepreneur',
     'portfolio',
     'software engineer',
   ],

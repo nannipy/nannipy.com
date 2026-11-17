@@ -22,7 +22,7 @@ export default async function NannixArticlePage({ params, searchParams }: { para
       <article className="nannix-prose">
         {article.image && <figure><Image src={article.image} alt={article.title[locale]} width={article.imageWidth || 1500} height={article.imageHeight || 1000} sizes="(max-width: 700px) 90vw, 60vw" priority /><figcaption>{it ? 'Dal mio laboratorio.' : 'From my lab.'}</figcaption></figure>}
         {slug === 'tailscale-pihole' && <figure className="nannix-network" aria-label={it ? 'Accesso ai servizi del laboratorio' : 'Access to lab services'}>
-          <div><span>{it ? 'I miei dispositivi' : 'My devices'}</span><span aria-hidden="true">↔</span><span>{it ? 'Rete privata Tailscale' : 'Tailscale private network'}</span><span aria-hidden="true">↔</span><span>{it ? 'MacBook e servizi' : 'MacBook and services'}</span></div>
+          <div><span>{it ? 'I miei dispositivi' : 'My devices'}</span><span aria-hidden="true">↔</span><span>{it ? 'Rete privata Tailscale' : 'Tailscale private network'}</span><span aria-hidden="true">↔</span><span>{it ? 'Server e servizi' : 'Server and services'}</span></div>
           <figcaption>{it ? 'Pi-hole fornisce il filtro DNS ai dispositivi configurati. Questo schema rappresenta l’accesso ai servizi, senza presumere l’instradamento di tutta la navigazione.' : 'Pi-hole provides DNS filtering for configured devices. This diagram shows service access without assuming all browsing traffic is routed through the server.'}</figcaption>
         </figure>}
         {article.sections.map(section => <section id={section.id} key={section.id}><h2>{section.title[locale]}</h2>{section.paragraphs.map((p, i) => <p key={i}><NannixText text={p[locale]} /></p>)}</section>)}

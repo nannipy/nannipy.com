@@ -6,9 +6,9 @@ import { nannixArticles } from "@/lib/nannix";
 import { NannixShell } from "@/components/NannixShared";
 
 export const metadata: Metadata = {
-  title: "Nannix · Il mio percorso nel self hosting",
+  title: "Nannix · Il mio server domestico",
   description:
-    "Un racconto personale di self hosting, dati, DNS e strumenti aperti: quello che esploro e la comodità che provo a costruire da me.",
+    "Ho riutilizzato un vecchio computer per ospitare foto e applicazioni. Qui documento configurazione, accesso remoto, monitoraggio e limiti del mio laboratorio.",
 };
 export default async function NannixPage({
   searchParams,
@@ -33,65 +33,30 @@ export default async function NannixPage({
       <header className="nannix-hero">
         <p className="eyebrow">
           {it
-            ? "Appunti da casa · da gennaio 2026"
-            : "Notes from home · since January 2026"}
+            ? "Appunti da casa"
+            : "Notes from home"}
         </p>
         <h1>
           Nannix<span>.</span>
         </h1>
         <p className="nannix-lead">
           {it
-            ? "Mi piace capire le cose che uso. E provare a costruirmele."
-            : "I like understanding the things I use. And trying to build them myself."}
-        </p>
-        <p>
-          {it ? (
-            <>
-              Da un po’ di tempo mi sono appassionato al{" "}
-              <strong>self hosting</strong>. Sono partito dalla voglia di far
-              girare le mie applicazioni e mi sono ritrovato a esplorare tutto
-              quello che succede attorno ai miei dati: DNS, tracking, pubblicità
-              e strumenti per avere un po’ più di controllo.
-            </>
-          ) : (
-            <>
-              I have been getting into <strong>self-hosting</strong> for a
-              while. I started with wanting to run my own applications and ended
-              up exploring what happens around my data: DNS, tracking,
-              advertising and tools that give me a little more control.
-            </>
-          )}
-        </p>
-        <p>
-          {it ? (
-            <>
-              Gli abbonamenti mi sono sempre stati antipatici. Quando a una
-              quota mensile si aggiunge la raccolta di informazioni sulle mie
-              abitudini, mi chiedo quanto sto concedendo in cambio della
-              comodità. Riconosco il valore di un servizio che funziona bene; io
-              sono disposto a dedicare tempo a{" "}
-              <strong>costruirmi una parte di quell’efficienza</strong>, e a
-              imparare mentre lo faccio.
-            </>
-          ) : (
-            <>
-              I have always disliked subscriptions. When a monthly fee comes
-              with collecting information about my habits, I wonder how much I
-              am giving in exchange for convenience. I recognise the value of a
-              service that works well; I am willing to spend time{" "}
-              <strong>building some of that efficiency myself</strong> and
-              learning along the way.
-            </>
-          )}
+            ? "Ho riutilizzato un vecchio computer che avevo già per farne un server domestico."
+            : "I reused an old computer I already had to build a home server."}
         </p>
         <p>
           {it
-            ? "Nannix è il racconto di questo percorso: cosa ho esplorato, cosa mi piace usare, le scelte che rifarei e quelle su cui sto ancora ragionando. Tutto parte da un vecchio MacBook che avevo già in casa."
-            : "Nannix is the story of that journey: what I have explored, what I enjoy using, the choices I would make again and those I am still thinking through. It all starts with an old MacBook I already had at home."}
+            ? "Uso Linux Mint e Docker per ospitare foto, file e applicazioni personali. In Nannix documento come li uso, le scelte di configurazione e i problemi che incontro."
+            : "I use Linux Mint and Docker to host photos, files and personal applications. Nannix documents how I use them, configuration choices and problems I encounter."}
+        </p>
+        <p>
+          {it
+            ? "Volevo più controllo sui miei dati e meno abbonamenti. Gestire il server significa anche occuparmi di aggiornamenti, spazio e backup. Qui racconto quello che funziona e quello su cui devo ancora lavorare."
+            : "I wanted more control over my data and fewer subscriptions. Running the server also means handling updates, storage and backups. Here I write about what works and what still needs attention."}
         </p>
         <div className="nannix-hero-links">
           <Link className="text-link" href={localHref("/nannix/setup", locale)}>
-            {it ? "Entra nel laboratorio" : "Step into the lab"} ↗︎
+            {it ? "La configurazione" : "The setup"} ↗︎
           </Link>
           <Link
             className="text-link"
@@ -112,13 +77,13 @@ export default async function NannixPage({
         />
         <div>
           <p className="eyebrow">
-            {it ? "Tutto è partito da qui" : "It all started here"}
+            {it ? "La macchina" : "The machine"}
           </p>
-          <h2 id="machine-title">MacBook Air, 2016.</h2>
+          <h2 id="machine-title">{it ? "Il computer che avevo già" : "The computer I already had"}</h2>
           <p>
             {it
-              ? "Era fermo a casa e mi piaceva l’idea di dargli un altro lavoro. Oggi gira con Linux Mint e Docker: 256 GB di spazio, nessuna batteria e parecchie cose da imparare. È la macchina su cui le mie curiosità diventano strumenti che uso davvero."
-              : "It was sitting unused at home, and I liked giving it another job. Today it runs Linux Mint and Docker: 256 GB of storage, no battery and plenty to learn. It is the machine where my curiosity turns into tools I actually use."}
+              ? "Era fermo a casa. Ora ospita la mia raccolta fotografica e gli altri servizi del laboratorio. Ha 256 GB di spazio e nessuna batteria: un blackout lo spegne subito. Lo spazio e l’alimentazione sono due limiti da migliorare."
+              : "It was sitting unused at home. Now it hosts my photo library and the other lab services. It has 256 GB of storage and no battery, so a power cut switches it off immediately. Storage and power are two limits I want to improve."}
           </p>
           <ul className="nannix-services">
             {services.map((name) => (
@@ -131,12 +96,12 @@ export default async function NannixPage({
         <div className="nannix-section-heading">
           <p className="eyebrow">Home Lab</p>
           <h2 id="lab-title">
-            {it ? "Un pezzo alla volta." : "One piece at a time."}
+            {it ? "I servizi che uso" : "The services I use"}
           </h2>
           <p>
             {it
-              ? "Le foto sono state il primo passo. Poi sono arrivati i file, la curiosità per la rete e la voglia di capire come sta il server. Qui racconto come ogni pezzo ha trovato posto nella mia giornata."
-              : "Photos were the first step. Then came files, curiosity about the network and wanting to understand how the server is doing. Here I tell how each piece found a place in my day."}
+              ? "Sono partito dalle foto con Immich, poi ho aggiunto accesso ai file, filtro DNS e monitoraggio. Ogni articolo spiega un’esigenza, la scelta fatta e cosa comporta mantenerla."
+              : "I started with photos in Immich, then added file access, DNS filtering and monitoring. Each article covers a need, the choice I made and the work it takes to maintain it."}
           </p>
         </div>
         <div className="nannix-card-grid">
@@ -171,13 +136,13 @@ export default async function NannixPage({
           <p className="eyebrow">Open source</p>
           <h2>
             {it
-              ? "Mi piace poterci mettere le mani."
-              : "I like being able to get my hands on it."}
+              ? "Perché scelgo software aperto"
+              : "Why I choose open software"}
           </h2>
           <p>
             {it
-              ? "Questo percorso mi sta aiutando a capire cosa cerco nel software e nel modo di lavorare: conoscenza condivisa, autonomia e spazio per costruire."
-              : "This journey is helping me understand what I look for in software and ways of working: shared knowledge, independence and room to build."}
+              ? "Poter leggere il codice e capire le scelte di chi lo ha scritto cambia il modo in cui uso uno strumento. Qui raccolgo anche le mie idee sulla documentazione e sul lavoro nei team."
+              : "Being able to read the code and understand its author’s decisions changes how I use a tool. I also write about documentation and how I’d like to work in a team."}
           </p>
           <span className="nannix-card-arrow" aria-hidden="true">
             ↗︎
@@ -190,13 +155,13 @@ export default async function NannixPage({
           <p className="eyebrow">{it ? "Biblioteca" : "Library"}</p>
           <h2>
             {it
-              ? "Le cose su cui voglio tornare."
-              : "Things I want to return to."}
+              ? "Guide e letture"
+              : "Guides and reading"}
           </h2>
           <p>
             {it
-              ? "Persone, guide, progetti e letture che mi hanno dato un’idea o aperto una domanda. Li tengo qui insieme a quello che voglio ancora esplorare."
-              : "People, guides, projects and readings that gave me an idea or opened a question. I keep them here alongside what I still want to explore."}
+              ? "I riferimenti che consulto per il laboratorio e i progetti che voglio approfondire, con una nota sul perché li ho salvati."
+              : "References I use for the lab and projects I want to explore, with a note on why I saved each one."}
           </p>
           <span className="nannix-card-arrow" aria-hidden="true">
             ↗︎

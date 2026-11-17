@@ -68,11 +68,11 @@ export default function ProjectJourney({
     <section
       className="project-journey"
       aria-label={
-        locale === "it" ? "Dall’idea al progetto" : "From idea to execution"
+        locale === "it" ? "Come funziona" : "How it works"
       }
     >
       <p className="eyebrow">
-        {locale === "it" ? "Dall’idea al progetto" : "From idea to execution"}
+        {locale === "it" ? "Come funziona" : "How it works"}
       </p>
       {project.journey.map((step, index) => (
         <article className="journey-step" key={`${step.diagram}-${index}`}>

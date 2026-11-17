@@ -1,4 +1,5 @@
 import ProjectJourney from "@/components/ProjectJourney";
+import PomodoroDemo from "@/components/PomodoroDemo";
 import ProjectImage, { needsImageFrame } from "@/components/ProjectImage";
 import ProjectResources, { LinkedProjectText, createProjectTextLinker } from "@/components/ProjectResources";
 import Image from "next/image";
@@ -57,7 +58,7 @@ export default async function ProjectPage({
           ← {it ? "Tutti i progetti" : "All projects"}
         </TransitionLink>
         <div className="project-title-block">
-          <p className="eyebrow">{project.category}</p>
+          <p className="eyebrow">{locale === "it" ? project.categoryIt : project.category}</p>
           <h1>
             {project.title}
             <span style={{ color: project.color }}>.</span>
@@ -132,12 +133,13 @@ export default async function ProjectPage({
             ))}
           </div>
         </section>
+        {slug === "pomodoro-go" && <PomodoroDemo locale={locale} />}
         {slug === "homelab" && (
           <section className="nannix-project-entry">
             <div>
               <p className="eyebrow">Nannix</p>
-              <h2>{it ? "Dentro il mio Home Lab." : "Inside my Home Lab."}</h2>
-              <p>{it ? "Il mio percorso nel self hosting: quello che esploro, gli strumenti che mi piace usare e la comodità che provo a costruire da me. Nannix raccoglie il racconto, insieme alle idee e alle letture che lo accompagnano." : "My self-hosting journey: what I explore, the tools I enjoy using and the convenience I try to build myself. Nannix brings together the story, the ideas and the readings that accompany it."}</p>
+              <h2>{it ? "Il server e le sue applicazioni" : "The server and its applications"}</h2>
+              <p>{it ? "In Nannix documento come uso il server, perché ho scelto questi strumenti e quali problemi devo ancora risolvere. La biblioteca raccoglie le guide e i progetti che consulto." : "In Nannix I document how I use the server, why I chose these tools and which problems I still need to solve. The library holds guides and projects I refer to."}</p>
             </div>
             <TransitionLink href={localHref("/nannix", locale)} className="text-link">{it ? "Esplora Nannix" : "Explore Nannix"} ↗︎</TransitionLink>
           </section>
@@ -145,7 +147,7 @@ export default async function ProjectPage({
         {project.chapters ? (
           <section
             className="project-chapters"
-            aria-label={slug === "edgeworks" ? (it ? "I progetti della collaborazione" : "Projects from the collaboration") : (it ? "Il nostro percorso nel team" : "Our journey with the team")}
+            aria-label={slug === "nanni-pdf" ? (it ? "Funzioni ed esempio" : "Features and example") : slug === "edgeworks" ? (it ? "I progetti della collaborazione" : "Projects from the collaboration") : (it ? "Il lavoro nel team" : "Work with the team")}
           >
             {project.chapters.map((chapter, index) => (
               <article
@@ -156,7 +158,7 @@ export default async function ProjectPage({
                 <div className="chapter-text">
                   <p className="eyebrow">
                     {String(index + 1).padStart(2, "0")} /{" "}
-                    {slug === "edgeworks" ? (it ? "Il progetto" : "The project") : (it ? "La nostra storia" : "Our story")}
+                    {slug === "edgeworks" || slug === "nanni-pdf" ? (it ? "Il progetto" : "The project") : (it ? "La nostra storia" : "Our story")}
                   </p>
                   <h2>{chapter.title[locale]}</h2>
                   {chapter.body.map((paragraph, i) => (
@@ -307,7 +309,7 @@ export default async function ProjectPage({
           href={localHref(`/projects/${next.slug}`, locale)}
         >
           <span className="eyebrow">
-            {it ? "Continua a esplorare" : "Keep exploring"}
+            {it ? "Progetto successivo" : "Next project"}
           </span>
           <span>{next.title} ↗︎</span>
         </TransitionLink>

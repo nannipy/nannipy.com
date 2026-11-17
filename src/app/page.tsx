@@ -57,11 +57,11 @@ export default async function Home({
               </h1>
               <p className="hero-description">
                 {it
-                  ? "Costruisco software. Mi sporco le mani. Prendo la strada panoramica."
-                  : "I build software. Get my hands dirty. Take the scenic route."}
+                  ? "Sviluppo software per risolvere problemi e rendere più semplici le attività di ogni giorno. Mi piace usare la tecnologia per aiutare le persone a fare meglio ciò che conta per loro."
+                  : "I build software to solve problems and make everyday tasks simpler. I enjoy using technology to help people do what matters to them more effectively."}
               </p>
               <a href="#work" className="text-link">
-                {it ? "Esplora il mio lavoro" : "Explore my work"}{" "}
+                {it ? "I miei progetti" : "My projects"}{" "}
                 <span>↓</span>
               </a>
             </div>
@@ -81,8 +81,8 @@ export default async function Home({
                 />
                 <span className="portrait-label">
                   {it
-                    ? "Dalle idee alle cose che funzionano."
-                    : "From ideas to things that work."}
+                    ? "Una giornata in montagna."
+                    : "A day in the mountains."}
                 </span>
               </div>
             </div>
@@ -90,8 +90,8 @@ export default async function Home({
           <div className="hero-bottom">
             <p>
               {it
-                ? "Dal web all’hardware. Dalle idee alle cose che funzionano."
-                : "From the web to hardware. From ideas to things that work."}
+                ? "Freelance e studente di Ingegneria Informatica alla Sapienza."
+                : "Freelance developer and Computer Engineering student at Sapienza."}
             </p>
             <span>Python / TypeScript / C++</span>
           </div>
@@ -101,8 +101,8 @@ export default async function Home({
             <div>
               <p className="eyebrow">
                 {it
-                  ? "Una selezione di ciò che costruisco"
-                  : "A selection of things I build"}
+                  ? "Lavori e progetti personali"
+                  : "Client work and personal projects"}
               </p>
               <h2>
                 {it ? "Progetti" : "Projects"}
@@ -111,8 +111,8 @@ export default async function Home({
             </div>
             <p>
               {it
-                ? "Per le persone, per i team. E a volte, solo per curiosità."
-                : "For people, for teams. And sometimes, just out of curiosity."}
+                ? "Cosa ho costruito, le scelte fatte e quello che resta da migliorare."
+                : "What I built, the decisions I made and what still needs work."}
             </p>
           </div>
           <div className="project-grid">
@@ -127,7 +127,7 @@ export default async function Home({
           </div>
           <div className="more-work">
             <p className="eyebrow">
-              {it ? "Altre esplorazioni" : "More explorations"}
+              {it ? "Altri progetti" : "Other projects"}
             </p>
             {portfolioProjects.slice(4).map((p, index) => (
               <TransitionLink
@@ -143,7 +143,7 @@ export default async function Home({
                   {p.title}
                   <small>{p.summary[locale]}</small>
                 </span>
-                <span className="row-category">{p.category}</span>
+                <span className="row-category">{it ? p.categoryIt : p.category}</span>
                 <span className="row-arrow">↗︎</span>
               </TransitionLink>
             ))}
@@ -157,20 +157,25 @@ export default async function Home({
                   ? "Freelance e collaborazioni"
                   : "Freelance work and collaborations"}
               </p>
-              <h2>{it ? "Esperienze e collaborazioni." : "Work and collaborations."}</h2>
+              <h2>{it ? "Il mio lavoro" : "About my work"}</h2>
             </div>
           </div>
           <div className="about-layout">
             <div className="about-intro">
               <p>
                 {it
-                  ? "Software costruito insieme a persone, aziende e associazioni."
-                  : "Software built with people, companies and organisations."}
+                  ? "Lavoro come freelance e studio Ingegneria Informatica alla Sapienza."
+                  : "I work as a freelance software engineer and study Computer Engineering at Sapienza."}
               </p>
               <p className="body-copy">
                 {it
-                  ? "Lavoro come freelance su progetti per Edgeworks, RECUP e Marsilea. Accanto a questi incarichi, collaboro con Sapienza Foiling Team: un impegno continuativo e strutturato nello sviluppo software ed embedded, che porto avanti mentre studio Ingegneria Informatica alla Sapienza."
-                  : "I work as a freelancer on projects for Edgeworks, RECUP and Marsilea. Alongside these assignments, I contribute to Sapienza Foiling Team: a sustained, structured commitment to software and embedded development, which I pursue while studying Computer Engineering at Sapienza."}
+                  ? "Ho lavorato a strumenti per Edgeworks e Marsilea e al gestionale di RECUP. Con Sapienza Foiling Team sviluppo il sito, gli strumenti interni e l’elettronica della barca. Mi occupo di interfacce, backend, API e pubblicazione delle applicazioni, in base a ciò che il progetto richiede."
+                  : "I’ve worked on tools for Edgeworks and Marsilea and RECUP’s management platform. With Sapienza Foiling Team, I build the website, internal tools and boat electronics. I work across interfaces, backends, APIs and deployment as the project requires."}
+              </p>
+              <p className="body-copy">
+                {it
+                  ? "Preferisco provare presto una versione piccola, parlarne con chi la userà e rivedere le scelte alla luce dei problemi che emergono. Nel tempo libero sperimento con modelli AI locali e un server domestico. Mi interessano collaborazioni in cui posso seguire un problema fino a un prodotto funzionante e continuare a migliorarlo con chi lo usa."
+                  : "I prefer to try a small version early, discuss it with the people who’ll use it and revise decisions as problems emerge. In my own time, I experiment with local AI models and a home server. I’m interested in collaborations where I can follow a problem through to a working product and keep improving it with the people using it."}
               </p>
               <div className="cv-links">
                 {(["en", "it"] as const).map((lang) => (
@@ -198,8 +203,8 @@ export default async function Home({
                 <h3>Edgeworks</h3>
                 <p>
                   {it
-                    ? "HireSight per le candidature, Time Tracker per tempi e report e Mora: un primo MVP per preparare bozze email con un piccolo sistema RAG."
-                    : "HireSight for applications, Time Tracker for time tracking and reporting, and Mora: an early MVP for email drafts with a small RAG system."}
+                    ? "Ho contribuito a Time Tracker per registrare le ore, HireSight per organizzare e analizzare CV e al primo MVP di Mora per preparare bozze email con informazioni aziendali."
+                    : "I helped build Time Tracker to record hours, HireSight to organise and analyse CVs, and Mora’s first MVP to draft email replies using company information."}
                 </p>
                 <div className="experience-links">
                   <TransitionLink
@@ -218,14 +223,14 @@ export default async function Home({
               <article>
                 <span className="eyebrow">
                   {it
-                    ? "Freelance · Impatto sociale"
-                    : "Freelance · Social impact"}
+                    ? "Freelance · Gestionale per l’associazione"
+                    : "Freelance · Association management platform"}
                 </span>
                 <h3>RECUP</h3>
                 <p>
                   {it
-                    ? "Un gestionale per supportare volontari, recuperi alimentari e report dell’associazione."
-                    : "A management platform supporting volunteers, food recovery and the organisation’s reporting."}
+                    ? "Ho sviluppato il portale in cui i volontari registrano i recuperi alimentari e l’area admin per consultare i dati e preparare report."
+                    : "I built the portal where volunteers record food recoveries and the admin area for reviewing data and preparing reports."}
                 </p>
                 <TransitionLink
                   className="text-link"
@@ -240,7 +245,7 @@ export default async function Home({
                 </span>
                 <h3>Marsilea</h3>
                 <p>
-                  {it ? "Collaborazione freelance su un progetto per Marsilea." : "Freelance collaboration on a project for Marsilea."}
+                  {it ? "Ho realizzato uno strumento per registrare le ore con Google Sheets e Google Apps Script." : "I built a time-tracking tool with Google Sheets and Google Apps Script."}
                 </p>
               </article>
               <article>
@@ -252,14 +257,14 @@ export default async function Home({
                 <h3>Sapienza Foiling Team</h3>
                 <p>
                   {it
-                    ? "Un’esperienza con responsabilità e continuità simili a quelle di un lavoro: dal sito del team alla telemetria della barca, tra software, sensori e lavoro di squadra."
-                    : "An experience with the responsibility and continuity of a job: from the team’s website to the boat’s telemetry, combining software, sensors and teamwork."}
+                    ? "Dal primo sito al CRM e al prototipo di telemetria. Per la stagione 2026–2027 coordino anche un piccolo gruppo di informatici ed elettronici."
+                    : "From the first website to the CRM and telemetry prototype. For the 2026–2027 season, I also coordinate a small software and electronics group."}
                 </p>
                 <div className="experience-links">
                   <TransitionLink
                     href={localHref("/projects/sapienza-foiling-team", locale)}
                   >
-                    {it ? "Il percorso nel team" : "My journey with the team"} ↗︎
+                    {it ? "Il mio lavoro nel team" : "My work with the team"} ↗︎
                   </TransitionLink>
                 </div>
               </article>
@@ -272,20 +277,20 @@ export default async function Home({
               <p className="eyebrow">
                 {it ? "Lontano dalla scrivania" : "Away from the desk"}
               </p>
-              <h2>Touching the grass. Sometimes.</h2>
+              <h2>{it ? "Fuori dalla scrivania" : "Away from the desk"}</h2>
             </div>
             <p>
               {it
-                ? "Corsa, ciclismo, montagna. Nessuna classifica: solo cose per cui vale la pena uscire."
-                : "Running, cycling, mountains. Just a few reasons to get outside."}
+                ? "Corro, vado in bici e cammino in montagna. Mi aiutano a staccare, e a volte mi danno l’idea per un progetto."
+                : "I run, cycle and hike. They help me switch off, and sometimes give me an idea for a project."}
             </p>
           </div>
           <PhotoJournal locale={locale} items={journalItems} />
           <div className="outside-bottom">
             <span className="eyebrow">
               {it
-                ? "Meno numeri. Più ricordi."
-                : "Less numbers. More memories."}
+                ? "Foto dalle uscite e dal lavoro con il team"
+                : "Photos from days outside and work with the team"}
             </span>
             <Suspense fallback={<p className="eyebrow">Spotify</p>}>
               <SpotifyRecentlyPlayed locale={locale} />

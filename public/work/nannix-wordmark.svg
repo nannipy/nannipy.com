@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1066" viewBox="0 0 1600 1066" role="img" aria-labelledby="title desc">
+  <title id="title">NANNIX</title>
+  <desc id="desc">Angular cyberpunk lettering in sage green on a grainy charcoal background.</desc>
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" seed="26"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <path id="n" d="M0 220V12L12 0H48L158 148V0H190L202 12V220H154L44 72V220Z"/>
+  </defs>
+  <path fill="#141614" d="M0 0H1600V1066H0Z"/>
+  <g fill="#94bda0" transform="translate(170 405) scale(1.05)">
+    <use href="#n"/>
+    <path transform="translate(232 0)" fill-rule="evenodd" d="M0 220L62 0H144L206 220H158L140 156H62L44 220ZM76 112H126L101 40Z"/>
+    <use href="#n" x="468"/>
+    <use href="#n" x="700"/>
+    <path transform="translate(932 0)" d="M0 0H58V202L40 220H0Z"/>
+    <path transform="translate(1020 0)" d="M0 0H53L103 72L153 0H206L131 109L206 220H153L103 147L53 220H0L75 109Z"/>
+  </g>
+  <path fill="#fff" opacity="0.035" filter="url(#grain)" d="M0 0H1600V1066H0Z"/>
+</svg>

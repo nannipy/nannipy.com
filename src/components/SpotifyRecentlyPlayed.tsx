@@ -22,7 +22,7 @@ export default async function SpotifyRecentlyPlayed({
             <path d="M6 9c4-1.6 8-1.2 12 1M7 12c3-1 6.5-.8 10 1M8 15c2.6-.8 5.5-.6 8 .8" />
           </g>
         </svg>
-        <span>{locale === "it" ? "La colonna sonora" : "The soundtrack"}</span>
+        <span>{locale === "it" ? "Ascolti recenti" : "Recently played"}</span>
         <span className="eyebrow">Spotify</span>
       </div>
       {tracks.length ? (
@@ -54,8 +54,8 @@ export default async function SpotifyRecentlyPlayed({
               ? "Nessun ascolto recente."
               : "No recent listens."
             : locale === "it"
-              ? "Ascolti recenti in arrivo."
-              : "Recent listens coming soon."}
+              ? "Gli ascolti recenti non sono disponibili."
+              : "Recent listens are unavailable."}
         </p>
       )}
     </div>
