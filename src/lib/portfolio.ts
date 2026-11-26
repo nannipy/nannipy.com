@@ -1048,7 +1048,6 @@ export const portfolioProjects: PortfolioProject[] = [
   },
 ];
 export const siteContent = {
-  spotifyUrl: null as string | null,
   cv: {
     en: "/cv/giovanni-pernazza-en.pdf",
     it: "/cv/giovanni-pernazza-it.pdf",

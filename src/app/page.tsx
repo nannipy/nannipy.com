@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Suspense } from "react";
 import {
   getLocale,
   portfolioProjects,
@@ -13,7 +12,6 @@ import {
   PhotoJournal,
   TransitionLink,
 } from "@/components/PortfolioInteractions";
-import SpotifyRecentlyPlayed from "@/components/SpotifyRecentlyPlayed";
 const journalPalette = [
   ...portfolioProjects.map(({ color, ink }) => ({ color, ink })),
   { color: "#d5b8b3", ink: "#422c30" },
@@ -292,9 +290,6 @@ export default async function Home({
                 ? "Foto dalle uscite e dal lavoro con il team"
                 : "Photos from days outside and work with the team"}
             </span>
-            <Suspense fallback={<p className="eyebrow">Spotify</p>}>
-              <SpotifyRecentlyPlayed locale={locale} />
-            </Suspense>
           </div>
         </section>
       </main>

@@ -4,7 +4,6 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 import { portfolioProjects, homeMediaGallery, siteContent, getLocale, localHref } from '../src/lib/portfolio.ts';
-import { getRecentTracks } from '../src/lib/spotify.ts';
 import { nannixArticles } from '../src/lib/nannix.ts';
 
 test('Every curated route and local media asset exists in both languages', () => {
@@ -39,38 +38,6 @@ test('Every curated route and local media asset exists in both languages', () =>
   assert.equal(getLocale(undefined), 'en');
   assert.equal(getLocale('it'), 'it');
   assert.equal(getLocale('unexpected'), 'en');
-});
-
-test('Spotify handles missing credentials, deduplicates listens and survives API failure', async () => {
-  const names = ['SPOTIFY_CLIENT_ID', 'SPOTIFY_CLIENT_SECRET', 'SPOTIFY_REFRESH_TOKEN'];
-  const saved = names.map(name => process.env[name]);
-  const originalFetch = globalThis.fetch;
-  try {
-    names.forEach(name => delete process.env[name]);
-    globalThis.fetch = () => { throw new Error('No network should be used without credentials'); };
-    assert.deepEqual(await getRecentTracks(), { connected: false, tracks: [] });
-    names.forEach(name => { process.env[name] = 'test-only'; });
-    const track = id => ({ id, name: `Song ${id}`, artists: [{ name: 'Artist' }], album: { images: [{ url: `https://example.com/${id}.jpg` }] }, external_urls: { spotify: `https://open.spotify.com/track/${id}` } });
-    const requests = [];
-    globalThis.fetch = async (url, options) => {
-      requests.push(url);
-      assert.ok(options.signal, 'Network calls need a timeout');
-      if (url.includes('/api/token')) return Response.json({ access_token: 'test-access' });
-      assert.equal(options.headers.Authorization, 'Bearer test-access');
-      return Response.json({ items: ['a', 'a', 'b', 'c', 'd'].map(id => ({ track: track(id) })) });
-    };
-    const result = await getRecentTracks();
-    assert.equal(result.connected, true);
-    assert.deepEqual(result.tracks.map(t => t.name), ['Song a', 'Song b', 'Song c']);
-    assert.equal(requests.length, 2);
-    globalThis.fetch = async () => new Response(null, { status: 429 });
-    assert.deepEqual(await getRecentTracks(), { connected: false, tracks: [] });
-    globalThis.fetch = async () => { throw new Error('Offline'); };
-    assert.deepEqual(await getRecentTracks(), { connected: false, tracks: [] });
-  } finally {
-    globalThis.fetch = originalFetch;
-    names.forEach((name, i) => { if (saved[i] === undefined) delete process.env[name]; else process.env[name] = saved[i]; });
-  }
 });
 
 test('Production server renders both languages, all projects, downloads and 404s', { skip: !process.env.PORTFOLIO_TEST_URL }, async () => {

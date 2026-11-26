@@ -17,22 +17,6 @@ without changing links. Quantitative CV claims are reproduced from the owner's
 source, not independently verified. The website's case studies avoid these
 unverified percentages.
 
-## Spotify
-
-The server component displays up to three distinct recent tracks with artwork,
-artist and official Spotify links. It has no audio autoplay or playback SDK.
-Configure the three server-only environment variables in `.env.example`.
-The owner must authorise the app with `user-read-recently-played` through the
-Spotify developer authorisation-code flow. Never paste tokens into project
-content or client code. With no credentials or API failure the page remains
-usable and shows a forthcoming-listens message. API requests have a four-second
-timeout and track responses are cached for 15 minutes. A Suspense boundary keeps
-Spotify from blocking the main page.
-
-Documentation:
-https://developer.spotify.com/documentation/web-api/reference/get-recently-played
-https://developer.spotify.com/documentation/web-api/tutorials/refreshing-tokens
-
 ## Photography and Strava
 
 For this first version, the gallery uses owner-supplied photographs from
@@ -88,8 +72,7 @@ overflow (observed at 319px and 390px), keyboard photo-dialog navigation and Esc
 Verified in this run: production webpack build, TypeScript check, navigation
 to SFT and back, bilingual rendering, native dialog arrow keys/Escape/focus
 return, no horizontal document overflow at 319px and 390px, and desktop
-inspection at 1280px. Spotify without credentials falls back gracefully;
-a live Spotify response and Strava connection are not verified.
+inspection at 1280px. A live Strava connection was not verified.
 
 ## Edocla collaboration story
 
@@ -111,9 +94,9 @@ Project colours are intentionally distinct: blue, yellow, teal, clay, lavender a
 
 The gallery receives only the fields it renders from the server; full project narratives stay out of the client module. Images use Next Image, animations use CSS, and the photo viewer uses a native dialog. The obsolete server localStorage workaround is no longer imported by the layout.
 
-Run `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build -- --webpack`. Native tests verify all curated media/route data, unique project colours, and Spotify credentials/failure/deduplication behaviour without real account access. Live Spotify credentials, Strava integration and the exact Iachini Design Instagram URL remain owner setup items.
+Run `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build -- --webpack`. Native tests verify all curated media and route data, as well as unique project colours. Strava integration and the exact Iachini Design Instagram URL remain owner setup items.
 
-Release verification: lint, TypeScript, production webpack build and three native tests passed against the isolated staged release. HTTP tests cover 26 bilingual project routes, the two homepages, CV/video/favicon files and an unknown project returning 404. Browser checks cover the photo dialog’s arrow/Escape controls, focus return, language switching and 390px mobile layout without horizontal overflow. Live Spotify authorisation remains unconfigured.
+Release verification: lint, TypeScript, production webpack build and three native tests passed against the isolated staged release. HTTP tests cover 26 bilingual project routes, the two homepages, CV/video/favicon files and an unknown project returning 404. Browser checks cover the photo dialog’s arrow/Escape controls, focus return, language switching and 390px mobile layout without horizontal overflow.
 
 ## External source archive (2026-10-02)
 
